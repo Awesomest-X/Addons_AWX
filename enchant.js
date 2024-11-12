@@ -1,4 +1,4 @@
-let enchantOptions = ["Sharpness", "Efficiency", "Protection", "Unbreaking", "Mending", "Fortune", "Looting"];
+let enchantOptions = ["Sharpness", "Efficiency", "Protection", "Unbreaking"];
 let selectedEnchantment = "";
 let xpCost = 0;
 
@@ -35,16 +35,7 @@ world.events.dialogueSelect.subscribe((event) => {
         break;
       case "apply_unbreaking":
         applyEnchantment(player, heldItem, "unbreaking");
-        break;
-        case "apply_mending":
-        applyEnchantment(player, heldItem, "mending");
-        break;
-      case "apply_fortune":
-        applyEnchantment(player, heldItem, "fortune");
-        break;
-      case "apply_looting":
-        applyEnchantment(player, heldItem, "looting");
-        break;
+        break; 
       default:
         player.runCommand(`titleraw @s actionbar {"rawtext":[{"text":"Enchantment selection canceled."}]}`);
         break;
