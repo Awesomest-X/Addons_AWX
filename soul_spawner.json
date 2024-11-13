@@ -1,0 +1,24 @@
+{
+  "format_version": "1.10",
+  "minecraft:block": {
+    "description": {
+      "identifier": "awx:soul_spawner",  // The block identifier
+      "is_experimental": false,
+      "tags": ["soul_spawner"],  // Tag to identify this as a soul spawner block
+      "properties": {
+        "can_place_on": ["minecraft:sculk"]  // Can only be placed on stone
+      },
+      "components": {
+        "minecraft:icon": "textures/blocks/soul_spawner_block"  // Path to the texture
+      }
+    },
+    "components": {
+      "minecraft:interaction": {
+        "on_interact": {
+          "event": "minecraft:block_interacted",  // The event when the block is interacted with
+          "condition": "true"
+        }
+      }
+    }
+  }
+}
