@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10",
+  "minecraft:npc_dialogue": {
+    "dialogues": {
+      "start": {
+        "body": "You Have Opened The Book of Wind. Choose An Enchantment For Your Item.",
+        "choices": [
+          { "text": "Swift Sneak", "on_select": "swift_sneak" },
+          { "text": "Silk Touch", "on_select": "silk_touch" },
+          { "text": "Knockback", "on_select": "knockback" },
+          { "text": "Feather Falling", "on_select": "feather_falling" }
+        ]
+      },
+      "swift_sneak": {
+        "body": "You've selected Swift Sneak. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_swift_sneak" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "silk_touch": {
+        "body": "You've selected Silk Touch. This will cost 6 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_silk_touch" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "knockback": {
+        "body": "You've selected Knockback. This will cost 3 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_knockback" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "feather_falling": {
+        "body": "You've selected Feather Falling. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_feather_falling" },
+          { "text": "No", "on_select": "start" }
+        ]
+      }
+    }
+  }
+}
