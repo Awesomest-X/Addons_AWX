@@ -122,6 +122,7 @@ system.onEntityDeath = function(eventData) {
         if (this.mobsToTrack[blockId].length === 0) {
             let trial = this.activeTrials[blockId];
             if (trial) {
+                // Spawn reward on top of the block
                 this.spawnRewardOnTopOfBlock(blockId, trial.rewardItem);
                 this.sendActionBarMessage(trial.player, "Trial complete! Your reward has spawned.");
                 this.endTrial(blockId);
@@ -129,6 +130,7 @@ system.onEntityDeath = function(eventData) {
         }
     }
 };
+
 
 system.getHeldItem = function(player) {
     let inventory = player.getComponent("minecraft:inventory").container;
@@ -182,17 +184,81 @@ system.spawnMobForItem = function(block, player, mobType, element, rewardItem) {
 
     this.sendActionBarMessage(player, `The ${element} element has spawned enemies`);
 };
+system.spawnMobForItemWithArmor = function(block, player, mobType, element, rewardItem, armorItem) {
+    let pos = block.getComponent("minecraft:position").data;
+    
+    // Array to store the positions of spawned mobs to ensure they spawn at separate locations
+    let spawnOffsets = [
+        { x: 2, y: 0, z: 0 },   // 3 blocks away on the x-axis
+        { x: -2, y: 0, z: 0 },  // 3 blocks away on the negative x-axis
+        { x: 0, y: 0, z: 2 },   // 3 blocks away on the z-axis
+        { x: 0, y: 0, z: -2 },  // 3 blocks away on the negative z-axis
+    ];
+
+    // Array to store spawned mobs for tracking
+    this.mobsToTrack[block.id] = [];
+
+    // Spawn 4 mobs at different locations and track them
+    for (let i = 0; i < spawnOffsets.length; i++) {
+        let offset = spawnOffsets[i];
+        let spawnLocation = {
+            x: pos.x + offset.x,
+            y: pos.y + offset.y,
+            z: pos.z + offset.z
+        };
+        
+        let mob = this.createEntity(mobType, spawnLocation);
+
+        // Equip the Skeleton with armor (diamond chestplate)
+        mob.addComponent('minecraft:armor', { items: [{ id: armorItem, damage: 0 }] });
+
+        this.mobsToTrack[block.id].push(mob);
+    }
+
+    // Show message in action bar when mobs are spawned
+    this.sendActionBarMessage(player, `${element} mobs have spawned`);
+
+  
+};
+
+// Special function for spawning Iron Golems (only 2 mobs)
+system.spawnIronGolems = function(block, player, element, rewardItem) {
+    let pos = block.getComponent("minecraft:position").data;
+    
+    // Spawn 2 Iron Golems at different locations
+    let spawnOffsets = [
+        { x: 3, y: 0, z: 0 },   // 3 blocks away on the x-axis
+        { x: -3, y: 0, z: 0 },  // 3 blocks away on the negative x-axis
+    ];
+
+    // Array to store spawned mobs for tracking
+    this.mobsToTrack[block.id] = [];
+
+    // Spawn only 2 Iron Golems and track them
+    for (let i = 0; i < spawnOffsets.length; i++) {
+        let offset = spawnOffsets[i];
+        let spawnLocation = {
+            x: pos.x + offset.x,
+            y: pos.y + offset.y,
+            z: pos.z + offset.z
+        };
+        
+        let mob = this.createEntity("minecraft:iron_golem", spawnLocation);
+        this.mobsToTrack[block.id].push(mob);
+    }
+
+    // Show message in action bar when mobs are spawned
+    this.sendActionBarMessage(player, `${element} mobs have spawned!`);
+
+    };
 
 system.trackMobDefeat = function(block, mob) {
-    this.onEntityDeath = function(eventData) {
-        let deadEntity = eventData.data.entity;
-
-        if (this.mobsToTrack[block.id] && this.mobsToTrack[block.id].includes(deadEntity)) {
-            this.spawnRewardOnTopOfBlock(block, "minecraft:diamond");
-            this.sendActionBarMessageToAll("The special mob has been defeated! A reward has spawned.");
-        }
-    };
+    // This function now doesn't need to override `onEntityDeath`.
+    // The death of mobs is already handled by the `onEntityDeath` event.
+    // You can also keep a reference of the mob for additional handling if necessary.
+    console.log(`Tracking defeat of mob: ${mob.id} for block: ${block.id}`);
 };
+
 
 system.findBlockForMob = function(mob) {
     for (let blockId in this.mobsToTrack) {
