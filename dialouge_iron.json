@@ -3,37 +3,37 @@
   "minecraft:npc_dialogue": {
     "dialogues": {
       "start": {
-        "body": "Welcome to the Enchantment Table! Choose an enchantment for your item.",
+        "body": "You Have Opened The Book of Steel. Choose An Enchantment For Your Item.",
         "choices": [
-          { "text": "Sharpness", "on_select": "sharpness" },
-          { "text": "Efficiency", "on_select": "efficiency" },
+          { "text": "Blast Protection", "on_select": "blast_protection" },
+          { "text": "Mending", "on_select": "mending" },
           { "text": "Protection", "on_select": "protection" },
           { "text": "Unbreaking", "on_select": "unbreaking" }
         ]
       },
-      "sharpness": {
-        "body": "You've selected Sharpness. This will cost 4-6 XP. Proceed?",
+      "blast_protection": {
+        "body": "You've selected Blast Protection. This will cost 4 XP. Proceed?",
         "choices": [
-          { "text": "Yes", "on_select": "apply_sharpness" },
+          { "text": "Yes", "on_select": "apply_blast_protection" },
           { "text": "No", "on_select": "start" }
         ]
       },
-      "efficiency": {
-        "body": "You've selected Efficiency. This will cost 4-6 XP. Proceed?",
+      "mending": {
+        "body": "You've selected Mending. This will cost 6 XP. Proceed?",
         "choices": [
-          { "text": "Yes", "on_select": "apply_efficiency" },
+          { "text": "Yes", "on_select": "apply_mending" },
           { "text": "No", "on_select": "start" }
         ]
       },
       "protection": {
-        "body": "You've selected Protection. This will cost 4-6 XP. Proceed?",
+        "body": "You've selected Protection. This will cost 3 XP. Proceed?",
         "choices": [
           { "text": "Yes", "on_select": "apply_protection" },
           { "text": "No", "on_select": "start" }
         ]
       },
       "unbreaking": {
-        "body": "You've selected Unbreaking. This will cost 4-6 XP. Proceed?",
+        "body": "You've selected Unbreaking. This will cost 4 XP. Proceed?",
         "choices": [
           { "text": "Yes", "on_select": "apply_unbreaking" },
           { "text": "No", "on_select": "start" }
