@@ -124,7 +124,7 @@ system.spawnMobForItem = function(block, player, mobType, element, rewardItem) {
 };
 
 // Special function for spawning Skeletons with armor
-system.spawnMobForItemWithArmor = function(block, player, mobType, itemName, rewardItem, armorItem) {
+system.spawnMobForItemWithArmor = function(block, player, mobType, element, rewardItem, armorItem) {
     let pos = block.getComponent("minecraft:position").data;
     
     // Array to store the positions of spawned mobs to ensure they spawn at separate locations
@@ -156,14 +156,14 @@ system.spawnMobForItemWithArmor = function(block, player, mobType, itemName, rew
     }
 
     // Show message in action bar when mobs are spawned
-    this.sendActionBarMessage(player, `${itemName} mobs have spawned with armor!`);
+    this.sendActionBarMessage(player, `${element} mobs have spawned`);
 
     // Reward the player based on the item held
     this.spawnRewardOnTopOfBlock(block, rewardItem);
 };
 
 // Special function for spawning Iron Golems (only 2 mobs)
-system.spawnIronGolems = function(block, player, itemName, rewardItem) {
+system.spawnIronGolems = function(block, player, element, rewardItem) {
     let pos = block.getComponent("minecraft:position").data;
     
     // Spawn 2 Iron Golems at different locations
@@ -189,7 +189,7 @@ system.spawnIronGolems = function(block, player, itemName, rewardItem) {
     }
 
     // Show message in action bar when mobs are spawned
-    this.sendActionBarMessage(player, `${itemName} mobs have spawned!`);
+    this.sendActionBarMessage(player, `${element} mobs have spawned!`);
 
     // Reward the player based on the item held
     this.spawnRewardOnTopOfBlock(block, rewardItem);
@@ -211,18 +211,29 @@ system.onEntityDeath = function(eventData) {
     let deadEntity = eventData.data.entity;
     let blockId = this.findBlockForMob(deadEntity);
 
-    // If the mob was spawned by a trial spawner
     if (blockId && this.mobsToTrack[blockId]) {
-        // Remove the mob from the tracking list
         this.mobsToTrack[blockId] = this.mobsToTrack[blockId].filter(mob => mob.id !== deadEntity.id);
 
-        // If all mobs have been defeated, spawn a reward on top of the block
         if (this.mobsToTrack[blockId].length === 0) {
-            this.spawnRewardOnTopOfBlock(blockId);
+            let rewardItem = /* define a default reward or pass from trackMobDefeat */;
+            this.spawnRewardOnTopOfBlock(blockId, rewardItem);
         }
     }
 };
+system.trackMobDefeat = function(block, mob) {
+    this.onEntityDeath = function(eventData) {
+        let deadEntity = eventData.data.entity;
 
+        // If the mob killed is the one spawned by this block
+        if (this.mobsToTrack[block.id] && this.mobsToTrack[block.id].includes(deadEntity)) {
+            // Spawn the reward on top of the block
+            this.spawnRewardOnTopOfBlock(block, ); // Example reward (a diamond)
+
+            // Show action bar message
+            this.sendActionBarMessageToAll("The special mob has been defeated! A reward has spawned.");
+        }
+    };
+};
 // Find the block ID that spawned a particular mob
 system.findBlockForMob = function(mob) {
     for (let blockId in this.mobsToTrack) {
