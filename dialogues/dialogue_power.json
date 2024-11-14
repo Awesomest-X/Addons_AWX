@@ -1,0 +1,164 @@
+{
+  "format_version": "1.10",
+  "minecraft:npc_dialogue": {
+    "dialogues": {
+      "start": {
+        "body": "You Have Opened The Book of Power. Choose An Enchantment For Your Item, Or Receive The Ancient Crafter.",
+        "choices": [
+          { "text": "Sharpness", "on_select": "sharpness" },
+          { "text": "Unbreaking", "on_select": "unbreaking" },
+          { "text": "Efficiency", "on_select": "efficiency" },
+          { "text": "Punch", "on_select": "punch" },
+          { "text": "Fortune", "on_select": "fortune" },
+          { "text": "Soul Speed", "on_select": "soul_speed" },
+          { "text": "Swift Sneak", "on_select": "swift_sneak" },
+          { "text": "Silk Touch", "on_select": "silk_touch" },
+          { "text": "Knockback", "on_select": "knockback" },
+          { "text": "Feather Falling", "on_select": "feather_falling" },
+          { "text": "Aqua Affinity", "on_select": "aqua_affinity" },
+          { "text": "Depth Strider", "on_select": "depth_strider" },
+          { "text": "Respiration", "on_select": "respiration" },
+          { "text": "Frost Walker", "on_select": "frost_walker" },
+          { "text": "Fire Protection", "on_select": "fire_protection" },
+          { "text": "Flame", "on_select": "flame" },
+          { "text": "Fire Aspect", "on_select": "fire_aspect" },
+          { "text": "Mending", "on_select": "mending" },
+          { "text": "Ancient Crafter", "on_select": "ancient_crafter" }
+        ]
+      },
+      "sharpness": {
+        "body": "You've selected Sharpness. This will cost 5 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_sharpness" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "unbreaking": {
+        "body": "You've selected Unbreaking. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_unbreaking" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "efficiency": {
+        "body": "You've selected Efficiency. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_efficiency" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "punch": {
+        "body": "You've selected Punch. This will cost 3 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_punch" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "fortune": {
+        "body": "You've selected Fortune. This will cost 5 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_fortune" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "soul_speed": {
+        "body": "You've selected Soul Speed. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_soul_speed" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "swift_sneak": {
+        "body": "You've selected Swift Sneak. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_swift_sneak" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "silk_touch": {
+        "body": "You've selected Silk Touch. This will cost 6 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_silk_touch" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "knockback": {
+        "body": "You've selected Knockback. This will cost 3 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_knockback" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "feather_falling": {
+        "body": "You've selected Feather Falling. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_feather_falling" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "aqua_affinity": {
+        "body": "You've selected Aqua Affinity. This will cost 3 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_aqua_affinity" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "depth_strider": {
+        "body": "You've selected Depth Strider. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_depth_strider" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "respiration": {
+        "body": "You've selected Respiration. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_respiration" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "frost_walker": {
+        "body": "You've selected Frost Walker. This will cost 5 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_frost_walker" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "fire_protection": {
+        "body": "You've selected Fire Protection. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_fire_protection" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "flame": {
+        "body": "You've selected Flame. This will cost 3 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_flame" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "fire_aspect": {
+        "body": "You've selected Fire Aspect. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_fire_aspect" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "mending": {
+        "body": "You've selected Mending. This will cost 6 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_mending" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "ancient_crafter": {
+        "body": "You've chosen the Ancient Crafter. This will grant you a unique item! Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "give_ancient_crafter" },
+          { "text": "No", "on_select": "start" }
+        ]
+      }
+    }
+  }
+}
