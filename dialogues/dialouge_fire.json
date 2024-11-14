@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10",
+  "minecraft:npc_dialogue": {
+    "dialogues": {
+      "start": {
+        "body": "You Have Opened The Book of Fire. Choose An Enchantment For Your Item.",
+        "choices": [
+          { "text": "Fire Protection", "on_select": "fire_protection" },
+          { "text": "Flame", "on_select": "flame" },
+          { "text": "Fire Aspect", "on_select": "fire_aspect" },
+          { "text": "Mending", "on_select": "mending" }
+        ]
+      },
+      "fire_protection": {
+        "body": "You've selected Fire Protection. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_fire_protection" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "flame": {
+        "body": "You've selected Flame. This will cost 3 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_flame" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "fire_aspect": {
+        "body": "You've selected Fire Aspect. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_fire_aspect" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "mending": {
+        "body": "You've selected Mending. This will cost 6 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_mending" },
+          { "text": "No", "on_select": "start" }
+        ]
+      }
+    }
+  }
+}
