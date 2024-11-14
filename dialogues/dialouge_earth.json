@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10",
+  "minecraft:npc_dialogue": {
+    "dialogues": {
+      "start": {
+        "body": "You Have Opened The Book of Earth. Choose An Enchantment For Your Item.",
+        "choices": [
+          { "text": "Sharpness", "on_select": "sharpness" },
+          { "text": "Unbreaking", "on_select": "unbreaking" },
+          { "text": "Efficiency", "on_select": "efficiency" },
+          { "text": "Punch", "on_select": "punch" }
+        ]
+      },
+      "sharpness": {
+        "body": "You've selected Sharpness. This will cost 5 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_sharpness" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "unbreaking": {
+        "body": "You've selected Unbreaking. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_unbreaking" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "efficiency": {
+        "body": "You've selected Efficiency. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_efficiency" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "punch": {
+        "body": "You've selected Punch. This will cost 3 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_punch" },
+          { "text": "No", "on_select": "start" }
+        ]
+      }
+    }
+  }
+}
