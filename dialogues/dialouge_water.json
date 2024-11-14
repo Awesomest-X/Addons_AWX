@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10",
+  "minecraft:npc_dialogue": {
+    "dialogues": {
+      "start": {
+        "body": "You Have Opened The Book of the Sea. Choose An Enchantment For Your Item.",
+        "choices": [
+          { "text": "Aqua Affinity", "on_select": "aqua_affinity" },
+          { "text": "Depth Strider", "on_select": "depth_strider" },
+          { "text": "Respiration", "on_select": "respiration" },
+          { "text": "Frost Walker", "on_select": "frost_walker" }
+        ]
+      },
+      "aqua_affinity": {
+        "body": "You've selected Aqua Affinity. This will cost 3 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_aqua_affinity" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "depth_strider": {
+        "body": "You've selected Depth Strider. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_depth_strider" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "respiration": {
+        "body": "You've selected Respiration. This will cost 4 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_respiration" },
+          { "text": "No", "on_select": "start" }
+        ]
+      },
+      "frost_walker": {
+        "body": "You've selected Frost Walker. This will cost 5 XP. Proceed?",
+        "choices": [
+          { "text": "Yes", "on_select": "apply_frost_walker" },
+          { "text": "No", "on_select": "start" }
+        ]
+      }
+    }
+  }
+}
