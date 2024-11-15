@@ -62,6 +62,17 @@
         "value": "player"
     }
 },
+           "spawn_particle": {
+          "particle": "minecraft:crit_particle",
+          "count": 10,
+          "offset": { "x": 0, "y": 1, "z": 0 },
+          "entity_filter": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "not",
+            "value": "player"
+          }
+        },
 
         "sound": {
           "effect": "random.explode"
