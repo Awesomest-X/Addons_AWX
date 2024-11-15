@@ -1,0 +1,42 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "minecraft:iron_pickaxe",
+      "category": "combat",
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:icon": "iron_pickaxe_icon",
+      "minecraft:transformable_items": [
+        "custom:titanium_pickaxe"
+      ],
+      "minecraft:damage": {
+        "damage": 6
+      },
+      "minecraft:durability": {
+        "max_durability": 300
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": ["minecraft:iron_ingot"],
+            "repair_amount": 30
+          }
+        ]
+      },
+      "minecraft:mine_block": {
+        "tool_effects": {
+          "efficiency": 2,
+          "mining_speed": 6.4
+        },
+        "can_mine": [
+          "minecraft:stone",
+          "minecraft:iron_ore",
+          "minecraft:gold_ore",
+          "minecraft:diamond_ore"
+        ]
+      }
+    }
+  }
+}
