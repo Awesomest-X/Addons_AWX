@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "katana_pack:netherite_katana_upgrade",
+      "group": "katana_upgrade"
+    },
+    "ingredients": [
+      {
+        "item": "katana_pack:diamond_katana"
+      },
+      {
+        "item": "minecraft:netherite_upgrade_template"
+      },
+      {
+        "item": "minecraft:netherite_ingot"
+      }
+    ],
+    "result": {
+      "item": "katana_pack:netherite_katana"
+    }
+  }
+}
