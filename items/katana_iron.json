@@ -9,10 +9,20 @@
       "minecraft:icon": "katana_icon",
       "minecraft:render_offsets": "tools",
       "minecraft:damage": {
-        "damage": 7
+        "damage": 6.5
       },
       "minecraft:durability": {
-        "max_durability": 300
+        "max_durability": 275
+      },
+      "minecraft:enchantable": {
+    "value": 11,
+    "slot": "weapon"
+},
+       "minecraft:repairable": {
+        "repair_items": [
+          { "items": ["minecraft:iron_ingot"], "repair_amount": "query.max_durability * 0.25" },
+          { "items": ["katana_pack:katana"], "repair_amount": "query.max_durability * 0.5" }
+        ]
       },
       "minecraft:weapon": {
         "on_hit": {
@@ -32,7 +42,7 @@
     "events": {
       "katana_aoe_attack": {
         "damage": {
-          "amount": 3,
+          "amount": 2,
           "effect": "minecraft:instant_damage",
           "entity_filter": {
             "test": "is_family",
