@@ -51,6 +51,18 @@
             "value": "player"
           }
         },
+        "add_motion": {
+    "x": 0.5,
+    "y": 0.2,
+    "z": 0.5,
+    "entity_filter": {
+        "test": "is_family",
+        "subject": "other",
+        "operator": "not",
+        "value": "player"
+    }
+},
+
         "sound": {
           "effect": "random.explode"
         }
