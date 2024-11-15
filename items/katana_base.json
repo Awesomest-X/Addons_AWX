@@ -1,0 +1,50 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "katana_pack:katana",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:icon": "katana_icon",
+      "minecraft:render_offsets": "tools",
+      "minecraft:damage": {
+        "damage": 7
+      },
+      "minecraft:durability": {
+        "max_durability": 300
+      },
+      "minecraft:weapon": {
+        "on_hit": {
+          "events": [
+            {
+              "event": "katana_aoe_attack",
+              "target": "nearest_entities",
+              "selector": {
+                "max_distance": 1,
+                "test": "all"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "events": {
+      "katana_aoe_attack": {
+        "damage": {
+          "amount": 3,
+          "effect": "minecraft:instant_damage",
+          "entity_filter": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "not",
+            "value": "player"
+          }
+        },
+        "sound": {
+          "effect": "random.explode"
+        }
+      }
+    }
+  }
+}
