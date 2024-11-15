@@ -1,18 +1,13 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:recipe_smithing": {
+  "format_version": "1.12",
+  "minecraft:recipe_smithing_transform": {
     "description": {
-      "identifier": "custom:iron_to_titanium_sword",
-      "tags": ["smithing_table"]
+      "identifier": "custom:smithing_iron_to_titanium_sword"
     },
-    "base": {
-      "item": "minecraft:iron_sword"
-    },
-    "addition": {
-      "item": "custom:titanium_upgrade_template"
-    },
-    "result": {
-      "item": "custom:titanium_sword"
-    }
+    "tags": ["smithing_table"],
+    "template": "custom:titanium_upgrade_template",
+    "base": "custom:iron_sword",
+    "addition": "custom:titanium_ingot",
+    "result": "custom:titanium_sword"
   }
 }
