@@ -1,0 +1,48 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "minecraft:iron_sword",
+      "category": "combat",
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:icon": "iron_sword_icon",
+      "minecraft:transformable_items": [
+        "custom:titanium_sword"
+      ],
+      "minecraft:damage": {
+        "damage": 6
+      },
+      "minecraft:durability": {
+        "max_durability": 300
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": ["minecraft:iron_ingot"],
+            "repair_amount": 50
+          },
+          {
+            "items": ["custom:titanium_ingot"],
+            "repair_amount": 100
+          }
+        ]
+      },
+      "minecraft:weapon": {
+        "on_hit": {
+          "events": [
+            {
+              "event": "minecraft:attack_damage",
+              "target": "nearest_entities",
+              "selector": {
+                "max_distance": 3,
+                "test": "all"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
