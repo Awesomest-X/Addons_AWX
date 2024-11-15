@@ -1,0 +1,82 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "katana_pack:netherite_katana",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:icon": "katana_icon",
+      "minecraft:render_offsets": "tools",
+      "minecraft:damage": {
+        "damage": 8.5
+      },
+      "minecraft:durability": {
+        "max_durability": 2031
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          { "items": ["minecraft:netherite_ingot"], "repair_amount": "query.max_durability * 0.25" },
+          { "items": ["katana_pack:netherite_katana"], "repair_amount": "query.max_durability * 0.5" }
+        ]
+      },
+      "minecraft:weapon": {
+        "on_hit": {
+          "events": [
+            {
+              "event": "katana_aoe_attack",
+              "target": "nearest_entities",
+              "selector": {
+                "max_distance": 3,
+                "test": "all"
+              }
+            }
+          ]
+        }
+      },
+      "minecraft:enchantable": {
+        "value": 10,
+        "slot": "weapon"
+      }
+    },
+    "events": {
+      "katana_aoe_attack": {
+        "damage": {
+          "amount": 4.5,
+          "effect": "minecraft:instant_damage",
+          "entity_filter": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "not",
+            "value": "player"
+          }
+        },
+        "add_motion": {
+          "x": 0.85,
+          "y": 0.5,
+          "z": 0.85,
+          "entity_filter": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "not",
+            "value": "player"
+          }
+        },
+        "spawn_particle": {
+          "particle": "minecraft:crit_particle",
+          "count": 10,
+          "offset": { "x": 0, "y": 1, "z": 0 },
+          "entity_filter": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "not",
+            "value": "player"
+          }
+        },
+        "sound": {
+          "effect": "random.explode"
+        }
+      }
+    }
+  }
+}
