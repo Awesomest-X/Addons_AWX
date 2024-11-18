@@ -1,0 +1,30 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "awx:water_trident",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "water_trident",
+      "minecraft:max_stack_size": 1,
+      "minecraft:damage": {
+    "value": 6
+},
+      "minecraft:stacked_by_data": false,
+      "minecraft:custom_components": [
+        "awx:water_burst"
+      ],
+      "minecraft:cooldown": {
+        "category": "water_trident_cooldown",
+        "duration": 10
+      },
+      "minecraft:interact_button": "Activate Water Burst",
+      "minecraft:use_modifiers": {
+        "use_duration": 0.0
+      }
+    }
+  }
+}
