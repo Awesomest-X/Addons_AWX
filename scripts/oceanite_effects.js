@@ -6,7 +6,7 @@ import {
 } from "@minecraft/server";
 
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
-  initEvent.itemComponentRegistry.registerCustomComponent('dungeons:oceanite_armor_effects', {
+  initEvent.itemComponentRegistry.registerCustomComponent('awx:oceanite_armor_effects', {
     onPlayerInventoryChange(e) {
       const player = e.player;
       const inventory = player.getComponent('minecraft:inventory').container;
@@ -18,13 +18,13 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
       // Check if player is in water
       const isInWater = this.isPlayerInWater(player);
 
-      if (helmet && helmet.id === "custom:oceanite_helmet" && isInWater) {
+      if (helmet && helmet.id === "awx:oceanite_helmet" && isInWater) {
         this.applyWaterBreathing(player);
       } else {
         this.removeWaterBreathing(player);
       }
 
-      if (leggings && leggings.id === "custom:oceanite_leggings" && isInWater) {
+      if (leggings && leggings.id === "awx:oceanite_leggings" && isInWater) {
         this.applySwimmingSpeed(player);
       } else {
         this.removeSwimmingSpeed(player);
@@ -71,6 +71,6 @@ world.afterEvents.tick.subscribe(() => {
     const inventory = player.getComponent('minecraft:inventory').container;
 
     // Trigger the custom component to check inventory and apply effects
-    player.triggerEvent('dungeons:oceanite_armor_effects', { player: player });
+    player.triggerEvent('awx:oceanite_armor_effects', { player: player });
   });
 });
