@@ -36,6 +36,17 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
             ]);
             system.removeItemFromPlayer(player, "minecraft:blaze_rod");
             break;
+          case "minecraft:breeze_rod":
+    this.startTrial(block, player, "minecraft:skeleton", "Air", "awx:book_of_air", "minecraft:bow", [
+                { id: "minecraft:power", level: 3 }
+            ]);
+            break;
+          case "minecraft:pointed_dripstone":
+this.startTrial(block, player, "minecraft:blaze", "Earth", "awx:book_of_earth", "minecraft:diamond_pickaxe", [
+                { id: "minecraft:efficiency", level: 4 }
+            ]);
+            this.removeItemFromPlayer(player, "minecraft:pointed_dripstone");
+            break;
           case "minecraft:echo_shard":
             if (!interactionState.echoShardUsed) {
               interactionState.echoShardUsed = true;
