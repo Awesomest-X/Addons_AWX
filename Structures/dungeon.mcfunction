@@ -1,0 +1,83 @@
+# Step 1: Create octagonal platform (radius 13)
+execute positioned ~ ~ ~ run fill ~13 ~6 ~13 stone_bricks
+execute positioned ~ ~ ~ run fill ~13 ~0 ~13 stone_bricks
+
+# Step 2: Create the surrounding walls (20 blocks away from the center)
+execute positioned ~ ~ ~ run fill ~20 ~0 ~20 stone_bricks
+execute positioned ~ ~ ~ run fill ~20 ~6 ~20 stone_bricks
+
+# Step 3: Add magma block layer surrounding the platform
+execute positioned ~ ~ ~ run fill ~13 ~0 ~13 ~19 ~0 ~19 magma_block
+
+# Step 4: Ornate features (pillars with stone brick stairs)
+# Add pillars with stone brick stairs at certain positions for decoration
+execute positioned ~ ~ ~ run setblock ~10 ~0 ~10 stone_brick_stairs[facing=south]
+execute positioned ~ ~ ~ run setblock ~10 ~1 ~10 stone_brick_stairs[facing=south]
+execute positioned ~ ~ ~ run setblock ~10 ~2 ~10 stone_brick_stairs[facing=south]
+execute positioned ~ ~ ~ run setblock ~10 ~3 ~10 stone_brick_stairs[facing=south]
+execute positioned ~ ~ ~ run setblock ~10 ~4 ~10 stone_brick_stairs[facing=south]
+execute positioned ~ ~ ~ run setblock ~10 ~5 ~10 stone_brick_stairs[facing=south]
+
+execute positioned ~ ~ ~ run setblock ~12 ~0 ~12 stone_brick_stairs[facing=north]
+execute positioned ~ ~ ~ run setblock ~12 ~1 ~12 stone_brick_stairs[facing=north]
+execute positioned ~ ~ ~ run setblock ~12 ~2 ~12 stone_brick_stairs[facing=north]
+execute positioned ~ ~ ~ run setblock ~12 ~3 ~12 stone_brick_stairs[facing=north]
+execute positioned ~ ~ ~ run setblock ~12 ~4 ~12 stone_brick_stairs[facing=north]
+execute positioned ~ ~ ~ run setblock ~12 ~5 ~12 stone_brick_stairs[facing=north]
+
+execute positioned ~ ~ ~ run setblock ~14 ~0 ~14 stone_brick_stairs[facing=east]
+execute positioned ~ ~ ~ run setblock ~14 ~1 ~14 stone_brick_stairs[facing=east]
+execute positioned ~ ~ ~ run setblock ~14 ~2 ~14 stone_brick_stairs[facing=east]
+execute positioned ~ ~ ~ run setblock ~14 ~3 ~14 stone_brick_stairs[facing=east]
+execute positioned ~ ~ ~ run setblock ~14 ~4 ~14 stone_brick_stairs[facing=east]
+execute positioned ~ ~ ~ run setblock ~14 ~5 ~14 stone_brick_stairs[facing=east]
+
+execute positioned ~ ~ ~ run setblock ~16 ~0 ~16 stone_brick_stairs[facing=west]
+execute positioned ~ ~ ~ run setblock ~16 ~1 ~16 stone_brick_stairs[facing=west]
+execute positioned ~ ~ ~ run setblock ~16 ~2 ~16 stone_brick_stairs[facing=west]
+execute positioned ~ ~ ~ run setblock ~16 ~3 ~16 stone_brick_stairs[facing=west]
+execute positioned ~ ~ ~ run setblock ~16 ~4 ~16 stone_brick_stairs[facing=west]
+execute positioned ~ ~ ~ run setblock ~16 ~5 ~16 stone_brick_stairs[facing=west]
+
+# Step 5: Ornate Dungeon Door with Stone Brick Stairs
+# Add an iron door with a stone brick stairs arch
+execute positioned ~ ~ ~ run setblock ~14 ~0 ~ stone_button
+execute positioned ~ ~ ~ run setblock ~15 ~0 ~ iron_door
+
+# Create the stone brick stairs arch above the door
+execute positioned ~ ~ ~ run setblock ~14 ~1 ~ stone_brick_stairs[facing=south]
+execute positioned ~ ~ ~ run setblock ~15 ~1 ~ stone_brick_stairs[facing=south]
+execute positioned ~ ~ ~ run setblock ~13 ~1 ~ stone_brick_stairs[facing=north]
+execute positioned ~ ~ ~ run setblock ~16 ~1 ~ stone_brick_stairs[facing=north]
+
+# Add the top of the arch with stone brick stairs
+execute positioned ~ ~ ~ run setblock ~13 ~2 ~ stone_brick_stairs[facing=south]
+execute positioned ~ ~ ~ run setblock ~14 ~2 ~ stone_brick_stairs[facing=south]
+execute positioned ~ ~ ~ run setblock ~15 ~2 ~ stone_brick_stairs[facing=south]
+execute positioned ~ ~ ~ run setblock ~16 ~2 ~ stone_brick_stairs[facing=south]
+
+# Step 6: Cracked stone brick bridges
+execute positioned ~ ~ ~ run fill ~10 ~0 ~12 ~12 ~1 ~12 cracked_stone_bricks
+
+# Step 7: Add more lanterns with chains at varying heights
+# Lanterns hanging from chains at different heights
+execute positioned ~ ~ ~ run setblock ~12 ~7 ~14 chain
+execute positioned ~ ~ ~ run setblock ~12 ~6 ~14 lantern
+execute positioned ~ ~ ~ run setblock ~14 ~8 ~14 chain
+execute positioned ~ ~ ~ run setblock ~14 ~7 ~14 lantern
+execute positioned ~ ~ ~ run setblock ~16 ~9 ~16 chain
+execute positioned ~ ~ ~ run setblock ~16 ~8 ~16 lantern
+
+# More lanterns with chains at different heights
+execute positioned ~ ~ ~ run setblock ~13 ~5 ~15 chain
+execute positioned ~ ~ ~ run setblock ~13 ~4 ~15 lantern
+execute positioned ~ ~ ~ run setblock ~15 ~6 ~13 chain
+execute positioned ~ ~ ~ run setblock ~15 ~5 ~13 lantern
+execute positioned ~ ~ ~ run setblock ~14 ~7 ~10 chain
+execute positioned ~ ~ ~ run setblock ~14 ~6 ~10 lantern
+
+# Step 8: Dim lighting with extra lanterns hanging on chains at varying heights
+execute positioned ~ ~ ~ run setblock ~16 ~4 ~12 chain
+execute positioned ~ ~ ~ run setblock ~16 ~3 ~12 lantern
+execute positioned ~ ~ ~ run setblock ~13 ~6 ~10 chain
+execute positioned ~ ~ ~ run setblock ~13 ~5 ~10 lantern
