@@ -63,7 +63,7 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
       attacker.dimension.getEntities({
         location: attacker.location,
         maxDistance: 5,
-        excludeFamilies: ['ignore']
+        families: ["hostile"] // Only target hostile entities
       }).forEach(entity => {
         if (entity === attacker) return;  // Exclude the attacker themselves
 
