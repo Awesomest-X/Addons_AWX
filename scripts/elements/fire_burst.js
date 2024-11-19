@@ -27,6 +27,7 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
       const nearbyEntities = attacker.dimension.getEntities({
         location: attacker.location,
         maxDistance: 5,
+       families: ["hostile"], // Only target hostile entities
         excludeEntities: [attacker]  // Exclude the attacker from being targeted
       });
 
