@@ -1,0 +1,591 @@
+# Set the base of the mountain with grass and dirt (scaled width)
+fill ~-210 ~ ~-210 ~210 ~1 ~210 grass_block
+fill ~-196 ~1 ~-196 ~196 ~3 ~196 dirt
+
+# Layer 1: Broad foundation (scaled width)
+fill ~-180 ~3 ~-180 ~180 ~6 ~180 dirt
+fill ~-160 ~6 ~-160 ~160 ~8 ~160 andesite
+
+# Layer 9: Large cliff face (scaled width)
+fill ~-100 ~90 ~-100 ~100 ~100 ~100 stone
+fill ~-90 ~91 ~-90 ~90 ~92 ~90 andesite
+fill ~-80 ~92 ~-80 ~80 ~93 ~80 mossy_cobblestone
+fill ~-70 ~93 ~-70 ~70 ~94 ~70 gravel
+
+# Adding a cave-like opening at mid-height
+fill ~-20 ~100 ~-20 ~20 ~102 ~20 air
+fill ~-25 ~101 ~-25 ~25 ~102 ~25 stone
+setblock ~-15 ~101 ~-15 air
+
+# Adding waterfalls and river (scaled width)
+fill ~-50 ~60 ~-50 ~50 ~60 ~50 water
+fill ~-50 ~61 ~-50 ~50 ~62 ~50 flowing_water
+setblock ~-50 ~62 ~-50 ice
+fill ~-55 ~65 ~-55 ~55 ~65 ~55 water
+
+# Additional cliffs and rock outcrops (scaled width)
+fill ~-110 ~130 ~-110 ~110 ~135 ~110 andesite
+fill ~-95 ~135 ~-95 ~95 ~140 ~95 stone
+fill ~-85 ~140 ~-85 ~85 ~145 ~85 cobblestone
+setblock ~-75 ~145 ~-75 mossy_cobblestone
+setblock ~-65 ~150 ~-65 andesite
+
+# Layer 10: Snowy higher peaks and ice formation
+fill ~-50 ~170 ~-50 ~50 ~175 ~50 packed_ice
+fill ~-45 ~175 ~-45 ~45 ~180 ~45 snow_block
+fill ~-40 ~180 ~-40 ~40 ~185 ~40 packed_ice
+fill ~-35 ~185 ~-35 ~35 ~190 ~35 snow_block
+
+# Layer 11: Glacial ice field (scaled width)
+fill ~-60 ~190 ~-60 ~60 ~195 ~60 packed_ice
+fill ~-50 ~195 ~-50 ~50 ~200 ~50 ice
+fill ~-40 ~200 ~-40 ~40 ~200 ~40 snow_block
+fill ~-30 ~200 ~-30 ~30 ~205 ~30 packed_ice
+
+# Layer 5: Upper Terrain Details
+setblock ~-60 ~65 ~-60 stone_brick
+setblock ~-50 ~66 ~-50 cobblestone
+setblock ~-40 ~67 ~-40 mossy_cobblestone
+setblock ~-30 ~68 ~-30 stone_slab
+setblock ~-20 ~69 ~-20 snow_layer
+setblock ~-10 ~70 ~-10 andesite
+setblock ~5 ~71 ~5 gravel
+setblock ~10 ~72 ~10 cracked_stone_bricks
+
+# Layer 6: Adding Waterfalls and Caves
+setblock ~-50 ~80 ~-50 water
+setblock ~-45 ~81 ~-45 flowing_water
+setblock ~-40 ~82 ~-40 ice
+setblock ~-30 ~85 ~-30 mossy_stone_bricks
+setblock ~-20 ~86 ~-20 stone_brick_wall
+setblock ~-10 ~87 ~-10 torches
+
+# Layer 7: Snow and Ice
+setblock ~-70 ~90 ~-70 snow_block
+setblock ~-60 ~91 ~-60 packed_ice
+setblock ~-50 ~92 ~-50 snow_layer
+setblock ~-40 ~93 ~-40 blue_ice
+setblock ~-30 ~94 ~-30 snow_block
+
+# Layer 8: Rocky Cliffside
+setblock ~-80 ~100 ~-80 andesite
+setblock ~-70 ~101 ~-70 cracked_stone_bricks
+setblock ~-60 ~102 ~-60 gravel
+setblock ~-50 ~103 ~-50 cobblestone
+setblock ~-40 ~104 ~-40 mossy_cobblestone
+setblock ~-30 ~105 ~-30 stone
+setblock ~-20 ~106 ~-20 andesite
+
+# Adding Small Trees and Foliage
+setblock ~-150 ~5 ~-150 oak_log
+setblock ~-149 ~6 ~-149 oak_leaves
+setblock ~-140 ~5 ~-140 spruce_leaves
+setblock ~-130 ~5 ~-130 jungle_leaves
+setblock ~-120 ~6 ~-120 birch_leaves
+
+# Base of the mountain (Layer 1: Forested foothills)
+
+# Create some smaller hills at the base of the mountain with dirt and grass
+fill ~-150 ~4 ~-150 ~150 ~6 ~150 dirt
+fill ~-120 ~6 ~-120 ~120 ~7 ~120 grass_block
+
+# Add some elevation near the base for rocky outcrops
+fill ~-100 ~6 ~-100 ~100 ~10 ~100 stone
+fill ~-90 ~10 ~-90 ~90 ~12 ~90 mossy_cobblestone
+fill ~-80 ~12 ~-80 ~80 ~14 ~80 gravel
+
+# Layer 2: Transition zone from forest to rocky base (rocks, dirt, transition textures)
+fill ~-120 ~14 ~-120 ~120 ~18 ~120 stone
+fill ~-110 ~15 ~-110 ~110 ~18 ~110 andesite
+fill ~-100 ~16 ~-100 ~100 ~18 ~100 cobblestone
+fill ~-90 ~17 ~-90 ~90 ~18 ~90 gravel
+
+# Layer 3: Lower mountainside (rugged, steep terrain)
+# Large cliffs begin to form as elevation rises
+fill ~-130 ~18 ~-130 ~130 ~22 ~130 stone
+fill ~-110 ~22 ~-110 ~110 ~25 ~110 andesite
+fill ~-95 ~25 ~-95 ~95 ~30 ~95 cobblestone
+
+# Add waterfall starting at this level
+fill ~-50 ~20 ~-50 ~50 ~25 ~50 water
+setblock ~-50 ~26 ~-50 flowing_water
+setblock ~-50 ~28 ~-50 ice
+
+# Layer 4: Middle Mountain (transitioning into snowy peaks, still rugged with cliffs)
+fill ~-120 ~30 ~-120 ~120 ~35 ~120 stone
+fill ~-100 ~35 ~-100 ~100 ~40 ~100 andesite
+fill ~-90 ~40 ~-90 ~90 ~45 ~90 cobblestone
+fill ~-80 ~45 ~-80 ~80 ~50 ~80 gravel
+
+# Add ice formations at higher elevation and more cliff faces
+fill ~-50 ~45 ~-50 ~50 ~50 ~50 packed_ice
+fill ~-40 ~50 ~-40 ~40 ~55 ~40 snow_block
+fill ~-30 ~55 ~-30 ~30 ~60 ~30 packed_ice
+setblock ~-20 ~60 ~-20 ice
+
+# Layer 5: Upper mountain (snow-covered, glacial terrain)
+# Introduce glaciers, ice, and snow covering
+fill ~-70 ~60 ~-70 ~70 ~65 ~70 snow_block
+fill ~-60 ~65 ~-60 ~60 ~70 ~60 packed_ice
+fill ~-50 ~70 ~-50 ~50 ~75 ~50 snow_block
+fill ~-40 ~75 ~-40 ~40 ~80 ~40 ice
+
+# Create a cave entrance near the summit
+fill ~-10 ~90 ~-10 ~10 ~100 ~10 air
+setblock ~-5 ~95 ~-5 stone
+
+# Layer 6: The Glacier Zone
+# Start creating a glacial plateau with more packed ice and ice ridges
+fill ~-80 ~100 ~-80 ~80 ~110 ~80 packed_ice
+fill ~-70 ~110 ~-70 ~70 ~120 ~70 snow_block
+setblock ~-60 ~115 ~-60 ice
+fill ~-50 ~120 ~-50 ~50 ~130 ~50 packed_ice
+fill ~-40 ~130 ~-40 ~40 ~135 ~40 ice
+
+# Layer 7: Snowy peak (intense snow and ice layer)
+fill ~-30 ~140 ~-30 ~30 ~145 ~30 snow_block
+fill ~-25 ~145 ~-25 ~25 ~150 ~25 packed_ice
+fill ~-20 ~150 ~-20 ~20 ~155 ~20 snow_layer
+
+# Adding Ice Spikes around the summit area
+fill ~-15 ~155 ~-15 ~15 ~160 ~15 ice
+setblock ~-10 ~160 ~-10 packed_ice
+setblock ~-5 ~165 ~-5 snow_block
+
+# Layer 1: Base of the Mountain (Forested foothills and climate transition)
+# Use layers of soil and forest to create a sense of variety in biomes
+fill ~-200 ~0 ~-200 ~200 ~64 ~200 grass_block
+fill ~-180 ~1 ~-180 ~180 ~2 ~180 oak_log
+fill ~-150 ~2 ~-150 ~150 ~3 ~150 oak_leaves
+fill ~-130 ~3 ~-130 ~130 ~4 ~130 spruce_leaves
+fill ~-110 ~4 ~-110 ~110 ~5 ~110 birch_leaves
+fill ~-90 ~5 ~-90 ~90 ~6 ~90 jungle_leaves
+fill ~-70 ~6 ~-70 ~70 ~7 ~70 dark_oak_leaves
+
+# Randomize elevation with small hills and ridges of stone and dirt for variation
+fill ~-120 ~6 ~-120 ~120 ~10 ~120 dirt
+fill ~-100 ~10 ~-100 ~100 ~12 ~100 stone
+
+# Add forest animals (wolves, sheep, or cows) in lower regions
+# Use Command Blocks or spawn eggs for wildlife, or simulate areas with variety in tree species.
+
+# Layer 2: Transition Zone (Rocky hills with gradual elevation)
+# Mountains start to get steeper, add rugged rock outcrops.
+fill ~-120 ~14 ~-120 ~120 ~18 ~120 stone
+fill ~-100 ~15 ~-100 ~100 ~18 ~100 andesite
+fill ~-80 ~16 ~-80 ~80 ~20 ~80 cobblestone
+fill ~-60 ~17 ~-60 ~60 ~20 ~60 gravel
+
+# Start to add waterfalls in this zone, using flowing water to simulate river valleys.
+fill ~-50 ~18 ~-50 ~50 ~22 ~50 water
+setblock ~-50 ~23 ~-50 flowing_water
+setblock ~-50 ~26 ~-50 ice
+
+# Layer 3: Mid-Mountain (Transition to snowy peaks and rocky cliffs)
+# Introduce steep cliffs and rock formations
+fill ~-100 ~25 ~-100 ~100 ~30 ~100 stone
+fill ~-90 ~30 ~-90 ~90 ~35 ~90 andesite
+fill ~-80 ~35 ~-80 ~80 ~40 ~80 cobblestone
+fill ~-70 ~40 ~-70 ~70 ~45 ~70 gravel
+
+# Start adding larger waterfalls and deep rivers that carve through the landscape
+fill ~-50 ~40 ~-50 ~50 ~45 ~50 ice
+setblock ~-50 ~50 ~-50 flowing_water
+
+# Begin snow accumulation in higher altitudes.
+fill ~-50 ~45 ~-50 ~50 ~50 ~50 snow_block
+
+# Layer 4: Upper Terrain (Snowline and icy regions)
+# Large glaciers start forming here with more packed ice and snow.
+fill ~-60 ~50 ~-60 ~60 ~55 ~60 snow_block
+fill ~-50 ~55 ~-50 ~50 ~60 ~50 packed_ice
+fill ~-40 ~60 ~-40 ~40 ~65 ~40 ice
+
+# Cave system starting to emerge within the rock faces.
+fill ~-30 ~65 ~-30 ~30 ~75 ~30 air
+setblock ~-25 ~70 ~-25 stone
+setblock ~-20 ~75 ~-20 mossy_cobblestone
+
+# Adding snow-covered cliff faces and large frozen lakes at mid-level
+fill ~-10 ~65 ~-10 ~10 ~70 ~10 snow_block
+fill ~-20 ~75 ~-20 ~20 ~85 ~20 ice
+
+# Layer 5: High Peaks (Icy cliffs, ice falls, and frozen ravines)
+# Steep peaks with jagged ice and stone formations.
+fill ~-80 ~90 ~-80 ~80 ~100 ~80 snow_block
+fill ~-70 ~100 ~-70 ~70 ~110 ~70 packed_ice
+fill ~-60 ~110 ~-60 ~60 ~120 ~60 ice
+
+# Add an ice waterfall coming off the side of the peak.
+fill ~-30 ~110 ~-30 ~30 ~120 ~30 ice
+setblock ~-25 ~120 ~-25 flowing_water
+setblock ~-25 ~130 ~-25 packed_ice
+
+# Layer 6: Glacier and Snow Peaks (Highest elevation, heavily snow-covered)
+fill ~-100 ~130 ~-100 ~100 ~140 ~100 snow_block
+fill ~-90 ~140 ~-90 ~90 ~150 ~90 packed_ice
+fill ~-80 ~150 ~-80 ~80 ~160 ~80 snow_layer
+fill ~-70 ~160 ~-70 ~70 ~170 ~70 ice
+
+# Volcanic Activity in the middle of the mountain. Molten lava pool near the summit.
+fill ~-50 ~160 ~-50 ~50 ~170 ~50 lava
+fill ~-40 ~170 ~-40 ~40 ~180 ~40 obsidian
+
+# Layer 7: Summit (Jagged ice peaks and ancient ruins)
+# Add ruins, hidden structures, and sharp ice pinnacles near the top.
+fill ~-40 ~180 ~-40 ~40 ~190 ~40 ice
+setblock ~-35 ~190 ~-35 packed_ice
+setblock ~-25 ~195 ~-25 snow_block
+fill ~-20 ~200 ~-20 ~20 ~210 ~20 ice
+
+# Ice Pinnacle (Frozen mountain tip with ice spires reaching toward the sky)
+fill ~-10 ~230 ~-10 ~10 ~240 ~10 ice
+setblock ~-5 ~245 ~-5 packed_ice
+
+# Layer 8: Snowstorm and Fog Effects (Dynamic weather)
+# Create the appearance of blizzards, reducing visibility around the mountain peaks.
+execute at @e[type=minecraft:player] run weather thunder
+
+# Layer 8: Summit Plateau (frosty, jagged peak with high ice formations)
+fill ~-20 ~170 ~-20 ~20 ~180 ~20 snow_block
+setblock ~-15 ~175 ~-15 packed_ice
+setblock ~-10 ~180 ~-10 ice
+
+# Create large ice spires at the summit for dramatic effect
+fill ~-10 ~185 ~-10 ~10 ~190 ~10 ice
+setblock ~-5 ~195 ~-5 packed_ice
+
+# Layer 9: Highest Ice Peak
+# At the very summit, build a frozen pinnacle
+fill ~-5 ~205 ~-5 ~5 ~210 ~5 packed_ice
+setblock ~ ~215 ~ snow_block
+
+# Layer 12: Final narrowing (summit)
+fill ~-25 ~200 ~-25 ~25 ~200 ~25 snow_block
+fill ~-20 ~201 ~-20 ~20 ~202 ~20 ice
+setblock ~-15 ~203 ~-15 packed_ice
+setblock ~-10 ~204 ~-10 snow_layer
+setblock ~-5 ~205 ~-5 ice
+setblock ~ ~205 ~ snow_block
+
+# Add mountain ridges or rock spires (scaled width)
+fill ~-120 ~130 ~-120 ~120 ~130 ~120 stone
+fill ~-110 ~135 ~-110 ~110 ~135 ~110 andesite
+setblock ~-100 ~140 ~-100 mossy_cobblestone
+setblock ~-90 ~145 ~-90 andesite
+setblock ~-80 ~150 ~-80 cobblestone
+
+# Add more rugged cliffside edges
+fill ~-130 ~140 ~-130 ~130 ~145 ~130 stone
+setblock ~-120 ~146 ~-120 andesite
+setblock ~-110 ~148 ~-110 mossy_cobblestone
+
+
+# Setblocks for Layer 1: Adding variations (15 commands)
+setblock ~-178 ~5 ~-178 dirt
+setblock ~-170 ~7 ~-170 stone
+setblock ~-162 ~6 ~-162 gravel
+setblock ~-155 ~8 ~-155 mossy_cobblestone
+setblock ~-148 ~7 ~-148 andesite
+setblock ~-140 ~6 ~-140 sand
+setblock ~-130 ~8 ~-130 stone_slab
+setblock ~-120 ~7 ~-120 cobblestone
+setblock ~-110 ~9 ~-110 dirt
+setblock ~-100 ~6 ~-100 gravel
+setblock ~-90 ~7 ~-90 stone
+setblock ~-80 ~6 ~-80 mossy_cobblestone
+setblock ~-70 ~8 ~-70 andesite
+setblock ~-60 ~7 ~-60 stone_slab
+setblock ~-50 ~9 ~-50 cobblestone
+
+# Layer 2: Start narrowing the mountain (scaled width)
+fill ~-140 ~8 ~-140 ~140 ~12 ~140 gravel
+fill ~-120 ~12 ~-120 ~120 ~16 ~120 stone
+
+# Setblocks for Layer 2: Adding variations (15 commands)
+setblock ~-138 ~10 ~-138 dirt
+setblock ~-125 ~13 ~-125 stone
+setblock ~-113 ~12 ~-113 gravel
+setblock ~-100 ~11 ~-100 mossy_cobblestone
+setblock ~-90 ~14 ~-90 andesite
+setblock ~-80 ~12 ~-80 sand
+setblock ~-70 ~13 ~-70 cobblestone
+setblock ~-60 ~12 ~-60 stone_slab
+setblock ~-50 ~15 ~-50 dirt
+setblock ~-40 ~14 ~-40 gravel
+setblock ~-30 ~13 ~-30 stone
+setblock ~-20 ~14 ~-20 mossy_cobblestone
+setblock ~-10 ~15 ~-10 andesite
+setblock ~ ~14 ~ snow_block
+setblock ~10 ~12 ~10 stone_slab
+
+# Layer 3: First narrowing stage (scaled width)
+fill ~-120 ~16 ~-120 ~120 ~20 ~120 stone
+fill ~-105 ~20 ~-105 ~105 ~24 ~105 andesite
+fill ~-90 ~24 ~-90 ~90 ~28 ~90 gravel
+
+# Setblocks for Layer 3: Adding variations (15 commands)
+setblock ~-115 ~17 ~-115 stone
+setblock ~-100 ~18 ~-100 mossy_cobblestone
+setblock ~-85 ~19 ~-85 gravel
+setblock ~-70 ~18 ~-70 stone
+setblock ~-60 ~17 ~-60 andesite
+setblock ~-50 ~19 ~-50 cobblestone
+setblock ~-40 ~20 ~-40 gravel
+setblock ~-30 ~21 ~-30 stone_slab
+setblock ~-20 ~22 ~-20 dirt
+setblock ~-10 ~21 ~-10 gravel
+setblock ~ ~20 ~ snow_block
+setblock ~10 ~23 ~10 andesite
+setblock ~20 ~24 ~20 mossy_cobblestone
+setblock ~30 ~25 ~30 gravel
+setblock ~40 ~26 ~40 stone_slab
+
+# Layer 4: Second narrowing stage (scaled width)
+fill ~-105 ~28 ~-105 ~105 ~32 ~105 gravel
+fill ~-90 ~32 ~-90 ~90 ~36 ~90 stone
+fill ~-75 ~36 ~-75 ~75 ~40 ~75 andesite
+
+# Setblocks for Layer 4: Adding variations (15 commands)
+setblock ~-95 ~29 ~-95 dirt
+setblock ~-85 ~30 ~-85 gravel
+setblock ~-75 ~31 ~-75 stone
+setblock ~-65 ~32 ~-65 andesite
+setblock ~-55 ~33 ~-55 cobblestone
+setblock ~-45 ~34 ~-45 gravel
+setblock ~-35 ~35 ~-35 stone
+setblock ~-25 ~36 ~-25 mossy_cobblestone
+setblock ~-15 ~37 ~-15 andesite
+setblock ~-5 ~38 ~-5 gravel
+setblock ~5 ~39 ~5 stone
+setblock ~15 ~40 ~15 cobblestone
+setblock ~25 ~41 ~25 gravel
+setblock ~35 ~42 ~35 andesite
+setblock ~45 ~43 ~45 stone_slab
+
+# Layer 5: Third narrowing stage (scaled width)
+fill ~-90 ~40 ~-90 ~90 ~44 ~90 gravel
+fill ~-75 ~44 ~-75 ~75 ~48 ~75 stone
+fill ~-60 ~48 ~-60 ~60 ~52 ~60 andesite
+
+# Setblocks for Layer 5: Adding variations (15 commands)
+setblock ~-85 ~41 ~-85 mossy_cobblestone
+setblock ~-75 ~42 ~-75 gravel
+setblock ~-65 ~43 ~-65 stone
+setblock ~-55 ~44 ~-55 andesite
+setblock ~-45 ~45 ~-45 cobblestone
+setblock ~-35 ~46 ~-35 gravel
+setblock ~-25 ~47 ~-25 stone
+setblock ~-15 ~48 ~-15 mossy_cobblestone
+setblock ~-5 ~49 ~-5 andesite
+setblock ~5 ~50 ~5 gravel
+setblock ~15 ~51 ~15 stone
+setblock ~25 ~52 ~25 cobblestone
+setblock ~35 ~53 ~35 gravel
+setblock ~45 ~54 ~45 stone_slab
+setblock ~55 ~55 ~55 mossy_cobblestone
+
+# Layer 6: Fourth narrowing stage (scaled width)
+fill ~-75 ~52 ~-75 ~75 ~56 ~75 gravel
+fill ~-60 ~56 ~-60 ~60 ~60 ~60 stone
+fill ~-45 ~60 ~-45 ~45 ~64 ~45 andesite
+
+# Setblocks for Layer 6: Adding variations (15 commands)
+setblock ~-70 ~53 ~-70 dirt
+setblock ~-60 ~54 ~-60 stone
+setblock ~-50 ~55 ~-50 andesite
+setblock ~-40 ~56 ~-40 cobblestone
+setblock ~-30 ~57 ~-30 gravel
+setblock ~-20 ~58 ~-20 stone_slab
+setblock ~-10 ~59 ~-10 mossy_cobblestone
+setblock ~ ~60 ~ ~ gravel
+setblock ~10 ~61 ~10 stone
+setblock ~20 ~62 ~20 andesite
+setblock ~30 ~63 ~30 gravel
+setblock ~40 ~64 ~40 stone
+setblock ~50 ~65 ~50 cobblestone
+setblock ~60 ~66 ~60 mossy_cobblestone
+setblock ~70 ~67 ~70 gravel
+
+# Layer 7: Fifth narrowing stage (scaled width)
+fill ~-60 ~64 ~-60 ~60 ~68 ~60 gravel
+fill ~-45 ~68 ~-45 ~45 ~72 ~45 stone
+fill ~-30 ~72 ~-30 ~30 ~76 ~30 andesite
+
+# Setblocks for Layer 7: Adding variations (15 commands)
+setblock ~-55 ~65 ~-55 mossy_cobblestone
+setblock ~-45 ~66 ~-45 gravel
+setblock ~-35 ~67 ~-35 stone
+setblock ~-25 ~68 ~-25 andesite
+setblock ~-15 ~69 ~-15 cobblestone
+setblock ~-5 ~70 ~-5 gravel
+setblock ~5 ~71 ~5 stone
+setblock ~15 ~72 ~15 mossy_cobblestone
+setblock ~25 ~73 ~25 andesite
+setblock ~35 ~74 ~35 gravel
+setblock ~45 ~75 ~45 stone
+setblock ~55 ~76 ~55 cobblestone
+setblock ~65 ~77 ~65 gravel
+setblock ~75 ~78 ~75 stone_slab
+setblock ~85 ~79 ~85 mossy_cobblestone
+
+# Layer 8: Sixth narrowing stage (scaled width)
+fill ~-72 ~76 ~-72 ~72 ~80 ~72 gravel
+fill ~-36 ~80 ~-36 ~36 ~84 ~36 stone
+fill ~-18 ~84 ~-18 ~18 ~88 ~18 andesite
+
+# Setblocks for Layer 8: Adding variations (15 commands)
+setblock ~-66 ~77 ~-66 dirt
+setblock ~-56 ~78 ~-56 stone
+setblock ~-46 ~79 ~-46 andesite
+setblock ~-36 ~80 ~-36 cobblestone
+setblock ~-26 ~81 ~-26 gravel
+setblock ~-16 ~82 ~-16 stone_slab
+setblock ~-6 ~83 ~-6 mossy_cobblestone
+setblock ~4 ~84 ~4 andesite
+setblock ~14 ~85 ~14 gravel
+setblock ~24 ~86 ~24 stone
+setblock ~34 ~87 ~34 cobblestone
+setblock ~44 ~88 ~44 gravel
+setblock ~54 ~89 ~54 stone_slab
+setblock ~64 ~90 ~64 mossy_cobblestone
+setblock ~74 ~91 ~74 gravel
+
+# Layer 1: Broad foundation with blending materials
+setblock ~-90 ~3 ~-90 dirt
+setblock ~-85 ~3 ~-85 gravel
+setblock ~-80 ~3 ~-80 stone
+setblock ~-75 ~3 ~-75 andesite
+setblock ~-70 ~3 ~-70 dirt
+setblock ~-65 ~3 ~-65 gravel
+setblock ~-60 ~3 ~-60 stone
+setblock ~-55 ~3 ~-55 andesite
+setblock ~-50 ~3 ~-50 dirt
+setblock ~-45 ~3 ~-45 gravel
+setblock ~-40 ~3 ~-40 stone
+setblock ~-35 ~3 ~-35 andesite
+setblock ~-30 ~3 ~-30 dirt
+setblock ~-25 ~3 ~-25 gravel
+setblock ~-20 ~3 ~-20 stone
+setblock ~-15 ~3 ~-15 andesite
+setblock ~-10 ~3 ~-10 dirt
+setblock ~-5 ~3 ~-5 gravel
+setblock ~ ~3 ~ stone
+
+# Layer 2: Blending and narrowing with varied materials
+setblock ~-85 ~6 ~-85 gravel
+setblock ~-80 ~6 ~-80 andesite
+setblock ~-75 ~6 ~-75 stone
+setblock ~-70 ~6 ~-70 gravel
+setblock ~-65 ~6 ~-65 dirt
+setblock ~-60 ~6 ~-60 andesite
+setblock ~-55 ~6 ~-55 stone
+setblock ~-50 ~6 ~-50 gravel
+setblock ~-45 ~6 ~-45 dirt
+setblock ~-40 ~6 ~-40 andesite
+setblock ~-35 ~6 ~-35 stone
+setblock ~-30 ~6 ~-30 gravel
+setblock ~-25 ~6 ~-25 dirt
+setblock ~-20 ~6 ~-20 andesite
+setblock ~-15 ~6 ~-15 stone
+setblock ~-10 ~6 ~-10 gravel
+setblock ~-5 ~6 ~-5 dirt
+setblock ~ ~6 ~ andesite
+
+# Layer 3: Blended narrowing with added depth
+setblock ~-80 ~10 ~-80 stone
+setblock ~-75 ~10 ~-75 gravel
+setblock ~-70 ~10 ~-70 andesite
+setblock ~-65 ~10 ~-65 dirt
+setblock ~-60 ~10 ~-60 stone
+setblock ~-55 ~10 ~-55 gravel
+setblock ~-50 ~10 ~-50 andesite
+setblock ~-45 ~10 ~-45 dirt
+setblock ~-40 ~10 ~-40 gravel
+setblock ~-35 ~10 ~-35 stone
+setblock ~-30 ~10 ~-30 andesite
+setblock ~-25 ~10 ~-25 gravel
+setblock ~-20 ~10 ~-20 dirt
+setblock ~-15 ~10 ~-15 stone
+setblock ~-10 ~10 ~-10 gravel
+setblock ~-5 ~10 ~-5 andesite
+setblock ~ ~10 ~ stone
+
+# Layer 4: Further narrowing with irregular textures
+setblock ~-75 ~14 ~-75 gravel
+setblock ~-70 ~14 ~-70 stone
+setblock ~-65 ~14 ~-65 andesite
+setblock ~-60 ~14 ~-60 gravel
+setblock ~-55 ~14 ~-55 dirt
+setblock ~-50 ~14 ~-50 stone
+setblock ~-45 ~14 ~-45 gravel
+setblock ~-40 ~14 ~-40 andesite
+setblock ~-35 ~14 ~-35 stone
+setblock ~-30 ~14 ~-30 dirt
+setblock ~-25 ~14 ~-25 gravel
+setblock ~-20 ~14 ~-20 andesite
+setblock ~-15 ~14 ~-15 stone
+setblock ~-10 ~14 ~-10 gravel
+setblock ~-5 ~14 ~-5 dirt
+setblock ~ ~14 ~ andesite
+
+# Layer 5: Continued narrowing with increased weathering
+setblock ~-70 ~18 ~-70 stone
+setblock ~-65 ~18 ~-65 gravel
+setblock ~-60 ~18 ~-60 andesite
+setblock ~-55 ~18 ~-55 stone
+setblock ~-50 ~18 ~-50 dirt
+setblock ~-45 ~18 ~-45 gravel
+setblock ~-40 ~18 ~-40 andesite
+setblock ~-35 ~18 ~-35 stone
+setblock ~-30 ~18 ~-30 gravel
+setblock ~-25 ~18 ~-25 dirt
+setblock ~-20 ~18 ~-20 andesite
+setblock ~-15 ~18 ~-15 stone
+setblock ~-10 ~18 ~-10 gravel
+setblock ~-5 ~18 ~-5 dirt
+setblock ~ ~18 ~ andesite
+
+# Layer 6: High-altitude blending with erosion
+setblock ~-60 ~22 ~-60 gravel
+setblock ~-55 ~22 ~-55 stone
+setblock ~-50 ~22 ~-50 andesite
+setblock ~-45 ~22 ~-45 gravel
+setblock ~-40 ~22 ~-40 stone
+setblock ~-35 ~22 ~-35 dirt
+setblock ~-30 ~22 ~-30 andesite
+setblock ~-25 ~22 ~-25 gravel
+setblock ~-20 ~22 ~-20 stone
+setblock ~-15 ~22 ~-15 dirt
+setblock ~-10 ~22 ~-10 gravel
+setblock ~-5 ~22 ~-5 andesite
+setblock ~ ~22 ~ stone
+
+# Layer 7: Snow and packed ice transition
+fill ~-60 ~26 ~-60 ~60 ~26 ~60 snow_layer
+fill ~-55 ~27 ~-55 ~55 ~27 ~55 packed_ice
+fill ~-50 ~28 ~-50 ~50 ~28 ~50 snow_block
+setblock ~-45 ~29 ~-45 snow_block
+setblock ~-40 ~30 ~-40 snow_layer
+setblock ~-35 ~31 ~-35 packed_ice
+setblock ~-30 ~32 ~-30 snow_block
+setblock ~-25 ~33 ~-25 snow_layer
+setblock ~-20 ~34 ~-20 snow_block
+setblock ~-15 ~35 ~-15 packed_ice
+setblock ~-10 ~36 ~-10 snow_layer
+
+# Layer 8: Peak approach with more snow and ice
+setblock ~-5 ~190 ~-5 snow_block
+setblock ~ ~191 ~ snow_layer
+setblock ~5 ~191 ~5 packed_ice
+setblock ~10 ~192 ~10 snow_block
+setblock ~15 ~193 ~15 snow_layer
+setblock ~20 ~194 ~20 packed_ice
+
+# Layer 12: Final narrowing near the peak (scaled width)
+fill ~-40 ~160 ~-40 ~40 ~170 ~40 gravel
+fill ~-20 ~170 ~-20 ~20 ~180 ~20 stone
+
+# Peak with snow and ice (scaled width, summit at y=200)
+fill ~-10 ~190 ~-10 ~10 ~190 ~10 snow_block
+fill ~-10 ~180 ~-10 ~10 ~200 ~10 snow_block
