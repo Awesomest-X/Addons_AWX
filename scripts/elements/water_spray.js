@@ -26,7 +26,7 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
       const nearbyEntities = user.dimension.getEntities({
         location: user.location,
         maxDistance: radius,
-        families: ["hostile"] // Only target hostile entities
+        families: ["monster"] // Only target hostile entities
       });
 
       // Apply the water spout effect to each hostile entity
