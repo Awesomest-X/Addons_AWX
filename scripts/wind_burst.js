@@ -1,16 +1,40 @@
 import {
   world,
   system,
-  EntityDamageCause
+  EntityDamageCause,
+  ItemStack
 } from "@minecraft/server";
 
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
-  initEvent.itemComponentRegistry.registerCustomComponent('windburst:wind_burst_sword', {
+  initEvent.itemComponentRegistry.registerCustomComponent('awx:wind_burst', {
     
     // Listen for the item being used (right-click or equivalent)
     onUse(e) {
       const attacker = e.source;  // The entity using the item (player)
       if (!attacker || !attacker.isValid()) return; // Ensure the attacker is valid
+
+      // Check if the player has a "wind charge" in their inventory
+      let hasWindCharge = false;
+      const inventory = attacker.getComponent("minecraft:inventory");
+
+      // Check if the player has at least one "wind charge" item
+      for (let slot of inventory.container) {
+        if (slot && slot.id === "minecraft:wind_charge") {
+          hasWindCharge = true;
+          break;
+        }
+      }
+
+      // If the player doesn't have a "wind charge", reduce durability of the sword
+      if (!hasWindCharge) {
+        const item = e.item;
+        if (item && item.isValid()) {
+          const durabilityComponent = item.getComponent("minecraft:durability");
+          if (durabilityComponent) {
+            durabilityComponent.damage(1);  // Decrease durability by 1
+          }
+        }
+      }
 
       // Apply wind burst effects (particles, sound, etc.)
       attacker.runCommandAsync('function weapon/wind_burst_fx');
@@ -64,6 +88,25 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
           cause: EntityDamageCause.entityAttack,
           damagingEntity: attacker
         });
+      });
+
+      // Apply knockback and damage to the attacker (only 10% of the original values)
+      const playerXDif = attacker.location.x - attacker.location.x;  // Direction towards the player
+      const playerYDif = attacker.location.y - attacker.location.y;
+      const playerZDif = attacker.location.z - attacker.location.z;
+
+      const playerDistance = Math.sqrt(playerXDif * playerXDif + playerYDif * playerYDif + playerZDif * playerZDif);
+      const playerNormalizedX = playerXDif / playerDistance;
+      const playerNormalizedY = playerYDif / playerDistance;
+      const playerNormalizedZ = playerZDif / playerDistance;
+
+      // Apply 10% knockback to the attacker
+      attacker.applyKnockback(playerNormalizedX * 0.1, playerNormalizedY * 0.1, playerNormalizedZ * 0.1, 15, 0.06); // Reduced knockback force
+
+      // Apply 10% damage to the attacker
+      attacker.applyDamage(0.5, {  // 10% of 5 damage
+        cause: EntityDamageCause.entityAttack,
+        damagingEntity: attacker
       });
     }
   });
