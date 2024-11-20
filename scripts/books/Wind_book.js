@@ -6,10 +6,7 @@ import {
   player as MinecraftPlayer
 } from "@minecraft/server";
 
-// Store item data for each player in a more direct structure (using a Map)
-let playerStorageData = new Map();
-
-// Register the custom component for the storage item
+// Store item data for each player in persistent storage
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
   initEvent.itemComponentRegistry.registerCustomComponent('awx:wind_book', {
 
@@ -18,41 +15,41 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
       const player = e.player;  // The player using the item
       const item = e.itemStack;  // The item being used (storage item)
 
-      // Check if the player already has stored items
-      let storedItems = playerStorageData.get(player.id) || [];
+      // Fetch stored items from persistent storage or initialize empty
+      let storedItems = player.getComponent('wind_book_storage').get('awx:wind_storage') || [];
 
       if (storedItems.length > 0) {
         // If there are stored items, give them back to the player
         giveStoredItems(player, storedItems);
 
         // Reset the stored items data
-        playerStorageData.set(player.id, []);
+        player.getComponent('wind_book_storage').set('awx:wind_storage', []);
 
         // Action Bar message informing the player
-        player.sendActionBarMessage("You Have Opened The Book Of Earth!");
+        player.sendActionBarMessage("You Have Opened The Book Of Wind!");
       } else {
-        // If no items are stored, store up to 3 items from the player's inventory that have a specific tag
+        // If no items are stored, store up to 7 items from the player's inventory that have a specific tag
         storeItems(player, item);
 
         // Action Bar message informing the player
-        player.sendActionBarMessage("You Have Opened The Book Of Earth.");
+        player.sendActionBarMessage("You Have Opened The Book Of Wind.");
       }
     }
   });
 });
 
-// Function to store up to 3 items from the player's inventory that have the 'storage:storeable' tag
+// Function to store up to 7 items from the player's inventory that have the 'storage:storeable' tag
 function storeItems(player, item) {
   const inventory = player.getComponent('inventory').container;
 
   let itemsStored = 0;
   let storedItemData = [];
 
-  // Loop through the player's inventory and store up to 3 items with the specific tag
+  // Loop through the player's inventory and store up to 7 items with the specific tag
   for (let slot = 0; slot < inventory.size; slot++) {
     const slotItem = inventory.getItem(slot);
 
-    if (slotItem && itemsStored < 3) {
+    if (slotItem && itemsStored < 7) {
       // Check if the item has the required tag
       if (slotItem.getTags().includes('awx:wind_page')) {
         // Store the item details (type, amount, tags) in the storedItemData array
@@ -71,8 +68,8 @@ function storeItems(player, item) {
     }
   }
 
-  // Update the stored item data in memory for this player
-  playerStorageData.set(player.id, storedItemData);
+  // Update the stored item data in persistent storage for this player
+  player.getComponent('wind_book_storage').set('awx:wind_storage', storedItemData);
 
   // Action Bar message informing the player how many items were stored
   player.sendActionBarMessage(`You Have Added ${itemsStored} Page(s) To The Book`);
@@ -118,5 +115,5 @@ function giveStoredItems(player, storedItems) {
   });
 
   // Reset the stored items data after giving them back to the player
-  playerStorageData.set(player.id, []);
+  player.getComponent('wind_book_storage').set('awx:wind_storage', []);
 }
