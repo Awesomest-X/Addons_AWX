@@ -15,7 +15,7 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
       if (!user) return;
 
       // Get all pillagers within a 10-block radius
-      const radius = 10;
+      const radius = 5;
       const nearbyEntities = user.dimension.getEntities({
         location: user.location,
         maxDistance: radius,
@@ -46,8 +46,7 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
           });
 
           zombies.forEach(zombie => {
-            zombie.runCommandAsync("data modify entity @s Health set value 1"); // Set health to 1 (half a heart)
-            zombie.runCommandAsync("effect @s minecraft:instant_health 1 255 true"); // Ensure the zombie's health is exactly 1
+            zombie.runCommandAsync("effect @s minecraft:instant_health 1 2 true"); // Ensure the zombie's health is exactly 1
           });
         }, 1); // Delay to allow zombie to spawn before modifying
       });
