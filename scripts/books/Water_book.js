@@ -75,7 +75,7 @@ function storeItems(player, item) {
   playerStorageData.set(player.id, storedItemData);
 
   // Action Bar message informing the player how many items were stored
-  player.sendActionBarMessage(`You have stored ${itemsStored} item(s) in the storage item.`);
+  player.sendActionBarMessage(`You Have Added ${itemsStored} Page(s) To The Book`);
 }
 
 // Function to check if the player's inventory has enough space to hold the stored items
