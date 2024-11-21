@@ -14,7 +14,7 @@ const BlockDialogueComponent = {
         let dialogue = '';
 
         if (tags.includes('tag1')) {
-            dialogue = 'dialogue1';
+            dialogue = 'tool_util_menu';
         } else if (tags.includes('tag2')) {
             dialogue = 'dialogue2';
         } else if (tags.includes('tag3')) {
