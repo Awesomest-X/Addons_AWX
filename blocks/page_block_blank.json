@@ -12,6 +12,7 @@
         },
         "components": {
             "minecraft:custom_components": ["awx:enchant_page"],
+            "tag:awx:blank_element": {},
      "minecraft:geometry": "geometry.page",
             "minecraft:material_instances": {
                 "*": {
