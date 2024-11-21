@@ -3,7 +3,7 @@
   "minecraft:npc_dialogue": {
     "scenes": [
       {
-        "scene_tag": "start",
+        "scene_tag": "water_dialogue",
         "npc_name": "Enchantment Menu",
         "text": "You Have Opened The Book of the Sea. Choose An Enchantment For Your Item.",
         "buttons": [
@@ -56,7 +56,7 @@
           {
             "name": "No",
             "commands": [
-              "/dialogue open @e[type=npc,c=1] @initiator start"
+              "/dialogue open @e[type=npc,c=1] @initiator water_dialogue"
             ]
           }
         ]
@@ -78,7 +78,7 @@
           {
             "name": "No",
             "commands": [
-              "/dialogue open @e[type=npc,c=1] @initiator start"
+              "/dialogue open @e[type=npc,c=1] @initiator water_dialogue"
             ]
           }
         ]
@@ -100,7 +100,7 @@
           {
             "name": "No",
             "commands": [
-              "/dialogue open @e[type=npc,c=1] @initiator start"
+              "/dialogue open @e[type=npc,c=1] @initiator water_dialogue"
             ]
           }
         ]
@@ -122,7 +122,7 @@
           {
             "name": "No",
             "commands": [
-              "/dialogue open @e[type=npc,c=1] @initiator start"
+              "/dialogue open @e[type=npc,c=1] @initiator water_dialogue"
             ]
           }
         ]
