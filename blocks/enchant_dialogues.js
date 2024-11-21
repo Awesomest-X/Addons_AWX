@@ -13,19 +13,19 @@ const BlockDialogueComponent = {
         // Determine the dialogue to open based on the block tags
         let dialogue = '';
 
-        if (tags.includes('tag1')) {
+        if (tags.includes('power_tool')) {
             dialogue = 'tool_util_menu';
-        } else if (tags.includes('tag2')) {
+        } else if (tags.includes('water_element')) {
             dialogue = 'water_dialogue';
-        } else if (tags.includes('tag3')) {
+        } else if (tags.includes('fire_element')) {
             dialogue = 'fire_dialogue';
-        } else if (tags.includes('tag4')) {
+        } else if (tags.includes('earth_element')) {
             dialogue = 'earth_dialogue';
-        } else if (tags.includes('tag5')) {
+        } else if (tags.includes('air_element')) {
             dialogue = 'air_dialogue';
-        } else if (tags.includes('tag6')) {
+        } else if (tags.includes('power_weapon')) {
             dialogue = 'weapons_combat_menu';
-        } else if (tags.includes('tag7')) {
+        } else if (tags.includes('storm_element')) {
             dialogue = 'storm_dialogue';
         }
 
