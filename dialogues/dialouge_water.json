@@ -1,44 +1,132 @@
 {
-  "format_version": "1.10",
+  "format_version": "1.17",
   "minecraft:npc_dialogue": {
-    "dialogues": {
-      "start": {
-        "body": "You Have Opened The Book of the Sea. Choose An Enchantment For Your Item.",
-        "choices": [
-          { "text": "Aqua Affinity", "on_select": "aqua_affinity" },
-          { "text": "Depth Strider", "on_select": "depth_strider" },
-          { "text": "Respiration", "on_select": "respiration" },
-          { "text": "Frost Walker", "on_select": "frost_walker" }
+    "scenes": [
+      {
+        "scene_tag": "start",
+        "npc_name": "Enchantment Menu",
+        "text": "You Have Opened The Book of the Sea. Choose An Enchantment For Your Item.",
+        "buttons": [
+          {
+            "name": "Aqua Affinity",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator aqua_affinity"
+            ]
+          },
+          {
+            "name": "Depth Strider",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator depth_strider"
+            ]
+          },
+          {
+            "name": "Respiration",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator respiration"
+            ]
+          },
+          {
+            "name": "Frost Walker",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator frost_walker"
+            ]
+          },
+          {
+            "name": "Close",
+            "commands": [
+              "/dialogue close @initiator"
+            ]
+          }
         ]
       },
-      "aqua_affinity": {
-        "body": "You've selected Aqua Affinity. This will cost 3 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_aqua_affinity" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "aqua_affinity",
+        "npc_name": "Aqua Affinity",
+        "text": "You've selected Aqua Affinity. This will cost 3 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -3 levels",
+              "/enchant @initiator aqua_affinity",
+              "/title @initiator actionbar Applying Aqua Affinity...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "depth_strider": {
-        "body": "You've selected Depth Strider. This will cost 4 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_depth_strider" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "depth_strider",
+        "npc_name": "Depth Strider",
+        "text": "You've selected Depth Strider. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -4 levels",
+              "/enchant @initiator depth_strider",
+              "/title @initiator actionbar Applying Depth Strider...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "respiration": {
-        "body": "You've selected Respiration. This will cost 4 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_respiration" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "respiration",
+        "npc_name": "Respiration",
+        "text": "You've selected Respiration. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -4 levels",
+              "/enchant @initiator respiration",
+              "/title @initiator actionbar Applying Respiration...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "frost_walker": {
-        "body": "You've selected Frost Walker. This will cost 5 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_frost_walker" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "frost_walker",
+        "npc_name": "Frost Walker",
+        "text": "You've selected Frost Walker. This will cost 5 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -5 levels",
+              "/enchant @initiator frost_walker",
+              "/title @initiator actionbar Applying Frost Walker...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       }
-    }
+    ]
   }
 }
