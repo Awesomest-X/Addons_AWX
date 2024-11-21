@@ -6,14 +6,20 @@
       "category": "Misc",
       "is_experimental": false,
       "is_stackable": false,
-      "stack_size": 1,
+      "stack_size": 1,  //"\n"
       "rarity": "rare",
+         "minecraft:tags": [ "awx:blank_page"],
       "icon": "textures/items/awx_test",
-      "components": {
-        "minecraft:icon": "textures/items/awx_test"
-      }
     },
     "components": {
+        "minecraft:icon": {
+                "textures": {
+                    "default": "custom_item"
+                }
+            },
+      "minecraft:display_name": {
+    "value": "Blank Page \n effect"
+},
       "minecraft:cooldown": 3,
       "minecraft:custom_component": {
         "value": "awx:test"
