@@ -1,44 +1,132 @@
 {
-  "format_version": "1.10",
+  "format_version": "1.17",
   "minecraft:npc_dialogue": {
-    "dialogues": {
-      "start": {
-        "body": "You Have Opened The Book of Wind. Choose An Enchantment For Your Item.",
-        "choices": [
-          { "text": "Swift Sneak", "on_select": "swift_sneak" },
-          { "text": "Silk Touch", "on_select": "silk_touch" },
-          { "text": "Knockback", "on_select": "knockback" },
-          { "text": "Feather Falling", "on_select": "feather_falling" }
+    "scenes": [
+      {
+        "scene_tag": "start",
+        "npc_name": "Enchantment Menu",
+        "text": "You Have Opened The Book of Wind. Choose An Enchantment For Your Item.",
+        "buttons": [
+          {
+            "name": "Wind Burst",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator wind_burst"
+            ]
+          },
+          {
+            "name": "Silk Touch",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator silk_touch"
+            ]
+          },
+          {
+            "name": "Knockback",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator knockback"
+            ]
+          },
+          {
+            "name": "Feather Falling",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator feather_falling"
+            ]
+          },
+          {
+            "name": "Close",
+            "commands": [
+              "/dialogue close @initiator"
+            ]
+          }
         ]
       },
-      "swift_sneak": {
-        "body": "You've selected Swift Sneak. This will cost 4 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_swift_sneak" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "wind_burst",
+        "npc_name": "Wind Burst",
+        "text": "You've selected Wind Burst. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -4 levels",
+              "/title @initiator actionbar Applying Wind Burst...",
+              "/enchant @initiator sharpness", // Replace with actual enchantment if custom
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "silk_touch": {
-        "body": "You've selected Silk Touch. This will cost 6 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_silk_touch" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "silk_touch",
+        "npc_name": "Silk Touch",
+        "text": "You've selected Silk Touch. This will cost 6 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -6 levels",
+              "/title @initiator actionbar Applying Silk Touch...",
+              "/enchant @initiator silk_touch",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "knockback": {
-        "body": "You've selected Knockback. This will cost 3 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_knockback" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "knockback",
+        "npc_name": "Knockback",
+        "text": "You've selected Knockback. This will cost 3 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -3 levels",
+              "/title @initiator actionbar Applying Knockback...",
+              "/enchant @initiator knockback",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "feather_falling": {
-        "body": "You've selected Feather Falling. This will cost 4 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_feather_falling" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "feather_falling",
+        "npc_name": "Feather Falling",
+        "text": "You've selected Feather Falling. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -4 levels",
+              "/title @initiator actionbar Applying Feather Falling...",
+              "/enchant @initiator feather_falling",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       }
-    }
+    ]
   }
 }
