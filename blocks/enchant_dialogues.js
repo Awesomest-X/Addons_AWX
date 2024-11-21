@@ -16,17 +16,17 @@ const BlockDialogueComponent = {
         if (tags.includes('tag1')) {
             dialogue = 'tool_util_menu';
         } else if (tags.includes('tag2')) {
-            dialogue = 'dialogue2';
+            dialogue = 'water_dialogue';
         } else if (tags.includes('tag3')) {
-            dialogue = 'dialogue3';
+            dialogue = 'fire_dialogue';
         } else if (tags.includes('tag4')) {
-            dialogue = 'dialogue4';
+            dialogue = 'earth_dialogue';
         } else if (tags.includes('tag5')) {
-            dialogue = 'dialogue5';
+            dialogue = 'air_dialogue';
         } else if (tags.includes('tag6')) {
-            dialogue = 'dialogue6';
+            dialogue = 'weapons_combat_menu';
         } else if (tags.includes('tag7')) {
-            dialogue = 'dialogue7';
+            dialogue = 'storm_dialogue';
         }
 
         // Only run the command if a valid dialogue is found
