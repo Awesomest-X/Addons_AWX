@@ -9,7 +9,7 @@
             ]
         },
         "components": {
-            "minecraft:custom_components": ["awx:enchant_dialogue"]
+            "minecraft:custom_components": ["awx:enchant_page"]
         }
     }
 }
