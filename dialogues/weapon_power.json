@@ -57,10 +57,11 @@
               "/dialogue open @e[type=npc,c=1] @initiator flame_enchantment"
             ]
           },
-          {
-            "name": "Back to Menu",
+               {
+            "name": "Close",
             "commands": [
-              "/dialogue open @e[type=npc,c=1] @initiator main_menu"
+              "/say Goodbye!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
             ]
           }
         ]
