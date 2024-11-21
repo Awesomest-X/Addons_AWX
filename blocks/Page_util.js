@@ -8,7 +8,7 @@ const BlockDialogueComponent = {
         if (!player || !block) return;
 
         // Run the command to open a dialogue menu for the player
-        player.runCommand(`dialogue open @e[type=npc, c=1] @s main_dialogue_menu`);
+        player.runCommand(`dialogue open @e[type=npc,c=1] @initiator tool_util_menu`);
     }
 };
 
