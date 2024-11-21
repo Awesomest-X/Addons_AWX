@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20",
+  "minecraft:item": {
+    "description": {
+      "identifier": "awx:test",
+      "category": "Misc",
+      "is_experimental": false,
+      "is_stackable": false,
+      "stack_size": 1,  
+      "rarity": "rare",
+         "minecraft:tags": [ "awx:water_page"],
+      "icon": "textures/items/awx_test",
+    },
+    "components": {
+        "minecraft:icon": {
+                "textures": {
+                    "default": "water_page"
+                }
+            },
+      "minecraft:display_name": {
+    "value": "§bWater Page \n §rWater Burst"
+},
+      "minecraft:cooldown": 3,
+      "minecraft:custom_component": {
+        "value": "awx:water_burst"
+      }
+    }
+  }
+}
