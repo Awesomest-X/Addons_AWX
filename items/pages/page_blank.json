@@ -6,7 +6,7 @@
       "category": "Misc",
       "is_experimental": false,
       "is_stackable": false,
-      "stack_size": 1,  //"\n"
+      "stack_size": 1,  
       "rarity": "rare",
          "minecraft:tags": [ "awx:blank_page"],
       "icon": "textures/items/awx_test",
