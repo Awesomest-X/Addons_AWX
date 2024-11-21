@@ -1,0 +1,180 @@
+{
+  "format_version": "1.10",
+  "minecraft:npc_dialogue": {
+    "scenes": [
+      {
+        "scene_tag": "main_menu",
+        "npc_name": "Book of Power",
+        "text": "You Have Opened The Book of Power. Choose An Enchantment For Your Item, Or Receive The Ancient Crafter.",
+        "buttons": [
+          {
+            "name": "Weapons & Combat",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator weapons_combat_menu"
+            ]
+          },
+          {
+            "name": "Close",
+            "commands": [
+              "/say Goodbye!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "weapons_combat_menu",
+        "npc_name": "Weapons & Combat",
+        "text": "Choose your combat-related enchantment.",
+        "buttons": [
+          {
+            "name": "Sharpness (5 XP)",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator sharpness_enchantment"
+            ]
+          },
+          {
+            "name": "Knockback (3 XP)",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator knockback_enchantment"
+            ]
+          },
+          {
+            "name": "Fire Aspect (4 XP)",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator fire_aspect_enchantment"
+            ]
+          },
+          {
+            "name": "Wind Burst (4 XP)",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator wind_burst_enchantment"
+            ]
+          },
+          {
+            "name": "Flame (3 XP)",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator flame_enchantment"
+            ]
+          },
+          {
+            "name": "Back to Menu",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator main_menu"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "sharpness_enchantment",
+        "npc_name": "Sharpness Enchantment",
+        "text": "You've selected Sharpness. This will cost 5 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/xp -5 @initiator",
+              "/enchant @initiator sharpness 1",
+              "/title @initiator actionbar §aEnchantment applied: Sharpness!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator weapons_combat_menu"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "knockback_enchantment",
+        "npc_name": "Knockback Enchantment",
+        "text": "You've selected Knockback. This will cost 3 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/xp -3 @initiator",
+              "/enchant @initiator knockback 1",
+              "/title @initiator actionbar §aEnchantment applied: Knockback!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator weapons_combat_menu"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "fire_aspect_enchantment",
+        "npc_name": "Fire Aspect Enchantment",
+        "text": "You've selected Fire Aspect. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/xp -4 @initiator",
+              "/enchant @initiator fire_aspect 1",
+              "/title @initiator actionbar §aEnchantment applied: Fire Aspect!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator weapons_combat_menu"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "wind_burst_enchantment",
+        "npc_name": "Wind Burst Enchantment",
+        "text": "You've selected Wind Burst. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/xp -4 @initiator",
+              "/enchant @initiator knockback 2",
+              "/title @initiator actionbar §aEnchantment applied: Wind Burst!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator weapons_combat_menu"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "flame_enchantment",
+        "npc_name": "Flame Enchantment",
+        "text": "You've selected Flame. This will cost 3 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/xp -3 @initiator",
+              "/enchant @initiator flame 1",
+              "/title @initiator actionbar §aEnchantment applied: Flame!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator weapons_combat_menu"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
