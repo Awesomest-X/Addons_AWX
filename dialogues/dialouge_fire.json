@@ -1,44 +1,132 @@
 {
-  "format_version": "1.10",
+  "format_version": "1.17",
   "minecraft:npc_dialogue": {
-    "dialogues": {
-      "start": {
-        "body": "You Have Opened The Book of Fire. Choose An Enchantment For Your Item.",
-        "choices": [
-          { "text": "Fire Protection", "on_select": "fire_protection" },
-          { "text": "Flame", "on_select": "flame" },
-          { "text": "Fire Aspect", "on_select": "fire_aspect" },
-          { "text": "Mending", "on_select": "mending" }
+    "scenes": [
+      {
+        "scene_tag": "start",
+        "npc_name": "Enchantment Menu",
+        "text": "You Have Opened The Book of Fire. Choose An Enchantment For Your Item.",
+        "buttons": [
+          {
+            "name": "Fire Protection",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator fire_protection"
+            ]
+          },
+          {
+            "name": "Flame",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator flame"
+            ]
+          },
+          {
+            "name": "Fire Aspect",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator fire_aspect"
+            ]
+          },
+          {
+            "name": "Mending",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator mending"
+            ]
+          },
+          {
+            "name": "Close",
+            "commands": [
+              "/dialogue close @initiator"
+            ]
+          }
         ]
       },
-      "fire_protection": {
-        "body": "You've selected Fire Protection. This will cost 4 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_fire_protection" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "fire_protection",
+        "npc_name": "Fire Protection",
+        "text": "You've selected Fire Protection. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -4 levels",
+              "/enchant @initiator fire_protection",
+              "/title @initiator actionbar Applying Fire Protection...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "flame": {
-        "body": "You've selected Flame. This will cost 3 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_flame" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "flame",
+        "npc_name": "Flame",
+        "text": "You've selected Flame. This will cost 3 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -3 levels",
+              "/enchant @initiator flame",
+              "/title @initiator actionbar Applying Flame...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "fire_aspect": {
-        "body": "You've selected Fire Aspect. This will cost 4 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_fire_aspect" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "fire_aspect",
+        "npc_name": "Fire Aspect",
+        "text": "You've selected Fire Aspect. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -4 levels",
+              "/enchant @initiator fire_aspect",
+              "/title @initiator actionbar Applying Fire Aspect...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "mending": {
-        "body": "You've selected Mending. This will cost 6 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_mending" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "mending",
+        "npc_name": "Mending",
+        "text": "You've selected Mending. This will cost 6 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -6 levels",
+              "/enchant @initiator mending",
+              "/title @initiator actionbar Applying Mending...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       }
-    }
+    ]
   }
 }
