@@ -12,7 +12,13 @@
         },
         "components": {
             "minecraft:custom_components": ["awx:enchant_page"],
-
+     "minecraft:geometry": "geometry.page",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "page_texture",
+                    "render_method": "opaque"
+                }
+            }
         },
             "permutations": [
   // Facing north
