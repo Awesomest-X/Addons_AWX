@@ -5,7 +5,7 @@ import {
 } from "@minecraft/server";
 
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
-  initEvent.itemComponentRegistry.registerCustomComponent('water_spout:water_spout_sword', {
+  initEvent.itemComponentRegistry.registerCustomComponent('awx:water_spray', {
 
     // Function triggered on item use
     onUse(e) {
