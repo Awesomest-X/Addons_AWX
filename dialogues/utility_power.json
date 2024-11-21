@@ -1,0 +1,124 @@
+{
+  "format_version": "1.10",
+  "minecraft:npc_dialogue": {
+    "scenes": [
+      {
+        "scene_tag": "main_menu",
+        "npc_name": "Book of Power",
+        "text": "You Have Opened The Book of Power. Choose An Enchantment For Your Item, Or Receive The Ancient Crafter.",
+        "buttons": [
+          {
+            "name": "Tools & Utility",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator tools_utility_menu"
+            ]
+          },
+          {
+            "name": "Close",
+            "commands": [
+              "/say Goodbye!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "tools_utility_menu",
+        "npc_name": "Tools & Utility",
+        "text": "Choose your utility-related enchantment.",
+        "buttons": [
+          {
+            "name": "Efficiency (4 XP)",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator efficiency_enchantment"
+            ]
+          },
+          {
+            "name": "Silk Touch (6 XP)",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator silk_touch_enchantment"
+            ]
+          },
+          {
+            "name": "Fortune (5 XP)",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator fortune_enchantment"
+            ]
+          },
+          {
+            "name": "Back to Menu",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator main_menu"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "efficiency_enchantment",
+        "npc_name": "Efficiency Enchantment",
+        "text": "You've selected Efficiency. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/xp -4 @initiator",
+              "/enchant @initiator efficiency 1",
+              "/title @initiator actionbar §aEnchantment applied: Efficiency!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator tools_utility_menu"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "silk_touch_enchantment",
+        "npc_name": "Silk Touch Enchantment",
+        "text": "You've selected Silk Touch. This will cost 6 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/xp -6 @initiator",
+              "/enchant @initiator silk_touch 1",
+              "/title @initiator actionbar §aEnchantment applied: Silk Touch!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator tools_utility_menu"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "fortune_enchantment",
+        "npc_name": "Fortune Enchantment",
+        "text": "You've selected Fortune. This will cost 5 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/xp -5 @initiator",
+              "/enchant @initiator fortune 1",
+              "/title @initiator actionbar §aEnchantment applied: Fortune!",
+              "/dialogue close @e[type=npc,c=1] @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator tools_utility_menu"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
