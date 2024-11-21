@@ -1,44 +1,132 @@
 {
-  "format_version": "1.10",
+  "format_version": "1.17",
   "minecraft:npc_dialogue": {
-    "dialogues": {
-      "start": {
-        "body": "You Have Opened The Book of Earth. Choose An Enchantment For Your Item.",
-        "choices": [
-          { "text": "Sharpness", "on_select": "sharpness" },
-          { "text": "Unbreaking", "on_select": "unbreaking" },
-          { "text": "Efficiency", "on_select": "efficiency" },
-          { "text": "Punch", "on_select": "punch" }
+    "scenes": [
+      {
+        "scene_tag": "start",
+        "npc_name": "Enchantment Menu",
+        "text": "You Have Opened The Book of Earth. Choose An Enchantment For Your Item.",
+        "buttons": [
+          {
+            "name": "Sharpness",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator sharpness"
+            ]
+          },
+          {
+            "name": "Unbreaking",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator unbreaking"
+            ]
+          },
+          {
+            "name": "Efficiency",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator efficiency"
+            ]
+          },
+          {
+            "name": "Punch",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator punch"
+            ]
+          },
+          {
+            "name": "Close",
+            "commands": [
+              "/dialogue close @initiator"
+            ]
+          }
         ]
       },
-      "sharpness": {
-        "body": "You've selected Sharpness. This will cost 5 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_sharpness" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "sharpness",
+        "npc_name": "Sharpness",
+        "text": "You've selected Sharpness. This will cost 5 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -5 levels",
+              "/enchant @initiator sharpness",
+              "/title @initiator actionbar Applying Sharpness...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "unbreaking": {
-        "body": "You've selected Unbreaking. This will cost 4 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_unbreaking" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "unbreaking",
+        "npc_name": "Unbreaking",
+        "text": "You've selected Unbreaking. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -4 levels",
+              "/enchant @initiator unbreaking",
+              "/title @initiator actionbar Applying Unbreaking...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "efficiency": {
-        "body": "You've selected Efficiency. This will cost 4 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_efficiency" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "efficiency",
+        "npc_name": "Efficiency",
+        "text": "You've selected Efficiency. This will cost 4 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -4 levels",
+              "/enchant @initiator efficiency",
+              "/title @initiator actionbar Applying Efficiency...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       },
-      "punch": {
-        "body": "You've selected Punch. This will cost 3 XP. Proceed?",
-        "choices": [
-          { "text": "Yes", "on_select": "apply_punch" },
-          { "text": "No", "on_select": "start" }
+      {
+        "scene_tag": "punch",
+        "npc_name": "Punch",
+        "text": "You've selected Punch. This will cost 3 XP. Proceed?",
+        "buttons": [
+          {
+            "name": "Yes",
+            "commands": [
+              "/experience add @initiator -3 levels",
+              "/enchant @initiator punch",
+              "/title @initiator actionbar Applying Punch...",
+              "/dialogue close @initiator"
+            ]
+          },
+          {
+            "name": "No",
+            "commands": [
+              "/dialogue open @e[type=npc,c=1] @initiator start"
+            ]
+          }
         ]
       }
-    }
+    ]
   }
 }
