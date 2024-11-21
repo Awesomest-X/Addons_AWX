@@ -2,7 +2,7 @@
   "format_version": "1.20",
   "minecraft:item": {
     "description": {
-      "identifier": "awx:test",
+      "identifier": "awx:water_spray_page",
       "category": "Misc",
       "is_experimental": false,
       "is_stackable": false,
@@ -18,11 +18,11 @@
                 }
             },
       "minecraft:display_name": {
-    "value": "§bWater Page \n §rWater Burst"
+    "value": "§bWater Page \n §rWater Spray"
 },
       "minecraft:cooldown": 3,
       "minecraft:custom_component": {
-        "value": "awx:water_burst"
+        "value": "awx:water_spray"
       }
     }
   }
