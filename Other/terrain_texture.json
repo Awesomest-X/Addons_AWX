@@ -1,0 +1,62 @@
+{
+  "texture_data" : {
+    "cc:Creaking Heart Active" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_Creaking Heart Active"
+    },
+    "cc:creaking_heart_down" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_creaking_heart_down"
+    },
+    "cc:active_creaking_heart" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_active_creaking_heart"
+    },
+    "cc:pale_bush" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_pale_bush"
+    },
+    "cc:pale_planks" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_pale_planks"
+    },
+    "cc:Creaking Heart Active_down" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_Creaking Heart Active_down"
+    },
+    "cc:active_creaking_heart_down" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_active_creaking_heart_down"
+    },
+    "cc:creaking_heart_up" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_creaking_heart_up"
+    },
+    "cc:pale_log_down" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_pale_log_down"
+    },
+    "cc:pale_log" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_pale_log"
+    },
+    "cc:boom_shroom_mushroom" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_boom_shroom_mushroom"
+    },
+    "cc:pale_pumpkin_down" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_pale_pumpkin_down"
+    },
+    "cc:active_creaking_heart_up" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_active_creaking_heart_up"
+    },
+    "cc:pale_log_up" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_pale_log_up"
+    },
+    "cc:creaking_heart" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_creaking_heart"
+    },
+    "cc:Creaking Heart Active_up" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_Creaking Heart Active_up"
+    },
+    "cc:pale_pumpkin" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_pale_pumpkin"
+    },
+    "cc:pale_pumpkin_up" : {
+      "textures" : "textures\/craftycraft\/blocks\/cc_pale_pumpkin_up"
+    }
+  },
+  "num_mip_levels" : 4,
+  "resource_pack_name" : "CraftyCraft[Resource]",
+  "texture_name" : "atlas.terrain",
+  "padding" : 8
+}
