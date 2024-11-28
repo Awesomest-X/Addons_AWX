@@ -1,0 +1,308 @@
+{
+  "minecraft:geometry" : [
+    {
+      "bones" : [
+        {
+          "cubes" : [
+
+          ],
+          "name" : "root",
+          "pivot" : [
+            0,
+            0,
+            0
+          ],
+          "rotation" : [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "parent" : "root",
+          "cubes" : [
+            {
+              "size" : [
+                2,
+                2,
+                2
+              ],
+              "inflate" : 0,
+              "origin" : [
+                -1,
+                0,
+                -5
+              ],
+              "uv" : [
+                0,
+                0
+              ],
+              "pivot" : [
+                0,
+                1,
+                -4
+              ],
+              "rotation" : [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "size" : [
+                2,
+                3,
+                2
+              ],
+              "inflate" : 0,
+              "origin" : [
+                -1,
+                0,
+                -3
+              ],
+              "uv" : [
+                8,
+                0
+              ],
+              "pivot" : [
+                0,
+                1.5,
+                -2
+              ],
+              "rotation" : [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "size" : [
+                2,
+                2,
+                4
+              ],
+              "inflate" : 0,
+              "origin" : [
+                -1,
+                0,
+                -1
+              ],
+              "uv" : [
+                16,
+                0
+              ],
+              "pivot" : [
+                0,
+                1,
+                1
+              ],
+              "rotation" : [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "name" : "body",
+          "pivot" : [
+            0,
+            0,
+            -3
+          ],
+          "rotation" : [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "parent" : "body",
+          "cubes" : [
+            {
+              "size" : [
+                0,
+                2,
+                4
+              ],
+              "inflate" : 0,
+              "origin" : [
+                -1,
+                1,
+                -9
+              ],
+              "uv" : [
+                28,
+                0
+              ],
+              "pivot" : [
+                -1,
+                2,
+                -7
+              ],
+              "rotation" : [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "name" : "right_antennae",
+          "pivot" : [
+            -1,
+            2,
+            -5
+          ],
+          "rotation" : [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "parent" : "body",
+          "cubes" : [
+            {
+              "origin" : [
+                1,
+                1,
+                -9
+              ],
+              "mirror" : true,
+              "rotation" : [
+                0,
+                0,
+                0
+              ],
+              "uv" : [
+                36,
+                0
+              ],
+              "size" : [
+                0,
+                2,
+                4
+              ],
+              "inflate" : 0,
+              "pivot" : [
+                1,
+                2,
+                -7
+              ]
+            }
+          ],
+          "name" : "left_antennae",
+          "pivot" : [
+            1,
+            2,
+            -5
+          ],
+          "rotation" : [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "parent" : "body",
+          "cubes" : [
+            {
+              "size" : [
+                9,
+                0.0099999997764825821,
+                11
+              ],
+              "inflate" : 0.01,
+              "origin" : [
+                -10,
+                1,
+                -6
+              ],
+              "uv" : [
+                44,
+                0
+              ],
+              "pivot" : [
+                0,
+                1,
+                -0.5
+              ],
+              "rotation" : [
+                0,
+                0,
+                180
+              ]
+            }
+          ],
+          "name" : "right_wing",
+          "pivot" : [
+            -1,
+            1,
+            -1
+          ],
+          "rotation" : [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "parent" : "body",
+          "cubes" : [
+            {
+              "origin" : [
+                1,
+                1,
+                -6
+              ],
+              "mirror" : true,
+              "rotation" : [
+                0,
+                0,
+                180
+              ],
+              "uv" : [
+                84,
+                0
+              ],
+              "size" : [
+                9,
+                0.0099999997764825821,
+                11
+              ],
+              "inflate" : 0.01,
+              "pivot" : [
+                0,
+                1,
+                -0.5
+              ]
+            }
+          ],
+          "name" : "left_wing",
+          "pivot" : [
+            1,
+            1,
+            -1
+          ],
+          "rotation" : [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "description" : {
+        "visible_bounds_offset" : [
+          0,
+          0.25,
+          0
+        ],
+        "texture_height" : 11,
+        "texture_width" : 124,
+        "identifier" : "geometry.createdbutterfly",
+        "visible_bounds_width" : 3,
+        "visible_bounds_height" : 1.5
+      }
+    }
+  ],
+  "format_version" : "1.12.0"
+}

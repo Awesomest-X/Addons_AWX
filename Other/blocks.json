@@ -1,0 +1,59 @@
+{
+  "cc:pale_log" : {
+    "sound" : "wood",
+    "textures" : {
+      "up" : "cc:pale_log_up",
+      "down" : "cc:pale_log_down",
+      "side" : "cc:pale_log"
+    }
+  },
+  "cc:pale_bush" : {
+    "sound" : "stone",
+    "textures" : "cc:pale_bush"
+  },
+  "cc:creaking_heart" : {
+    "sound" : "stone",
+    "textures" : {
+      "up" : "cc:creaking_heart_up",
+      "down" : "cc:creaking_heart_down",
+      "side" : "cc:creaking_heart"
+    }
+  },
+  "cc:pale_planks" : {
+    "sound" : "wood",
+    "textures" : "cc:pale_planks"
+  },
+  "cc:Creaking Heart Active" : {
+    "sound" : "stone",
+    "textures" : {
+      "up" : "cc:Creaking Heart Active_up",
+      "down" : "cc:Creaking Heart Active_down",
+      "side" : "cc:Creaking Heart Active"
+    }
+  },
+  "cc:boom_shroom_mushroom" : {
+    "sound" : "stem",
+    "textures" : "cc:boom_shroom_mushroom"
+  },
+  "cc:active_creaking_heart" : {
+    "sound" : "stone",
+    "textures" : {
+      "up" : "cc:active_creaking_heart_up",
+      "down" : "cc:active_creaking_heart_down",
+      "side" : "cc:active_creaking_heart"
+    }
+  },
+  "cc:pale_pumpkin" : {
+    "sound" : "stone",
+    "textures" : {
+      "up" : "cc:pale_pumpkin_up",
+      "down" : "cc:pale_pumpkin_down",
+      "side" : "cc:pale_pumpkin"
+    }
+  },
+  "format_version" : [
+    1,
+    1,
+    0
+  ]
+}

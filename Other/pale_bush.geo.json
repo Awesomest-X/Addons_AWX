@@ -1,0 +1,90 @@
+{
+  "minecraft:geometry" : [
+    {
+      "bones" : [
+        {
+          "cubes" : [
+            {
+              "pivot" : [
+                0,
+                0,
+                0
+              ],
+              "rotation" : [
+                0,
+                -135,
+                0
+              ],
+              "size" : [
+                16,
+                16,
+                0
+              ],
+              "uv" : [
+                0,
+                0
+              ],
+              "inflate" : 0,
+              "origin" : [
+                -8,
+                0,
+                0
+              ]
+            },
+            {
+              "pivot" : [
+                0,
+                0,
+                0
+              ],
+              "rotation" : [
+                0,
+                135,
+                0
+              ],
+              "size" : [
+                16,
+                16,
+                0
+              ],
+              "uv" : [
+                32,
+                0
+              ],
+              "inflate" : 0,
+              "origin" : [
+                -8,
+                0,
+                0
+              ]
+            }
+          ],
+          "name" : "block",
+          "pivot" : [
+            0,
+            0,
+            0
+          ],
+          "rotation" : [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "description" : {
+        "visible_bounds_width" : 3,
+        "texture_height" : 16,
+        "texture_width" : 64,
+        "identifier" : "geometry.pale_bush",
+        "visible_bounds_height" : 2.5,
+        "visible_bounds_offset" : [
+          0,
+          0.75,
+          0
+        ]
+      }
+    }
+  ],
+  "format_version" : "1.19.0"
+}

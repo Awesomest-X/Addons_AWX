@@ -1,0 +1,171 @@
+{
+  "format_version" : "1.12.0",
+  "minecraft:geometry" : [
+    {
+      "bones" : [
+        {
+          "cubes" : [
+            {
+              "size" : [
+                8,
+                8,
+                8
+              ],
+              "uv" : [
+                0,
+                0
+              ],
+              "inflate" : 0.43999999016523356,
+              "origin" : [
+                -4,
+                -4,
+                -4
+              ],
+              "pivot" : [
+                0,
+                0,
+                0
+              ],
+              "rotation" : [
+                0,
+                180,
+                0
+              ]
+            },
+            {
+              "size" : [
+                2,
+                4,
+                1
+              ],
+              "uv" : [
+                32,
+                0
+              ],
+              "inflate" : 0,
+              "origin" : [
+                -1,
+                -2,
+                4
+              ],
+              "pivot" : [
+                0,
+                0,
+                0
+              ],
+              "rotation" : [
+                0,
+                180,
+                0
+              ]
+            },
+            {
+              "size" : [
+                8,
+                8,
+                4
+              ],
+              "uv" : [
+                38,
+                0
+              ],
+              "inflate" : 0,
+              "origin" : [
+                -4,
+                -4,
+                -7.5
+              ],
+              "pivot" : [
+                0,
+                0,
+                0
+              ],
+              "rotation" : [
+                0,
+                180,
+                0
+              ]
+            },
+            {
+              "size" : [
+                8,
+                8,
+                11
+              ],
+              "uv" : [
+                62,
+                0
+              ],
+              "inflate" : 0.14999999664723873,
+              "origin" : [
+                -4,
+                -4,
+                3.5
+              ],
+              "pivot" : [
+                0,
+                0,
+                0
+              ],
+              "rotation" : [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "size" : [
+                8,
+                8,
+                11
+              ],
+              "uv" : [
+                100,
+                0
+              ],
+              "inflate" : -1.0799999758601189,
+              "origin" : [
+                -4,
+                -4,
+                6.5
+              ],
+              "pivot" : [
+                0,
+                0,
+                0
+              ],
+              "rotation" : [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "name" : "main",
+          "pivot" : [
+            0,
+            0,
+            0
+          ],
+          "rotation" : [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "description" : {
+        "visible_bounds_offset" : [
+          0,
+          0.25,
+          0
+        ],
+        "texture_height" : 19,
+        "texture_width" : 138,
+        "identifier" : "geometry.creak_heart_wand_bullet",
+        "visible_bounds_width" : 2,
+        "visible_bounds_height" : 1.5
+      }
+    }
+  ]
+}
