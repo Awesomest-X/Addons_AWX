@@ -1,0 +1,84 @@
+{
+  "pools" : [
+    {
+      "rolls" : 3,
+      "entries" : [
+        {
+          "functions" : [
+            {
+              "function" : "set_data",
+              "data" : 0
+            },
+            {
+              "count" : 1,
+              "function" : "set_count"
+            }
+          ],
+          "weight" : 1,
+          "type" : "item",
+          "name" : "minecraft:gunpowder"
+        },
+        {
+          "functions" : [
+            {
+              "function" : "set_data",
+              "data" : 10
+            },
+            {
+              "count" : 1,
+              "function" : "set_count"
+            }
+          ],
+          "weight" : 1,
+          "type" : "item",
+          "name" : "minecraft:brown_mushroom_block"
+        },
+        {
+          "functions" : [
+            {
+              "function" : "set_data",
+              "data" : 0
+            },
+            {
+              "count" : 1,
+              "function" : "set_count"
+            }
+          ],
+          "weight" : 1,
+          "type" : "item",
+          "name" : "minecraft:blue_dye"
+        },
+        {
+          "functions" : [
+            {
+              "function" : "set_data",
+              "data" : 0
+            },
+            {
+              "count" : 1,
+              "function" : "set_count"
+            }
+          ],
+          "weight" : 1,
+          "type" : "item",
+          "name" : "minecraft:light_blue_dye"
+        },
+        {
+          "functions" : [
+            {
+              "function" : "set_data",
+              "data" : 0
+            },
+            {
+              "count" : 1,
+              "function" : "set_count"
+            }
+          ],
+          "weight" : 1,
+          "type" : "item",
+          "name" : "minecraft:tnt"
+        }
+      ]
+    }
+  ]
+}

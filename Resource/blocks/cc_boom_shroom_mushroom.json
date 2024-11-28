@@ -1,0 +1,106 @@
+{
+  "minecraft:block" : {
+    "permutations" : [
+      {
+        "condition" : "query.block_state('minecraft:cardinal_direction')== 'north'",
+        "components" : {
+          "minecraft:transformation" : {
+            "rotation" : [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition" : "query.block_state('minecraft:cardinal_direction')== 'south'",
+        "components" : {
+          "minecraft:transformation" : {
+            "rotation" : [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition" : "query.block_state('minecraft:cardinal_direction')== 'west'",
+        "components" : {
+          "minecraft:transformation" : {
+            "rotation" : [
+              0,
+              90,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition" : "query.block_state('minecraft:cardinal_direction')== 'east'",
+        "components" : {
+          "minecraft:transformation" : {
+            "rotation" : [
+              0,
+              -90,
+              0
+            ]
+          }
+        }
+      }
+    ],
+    "components" : {
+      "minecraft:friction" : 0.80000001192092896,
+      "minecraft:loot" : "loot_tables\/blocks\/cc_boom_shroom_mushroom.json",
+      "minecraft:collision_box" : {
+        "origin" : [
+          -8,
+          0,
+          -8
+        ],
+        "size" : [
+          16,
+          16,
+          16
+        ]
+      },
+      "minecraft:material_instances" : {
+        "*" : {
+          "texture" : "cc:boom_shroom_mushroom",
+          "render_method" : "alpha_test"
+        }
+      },
+      "tag:minecraft:wood" : {
+
+      },
+      "minecraft:destructible_by_mining" : {
+        "seconds_to_destroy" : 4
+      },
+      "minecraft:light_dampening" : 15,
+      "minecraft:custom_components" : [
+        "cc_boom_shroom_mushroom:trigger"
+      ],
+      "minecraft:destructible_by_explosion" : {
+        "explosion_resistance" : 100
+      },
+      "minecraft:light_emission" : 0,
+      "minecraft:geometry" : "geometry.boom_shroom_mushroom",
+      "minecraft:map_color" : "#2ED7FF"
+    },
+    "description" : {
+      "identifier" : "cc:boom_shroom_mushroom",
+      "traits" : {
+        "minecraft:placement_direction" : {
+          "enabled_states" : [
+            "minecraft:cardinal_direction"
+          ]
+        }
+      },
+      "menu_category" : {
+        "category" : "construction"
+      }
+    }
+  },
+  "format_version" : "1.21.20"
+}

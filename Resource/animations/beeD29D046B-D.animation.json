@@ -1,0 +1,20 @@
+{
+  "animations" : {
+    "animation.bee.flyingD29D046B-D" : {
+      "bones" : {
+        "body" : {
+
+        },
+        "right_wing" : {
+
+        },
+        "left_wing" : {
+
+        }
+      },
+      "animation_length" : 1,
+      "loop" : false
+    }
+  },
+  "format_version" : "1.8.0"
+}

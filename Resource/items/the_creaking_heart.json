@@ -1,0 +1,49 @@
+{
+  "minecraft:item" : {
+    "components" : {
+      "minecraft:can_destroy_in_creative" : {
+        "value" : false
+      },
+      "minecraft:glint" : {
+        "value" : false
+      },
+      "minecraft:damage" : {
+        "value" : 1
+      },
+      "minecraft:max_stack_size" : {
+        "value" : 1
+      },
+      "minecraft:cooldown" : {
+        "category" : "attack",
+        "duration" : 0.30000001192092896
+      },
+      "minecraft:hand_equipped" : {
+        "value" : false
+      },
+      "minecraft:should_despawn" : {
+        "value" : false
+      },
+      "minecraft:liquid_clipped" : {
+        "value" : false
+      },
+      "minecraft:allow_off_hand" : {
+        "value" : true
+      },
+      "minecraft:icon" : "cc:the_creaking_heart",
+      "minecraft:display_name" : {
+        "value" : "Amber"
+      },
+      "minecraft:fuel" : {
+        "duration" : 100
+      }
+    },
+    "description" : {
+      "identifier" : "cc:the_creaking_heart",
+      "menu_category" : {
+        "group" : "itemGroup.name.ore",
+        "category" : "nature"
+      }
+    }
+  },
+  "format_version" : "1.21.10"
+}

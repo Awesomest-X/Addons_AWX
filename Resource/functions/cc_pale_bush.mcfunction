@@ -1,0 +1,1 @@
+give @p cc:pale_bush

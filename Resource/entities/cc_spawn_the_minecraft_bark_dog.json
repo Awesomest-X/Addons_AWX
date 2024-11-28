@@ -1,0 +1,1263 @@
+{
+  "minecraft:entity" : {
+    "components" : {
+      "minecraft:leashable" : {
+        "soft_distance" : 4,
+        "hard_distance" : 6,
+        "max_distance" : 10
+      },
+      "minecraft:scale" : {
+        "value" : 1
+      },
+      "minecraft:behavior.hurt_by_target" : {
+        "priority" : 1
+      },
+      "minecraft:behavior.melee_attack" : {
+        "track_target" : true,
+        "speed_multiplier" : 1.3500000238418579
+      },
+      "minecraft:conditional_bandwidth_optimization" : {
+
+      },
+      "minecraft:behavior.nearest_attackable_target" : {
+        "entity_types" : [
+          {
+            "filters" : {
+              "any_of" : [
+                {
+                  "subject" : "other",
+                  "value" : "player",
+                  "test" : "is_family"
+                },
+                {
+                  "subject" : "other",
+                  "value" : "armor_stand",
+                  "test" : "is_family"
+                }
+              ]
+            },
+            "max_dist" : 35
+          }
+        ],
+        "reselect_targets" : true,
+        "within_radius" : 35,
+        "priority" : 1,
+        "must_see_forget_duration" : 40,
+        "must_see" : true
+      },
+      "minecraft:is_hidden_when_invisible" : {
+
+      },
+      "minecraft:behavior.leap_at_target" : {
+        "yd" : 1,
+        "priority" : 2,
+        "target_dist" : 0.05000000074505806,
+        "must_be_on_ground" : false
+      },
+      "minecraft:navigation.walk" : {
+        "can_pass_doors" : false,
+        "avoid_damage_blocks" : true,
+        "avoid_water" : true,
+        "can_path_over_water" : true,
+        "can_break_doors" : false
+      },
+      "minecraft:behavior.breed" : {
+        "speed_multiplier" : 1,
+        "priority" : 3
+      },
+      "minecraft:tameable" : {
+        "tame_items" : [
+          "appleEnchanted",
+          "cooked_porkchop",
+          "cooked_salmon",
+          "cooked_fish",
+          "cooked_rabbit",
+          "muttonCooked",
+          "cooked_chicken",
+          "cooked_beef",
+          "glow_berries",
+          "sweet_berries",
+          "potato",
+          "beetroot",
+          "carrot",
+          "honey_bottle"
+        ],
+        "tame_event" : {
+          "event" : "minecraft:on_tame",
+          "target" : "self"
+        },
+        "probability" : 1
+      },
+      "minecraft:experience_reward" : {
+        "on_bred" : "10",
+        "on_death" : "10"
+      },
+      "minecraft:environment_sensor" : {
+        "triggers" : [
+          {
+            "filters" : {
+              "value" : false,
+              "test" : "is_daytime"
+            },
+            "event" : "minecraft:fox_configure_night"
+          },
+          {
+            "filters" : {
+              "value" : true,
+              "test" : "is_daytime"
+            },
+            "event" : "minecraft:fox_configure_day"
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll" : {
+        "speed_multiplier" : 0.80000000000000004,
+        "priority" : 13
+      },
+      "minecraft:knockback_resistance" : {
+        "value" : 0.5
+      },
+      "minecraft:timer" : {
+        "looping" : true,
+        "time" : 1,
+        "time_down_event" : {
+          "event" : "cc:on_tick"
+        }
+      },
+      "minecraft:behavior.stalk_and_pounce_on_target" : {
+        "stuck_blocks" : {
+          "test" : "is_block",
+          "subject" : "block",
+          "value" : "snow_layer",
+          "operator" : "=="
+        },
+        "leap_dist" : 0.80000000000000004,
+        "leap_height" : 0.90000000000000002,
+        "interest_time" : 2,
+        "strike_dist" : 2,
+        "pounce_max_dist" : 5,
+        "stalk_speed" : 1.2,
+        "priority" : 7,
+        "max_stalk_dist" : 12,
+        "stuck_time" : 2
+      },
+      "minecraft:movement" : {
+        "value" : 0.30000001192092896
+      },
+      "minecraft:despawn" : {
+        "despawn_from_distance" : {
+
+        }
+      },
+      "minecraft:pushable" : {
+        "is_pushable" : true,
+        "is_pushable_by_piston" : true
+      },
+      "minecraft:inventory" : {
+        "container_type" : "horse",
+        "inventory_size" : 1
+      },
+      "minecraft:health" : {
+        "max" : 350,
+        "value" : 350
+      },
+      "minecraft:physics" : {
+
+      },
+      "minecraft:underwater_movement" : {
+        "value" : 0.30000001192092896
+      },
+      "minecraft:collision_box" : {
+        "width" : 0.59999999999999998,
+        "height" : 0.69999999999999996
+      },
+      "minecraft:behavior.look_at_player" : {
+        "look_distance" : 6,
+        "probability" : 0.02,
+        "priority" : 14
+      },
+      "minecraft:type_family" : {
+        "family" : [
+          "lightweight",
+          "mob",
+          "wolf"
+        ]
+      },
+      "minecraft:jump.static" : {
+
+      },
+      "minecraft:behavior.random_look_around_and_sit" : {
+        "probability" : 0.001,
+        "min_look_time" : 80,
+        "min_look_count" : 2,
+        "priority" : 12,
+        "max_look_time" : 100,
+        "max_look_count" : 5
+      },
+      "minecraft:movement.basic" : {
+
+      },
+      "minecraft:block_climber" : {
+
+      },
+      "minecraft:behavior.random_look_around" : {
+        "priority" : 15
+      },
+      "minecraft:damage_sensor" : {
+        "triggers" : [
+          {
+            "on_damage" : {
+              "filters" : {
+                "subject" : "block",
+                "value" : "minecraft:sweet_berry_bush",
+                "test" : "is_block"
+              }
+            },
+            "deals_damage" : false
+          }
+        ]
+      },
+      "minecraft:scheduler" : {
+        "max_delay_secs" : 0,
+        "scheduled_events" : [
+          {
+            "filters" : [
+              {
+                "value" : true,
+                "test" : "is_sleeping"
+              }
+            ],
+            "event" : "minecraft:ambient_sleep"
+          },
+          {
+            "filters" : {
+              "all_of" : [
+                {
+                  "value" : false,
+                  "test" : "is_daytime"
+                },
+                {
+                  "operator" : ">",
+                  "value" : 16,
+                  "test" : "distance_to_nearest_player"
+                }
+              ]
+            },
+            "event" : "minecraft:ambient_night"
+          },
+          {
+            "filters" : {
+              "all_of" : [
+                {
+                  "value" : false,
+                  "test" : "is_sleeping"
+                },
+                {
+                  "any_of" : [
+                    {
+                      "value" : true,
+                      "test" : "is_daytime"
+                    },
+                    {
+                      "operator" : "<=",
+                      "value" : 16,
+                      "test" : "distance_to_nearest_player"
+                    }
+                  ]
+                }
+              ]
+            },
+            "event" : "minecraft:ambient_normal"
+          }
+        ],
+        "min_delay_secs" : 0
+      },
+      "minecraft:can_climb" : {
+
+      },
+      "minecraft:behavior.float" : {
+        "priority" : 0
+      },
+      "minecraft:behavior.controlled_by_player" : {
+        "priority" : 0
+      },
+      "minecraft:breedable" : {
+        "require_tame" : false,
+        "breeds_with" : {
+          "mate_type" : "spawn_the_minecraft_bark_dog",
+          "baby_type" : "cc:spawn_the_minecraft_bark_dog",
+          "breed_event" : {
+            "event" : "minecraft:entity_born",
+            "target" : "baby"
+          }
+        },
+        "breed_items" : [
+          "appleEnchanted",
+          "cooked_porkchop",
+          "cooked_chicken",
+          "cooked_fish",
+          "muttonCooked",
+          "cooked_beef",
+          "cooked_salmon",
+          "cooked_rabbit",
+          "sweet_berries",
+          "glow_berries",
+          "potato",
+          "beetroot",
+          "carrot",
+          "honey_bottle"
+        ]
+      },
+      "minecraft:behavior.tempt" : {
+        "speed_multiplier" : 0.5,
+        "within_radius" : 16,
+        "priority" : 3,
+        "items" : [
+          "sweet_berries",
+          "glow_berries"
+        ],
+        "can_get_scared" : true
+      },
+      "minecraft:behavior.eat_carried_item" : {
+        "delay_before_eating" : 28,
+        "priority" : 12
+      },
+      "minecraft:breathable" : {
+        "breathes_air" : true,
+        "suffocate_time" : 0,
+        "breathes_water" : true,
+        "generates_bubbles" : true,
+        "total_supply" : 1000
+      },
+      "minecraft:nameable" : {
+        "allow_name_tag_renaming" : true,
+        "always_show" : false
+      },
+      "minecraft:item_controllable" : {
+        "control_items" : "stick"
+      },
+      "minecraft:shareables" : {
+        "all_items_max_amount" : 1,
+        "items" : [
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:apple"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:appleEnchanted"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:baked_potato"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:beef"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:beetroot"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:beetroot_soup"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:bread"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:carrot"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:chicken"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:chorus_fruit"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:clownfish"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:cooked_beef"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:cooked_chicken"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:cooked_fish"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:cooked_porkchop"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:cooked_rabbit"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:cooked_salmon"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:cookie"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:dried_kelp"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:fish"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:golden_apple"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:golden_carrot"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:melon"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:mushroom_stew"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:muttonCooked"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:muttonRaw"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:poisonous_potato"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:porkchop"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:potato"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:pufferfish"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:pumpkin_pie"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:rabbit"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:rabbit_stew"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:rotten_flesh"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:salmon"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:spider_eye"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:sweet_berries"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:glow_berries"
+          },
+          {
+            "priority" : 0,
+            "max_amount" : 1,
+            "item" : "minecraft:suspicious_stew"
+          }
+        ],
+        "all_items" : true
+      },
+      "minecraft:behavior.raid_garden" : {
+        "blocks" : [
+          "minecraft:sweet_berry_bush",
+          "minecraft:cave_vines_head_with_berries",
+          "minecraft:cave_vines_body_with_berries"
+        ],
+        "max_to_eat" : 0,
+        "search_height" : 2,
+        "initial_eat_delay" : 2,
+        "goal_radius" : 0.80000000000000004,
+        "priority" : 12,
+        "speed_multiplier" : 1.2,
+        "search_range" : 12
+      },
+      "minecraft:equip_item" : {
+
+      },
+      "minecraft:behavior.pickup_items" : {
+        "max_dist" : 3,
+        "speed_multiplier" : 0.5,
+        "priority" : 11,
+        "goal_radius" : 2
+      },
+      "minecraft:balloonable" : {
+        "mass" : 0.59999999999999998
+      },
+      "minecraft:boostable" : {
+        "boost_items" : [
+          {
+            "damage" : 2,
+            "replace_item" : "fishing_rod",
+            "item" : "carrotOnAStick"
+          }
+        ],
+        "speed_multiplier" : 2,
+        "duration" : 3
+      },
+      "minecraft:attack" : {
+        "effect_name" : "slowness",
+        "effect_duration" : 15,
+        "damage" : 8
+      },
+      "minecraft:behavior.equip_item" : {
+        "priority" : 2
+      }
+    },
+    "component_groups" : {
+      "minecraft:fox_arctic" : {
+        "minecraft:behavior.nearest_prioritized_attackable_target" : {
+          "reselect_targets" : true,
+          "target_search_height" : 5,
+          "priority" : 6,
+          "attack_interval" : 2,
+          "entity_types" : [
+            {
+              "filters" : {
+                "subject" : "other",
+                "value" : "rabbit",
+                "test" : "is_family"
+              },
+              "max_dist" : 12,
+              "priority" : 1
+            },
+            {
+              "filters" : {
+                "subject" : "other",
+                "value" : "chicken",
+                "test" : "is_family"
+              },
+              "max_dist" : 12,
+              "priority" : 1
+            },
+            {
+              "filters" : {
+                "subject" : "other",
+                "value" : "cod",
+                "test" : "is_family"
+              },
+              "max_dist" : 12,
+              "priority" : 0
+            },
+            {
+              "filters" : {
+                "subject" : "other",
+                "value" : "salmon",
+                "test" : "is_family"
+              },
+              "max_dist" : 12,
+              "priority" : 0
+            },
+            {
+              "filters" : {
+                "subject" : "other",
+                "value" : "tropicalfish",
+                "test" : "is_family"
+              },
+              "max_dist" : 12,
+              "priority" : 0
+            },
+            {
+              "filters" : {
+                "all_of" : [
+                  {
+                    "subject" : "other",
+                    "value" : "baby_turtle",
+                    "test" : "is_family"
+                  },
+                  {
+                    "test" : "in_water",
+                    "subject" : "other",
+                    "value" : true,
+                    "operator" : "!="
+                  }
+                ]
+              },
+              "max_dist" : 12,
+              "priority" : 1
+            }
+          ]
+        },
+        "minecraft:variant" : {
+          "value" : 1
+        }
+      },
+      "minecraft:fox_baby" : {
+        "minecraft:is_baby" : {
+
+        },
+        "minecraft:scale" : {
+          "value" : 0.5
+        },
+        "minecraft:ageable" : {
+          "feed_items" : [
+            "sweet_berries",
+            "glow_berries"
+          ],
+          "duration" : 1200,
+          "grow_up" : {
+            "event" : "minecraft:ageable_grow_up",
+            "target" : "self"
+          }
+        },
+        "minecraft:behavior.follow_parent" : {
+          "speed_multiplier" : 1.1000000000000001,
+          "priority" : 9
+        }
+      },
+      "minecraft:fox_thunderstorm" : {
+        "minecraft:behavior.find_cover" : {
+          "cooldown_time" : 0,
+          "speed_multiplier" : 1,
+          "priority" : 0
+        },
+        "minecraft:environment_sensor" : {
+          "triggers" : [
+            {
+              "filters" : {
+                "all_of" : [
+                  {
+                    "operator" : "!=",
+                    "value" : "thunderstorm",
+                    "test" : "weather_at_position"
+                  },
+                  {
+                    "value" : true,
+                    "test" : "is_daytime"
+                  }
+                ]
+              },
+              "event" : "minecraft:fox_configure_day"
+            },
+            {
+              "filters" : {
+                "all_of" : [
+                  {
+                    "operator" : "!=",
+                    "value" : "thunderstorm",
+                    "test" : "weather_at_position"
+                  },
+                  {
+                    "value" : false,
+                    "test" : "is_daytime"
+                  }
+                ]
+              },
+              "event" : "minecraft:fox_configure_night"
+            }
+          ]
+        }
+      },
+      "minecraft:fox_with_item" : {
+
+      },
+      "minecraft:fox_night" : {
+        "minecraft:behavior.stroll_towards_village" : {
+          "speed_multiplier" : 1,
+          "start_chance" : 0.0050000000000000001,
+          "search_range" : 32,
+          "priority" : 11,
+          "cooldown_time" : 10,
+          "goal_radius" : 3
+        },
+        "minecraft:environment_sensor" : {
+          "triggers" : [
+            {
+              "filters" : {
+                "value" : "thunderstorm",
+                "test" : "weather_at_position"
+              },
+              "event" : "minecraft:fox_configure_thunderstorm"
+            },
+            {
+              "filters" : {
+                "value" : true,
+                "test" : "is_daytime"
+              },
+              "event" : "minecraft:fox_configure_day"
+            }
+          ]
+        }
+      },
+      "minecraft:defending_fox" : {
+        "minecraft:environment_sensor" : {
+          "triggers" : [
+            {
+              "filters" : {
+                "all_of" : [
+                  {
+                    "value" : true,
+                    "test" : "is_daytime"
+                  },
+                  {
+                    "operator" : "==",
+                    "value" : false,
+                    "test" : "has_target"
+                  }
+                ]
+              },
+              "event" : "minecraft:fox_configure_docile_day"
+            },
+            {
+              "filters" : {
+                "all_of" : [
+                  {
+                    "value" : false,
+                    "test" : "is_daytime"
+                  },
+                  {
+                    "operator" : "==",
+                    "value" : false,
+                    "test" : "has_target"
+                  }
+                ]
+              },
+              "event" : "minecraft:fox_configure_docile_night"
+            }
+          ]
+        },
+        "minecraft:behavior.melee_attack" : {
+          "track_target" : true,
+          "speed_multiplier" : 1.3500000238418579
+        }
+      },
+      "minecraft:fox_ambient_night" : {
+        "minecraft:ambient_sound_interval" : {
+          "value" : 80,
+          "event_name" : "screech",
+          "range" : 160
+        }
+      },
+      "minecraft:universal_tame" : {
+        "minecraft:is_tamed" : {
+
+        },
+        "minecraft:behavior.owner_hurt_by_target" : {
+          "priority" : 1
+        },
+        "minecraft:behavior.owner_hurt_target" : {
+          "priority" : 2
+        },
+        "minecraft:behavior.follow_owner" : {
+          "speed_multiplier" : 1,
+          "start_distance" : 10,
+          "priority" : 1,
+          "stop_distance" : 2
+        }
+      },
+      "minecraft:fox_ambient_sleep" : {
+        "minecraft:ambient_sound_interval" : {
+          "event_name" : "sleep"
+        }
+      },
+      "minecraft:fox_adult" : {
+        "minecraft:experience_reward" : {
+          "on_bred" : "10",
+          "on_death" : "10"
+        },
+        "minecraft:breedable" : {
+          "require_tame" : false,
+          "breeds_with" : {
+            "mate_type" : "spawn_the_minecraft_bark_dog",
+            "baby_type" : "cc:spawn_the_minecraft_bark_dog",
+            "breed_event" : {
+              "event" : "minecraft:entity_born",
+              "target" : "baby"
+            }
+          },
+          "breed_items" : [
+            "appleEnchanted",
+            "cooked_porkchop",
+            "cooked_chicken",
+            "cooked_fish",
+            "muttonCooked",
+            "cooked_beef",
+            "cooked_salmon",
+            "cooked_rabbit",
+            "sweet_berries",
+            "glow_berries",
+            "potato",
+            "beetroot",
+            "carrot",
+            "honey_bottle"
+          ]
+        },
+        "minecraft:behavior.breed" : {
+          "speed_multiplier" : 1,
+          "priority" : 3
+        }
+      },
+      "minecraft:docile_fox" : {
+        "minecraft:behavior.melee_attack" : {
+          "track_target" : true,
+          "speed_multiplier" : 1.3500000238418579
+        }
+      },
+      "minecraft:fox_red" : {
+        "minecraft:behavior.nearest_prioritized_attackable_target" : {
+          "reselect_targets" : true,
+          "target_search_height" : 5,
+          "priority" : 6,
+          "attack_interval" : 2,
+          "entity_types" : [
+            {
+              "filters" : {
+                "subject" : "other",
+                "value" : "rabbit",
+                "test" : "is_family"
+              },
+              "max_dist" : 12,
+              "priority" : 0
+            },
+            {
+              "filters" : {
+                "subject" : "other",
+                "value" : "chicken",
+                "test" : "is_family"
+              },
+              "max_dist" : 12,
+              "priority" : 0
+            },
+            {
+              "filters" : {
+                "subject" : "other",
+                "value" : "cod",
+                "test" : "is_family"
+              },
+              "max_dist" : 12,
+              "priority" : 1
+            },
+            {
+              "filters" : {
+                "subject" : "other",
+                "value" : "salmon",
+                "test" : "is_family"
+              },
+              "max_dist" : 12,
+              "priority" : 1
+            },
+            {
+              "filters" : {
+                "subject" : "other",
+                "value" : "tropicalfish",
+                "test" : "is_family"
+              },
+              "max_dist" : 12,
+              "priority" : 1
+            },
+            {
+              "filters" : {
+                "all_of" : [
+                  {
+                    "subject" : "other",
+                    "value" : "baby_turtle",
+                    "test" : "is_family"
+                  },
+                  {
+                    "test" : "in_water",
+                    "subject" : "other",
+                    "value" : true,
+                    "operator" : "!="
+                  }
+                ]
+              },
+              "max_dist" : 12,
+              "priority" : 0
+            }
+          ]
+        },
+        "minecraft:variant" : {
+          "value" : 0
+        }
+      },
+      "minecraft:trusting_fox" : {
+        "minecraft:behavior.defend_trusted_target" : {
+          "sound_chance" : 0.050000000000000003,
+          "on_defend_start" : {
+            "event" : "minecraft:fox_configure_defending",
+            "target" : "self"
+          },
+          "within_radius" : 25,
+          "priority" : 0,
+          "aggro_sound" : "mad",
+          "must_see" : false
+        },
+        "minecraft:trust" : {
+
+        }
+      },
+      "minecraft:fox_day" : {
+        "minecraft:behavior.find_cover" : {
+          "cooldown_time" : 5,
+          "speed_multiplier" : 1,
+          "priority" : 9
+        },
+        "minecraft:behavior.nap" : {
+          "mob_detect_height" : 6,
+          "mob_detect_dist" : 12,
+          "cooldown_min" : 2,
+          "can_nap_filters" : {
+            "all_of" : [
+              {
+                "test" : "in_water",
+                "subject" : "self",
+                "value" : false,
+                "operator" : "=="
+              },
+              {
+                "test" : "on_ground",
+                "subject" : "self",
+                "value" : true,
+                "operator" : "=="
+              },
+              {
+                "test" : "is_underground",
+                "subject" : "self",
+                "value" : true,
+                "operator" : "=="
+              },
+              {
+                "test" : "weather_at_position",
+                "subject" : "self",
+                "value" : "thunderstorm",
+                "operator" : "!="
+              }
+            ]
+          },
+          "priority" : 8,
+          "cooldown_max" : 7,
+          "wake_mob_exceptions" : {
+            "any_of" : [
+              {
+                "test" : "trusts",
+                "subject" : "other",
+                "value" : true,
+                "operator" : "=="
+              },
+              {
+                "test" : "is_family",
+                "subject" : "other",
+                "value" : "fox",
+                "operator" : "=="
+              },
+              {
+                "test" : "is_sneaking",
+                "subject" : "other",
+                "value" : true,
+                "operator" : "=="
+              }
+            ]
+          }
+        },
+        "minecraft:environment_sensor" : {
+          "triggers" : [
+            {
+              "filters" : {
+                "value" : "thunderstorm",
+                "test" : "weather_at_position"
+              },
+              "event" : "minecraft:fox_configure_thunderstorm"
+            },
+            {
+              "filters" : {
+                "value" : false,
+                "test" : "is_daytime"
+              },
+              "event" : "minecraft:fox_configure_night"
+            }
+          ]
+        }
+      },
+      "minecraft:fox_ambient_normal" : {
+        "minecraft:ambient_sound_interval" : {
+          "event_name" : "ambient"
+        }
+      }
+    },
+    "description" : {
+      "is_spawnable" : true,
+      "is_summonable" : true,
+      "identifier" : "cc:spawn_the_minecraft_bark_dog",
+      "is_experimental" : false
+    },
+    "events" : {
+      "minecraft:fox_configure_docile_night" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:docile_fox",
+            "minecraft:fox_night"
+          ]
+        },
+        "remove" : {
+          "component_groups" : [
+            "minecraft:defending_fox",
+            "minecraft:fox_day"
+          ]
+        }
+      },
+      "minecraft:fox_configure_night" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:fox_night"
+          ]
+        },
+        "remove" : {
+          "component_groups" : [
+            "minecraft:fox_day",
+            "minecraft:fox_thunderstorm"
+          ]
+        }
+      },
+      "minecraft:fox_configure_defending" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:defending_fox"
+          ]
+        },
+        "remove" : {
+          "component_groups" : [
+            "minecraft:docile_fox",
+            "minecraft:fox_day",
+            "minecraft:fox_night"
+          ]
+        }
+      },
+      "minecraft:entity_spawned" : {
+        "sequence" : [
+          {
+            "randomize" : [
+              {
+                "add" : {
+                  "component_groups" : [
+                    "minecraft:fox_adult",
+                    "minecraft:fox_with_item",
+                    "minecraft:docile_fox"
+                  ]
+                },
+                "weight" : 95
+              },
+              {
+                "add" : {
+                  "component_groups" : [
+                    "minecraft:fox_baby",
+                    "minecraft:docile_fox"
+                  ]
+                },
+                "weight" : 5
+              }
+            ]
+          },
+          {
+            "filters" : {
+              "value" : true,
+              "test" : "is_snow_covered"
+            },
+            "add" : {
+              "component_groups" : [
+                "minecraft:fox_arctic"
+              ]
+            }
+          },
+          {
+            "filters" : {
+              "value" : false,
+              "test" : "is_snow_covered"
+            },
+            "add" : {
+              "component_groups" : [
+                "minecraft:fox_red"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:ambient_normal" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:fox_ambient_normal"
+          ]
+        }
+      },
+      "minecraft:ageable_grow_up" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:fox_adult"
+          ]
+        },
+        "remove" : {
+          "component_groups" : [
+            "minecraft:fox_baby"
+          ]
+        }
+      },
+      "minecraft:fox_configure_docile_day" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:docile_fox",
+            "minecraft:fox_day"
+          ]
+        },
+        "remove" : {
+          "component_groups" : [
+            "minecraft:defending_fox",
+            "minecraft:fox_night"
+          ]
+        }
+      },
+      "minecraft:entity_born" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:fox_baby",
+            "minecraft:trusting_fox",
+            "minecraft:docile_fox"
+          ]
+        }
+      },
+      "minecraft:fox_configure_day" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:fox_day"
+          ]
+        },
+        "remove" : {
+          "component_groups" : [
+            "minecraft:fox_night",
+            "minecraft:fox_thunderstorm"
+          ]
+        }
+      },
+      "minecraft:ambient_sleep" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:fox_ambient_sleep"
+          ]
+        }
+      },
+      "cc:on_tick" : {
+        "run_command" : {
+          "command" : [
+            "function creakingimmortalfunction"
+          ]
+        }
+      },
+      "minecraft:fox_configure_thunderstorm" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:fox_thunderstorm"
+          ]
+        },
+        "remove" : {
+          "component_groups" : [
+            "minecraft:fox_night",
+            "minecraft:fox_day"
+          ]
+        }
+      },
+      "minecraft:on_tame" : {
+        "sequence" : [
+          {
+            "remove" : {
+              "component_groups" : [
+                "minecraft:universal_wild"
+              ]
+            }
+          },
+          {
+            "add" : {
+              "component_groups" : [
+                "minecraft:universal_tame"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:ambient_night" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:fox_ambient_night"
+          ]
+        }
+      }
+    }
+  },
+  "format_version" : "1.17.10"
+}

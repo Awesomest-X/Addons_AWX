@@ -1,0 +1,1 @@
+give @a cc:boom_shroom_bomb 1 true

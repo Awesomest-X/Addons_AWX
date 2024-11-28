@@ -1,0 +1,73 @@
+{
+  "minecraft:item" : {
+    "events" : {
+      "cc:on_use" : {
+        "shoot" : {
+          "projectile" : "cc:creak_heart_wand_bullet",
+          "launch_power" : 1.3
+        },
+        "run_command" : {
+          "command" : [
+            "playsound creak_heart_wand.shot @a ~ ~ ~"
+          ]
+        }
+      }
+    },
+    "components" : {
+      "minecraft:max_stack_size" : 1,
+      "minecraft:hand_equipped" : true,
+      "minecraft:foil" : false,
+      "minecraft:icon" : {
+        "texture" : "cc:creak_heart_wand"
+      },
+      "minecraft:render_offsets" : {
+        "main_hand" : {
+          "third_person" : {
+            "scale" : [
+              0.0023529411764705885,
+              0.0023529411764705885,
+              0.0023529411764705885
+            ]
+          },
+          "first_person" : {
+            "scale" : [
+              0.00089411764705882356,
+              0.00089411764705882356,
+              0.00089411764705882356
+            ]
+          }
+        },
+        "off_hand" : {
+          "third_person" : {
+            "scale" : [
+              0.0023529411764705885,
+              0.0023529411764705885,
+              0.0023529411764705885
+            ]
+          },
+          "first_person" : {
+            "scale" : [
+              0.00089411764705882356,
+              0.00089411764705882356,
+              0.00089411764705882356
+            ]
+          }
+        }
+      },
+      "minecraft:on_use" : {
+        "on_use" : {
+          "event" : "cc:on_use"
+        }
+      },
+      "minecraft:cooldown" : {
+        "category" : "change_mehuine",
+        "duration" : 0.20000000000000001
+      }
+    },
+    "description" : {
+      "category" : "equipment",
+      "identifier" : "cc:creak_heart_wand"
+    }
+  },
+  "format_version" : "1.16.100"
+}

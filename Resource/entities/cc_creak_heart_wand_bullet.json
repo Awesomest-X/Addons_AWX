@@ -1,0 +1,81 @@
+{
+  "minecraft:entity" : {
+    "components" : {
+      "minecraft:projectile" : {
+        "anchor" : 1,
+        "on_hit" : {
+          "impact_damage" : {
+            "knockback" : true,
+            "damage" : 25
+          },
+          "definition_event" : {
+            "eventTrigger" : {
+              "event" : "minecraft:explode",
+              "target" : "self"
+            },
+            "affectProjectile" : true
+          }
+        },
+        "offset" : [
+          0,
+          -0.29999999999999999,
+          0
+        ],
+        "gravity" : 0.039999999105930328,
+        "catchFire" : false,
+        "power" : 1.6000000000000001,
+        "angle_offset" : 0
+      },
+      "minecraft:collision_box" : {
+        "width" : 0.25,
+        "height" : 0.25
+      },
+      "minecraft:conditional_bandwidth_optimization" : {
+        "default_values" : {
+          "max_optimized_distance" : 80,
+          "max_dropped_ticks" : 10,
+          "use_motion_prediction_hints" : true
+        }
+      },
+      "minecraft:physics" : {
+        "has_collision" : true,
+        "has_gravity" : true
+      }
+    },
+    "component_groups" : {
+      "minecraft:exploding" : {
+        "minecraft:explode" : {
+          "fuseLength" : 0,
+          "power" : 4,
+          "fuseLit" : true,
+          "causesFire" : true
+        }
+      }
+    },
+    "description" : {
+      "runtime_identifier" : "minecraft:arrow",
+      "is_experimental" : false,
+      "animations" : {
+        "gun" : "controller.animation.creak_heart_wand"
+      },
+      "identifier" : "cc:creak_heart_wand_bullet",
+      "is_summonable" : true,
+      "scripts" : {
+        "animate" : [
+          "gun"
+        ]
+      },
+      "is_spawnable" : false
+    },
+    "events" : {
+      "minecraft:explode" : {
+        "add" : {
+          "component_groups" : [
+            "minecraft:exploding"
+          ]
+        }
+      }
+    }
+  },
+  "format_version" : "1.16.0"
+}

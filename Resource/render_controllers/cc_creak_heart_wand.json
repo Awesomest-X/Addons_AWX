@@ -1,0 +1,16 @@
+{
+  "render_controllers" : {
+    "controller.render.creak_heart_wand" : {
+      "geometry" : "Geometry.creak_heart_wand",
+      "materials" : [
+        {
+          "*" : "Material.default"
+        }
+      ],
+      "textures" : [
+        "Texture.creak_heart_wand"
+      ]
+    }
+  },
+  "format_version" : "1.8.0"
+}

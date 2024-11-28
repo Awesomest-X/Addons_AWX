@@ -1,0 +1,58 @@
+{
+  "animations" : {
+    "animation.creak_heart_wand.hold" : {
+      "bones" : {
+        "rotator" : {
+          "rotation" : [
+            0,
+            0,
+            "query.anim_time * 850"
+          ]
+        },
+        "inner_rotor" : {
+          "rotation" : [
+            0,
+            0,
+            "query.anim_time * 950"
+          ]
+        }
+      },
+      "loop" : true
+    },
+    "animation.creak_heart_wand_bullet" : {
+      "bones" : {
+        "main" : {
+          "scale" : [
+            0.90000000000000002,
+            0.90000000000000002,
+            0.90000000000000002
+          ],
+          "rotation" : [
+            "variable.shake_power - query.target_x_rotation",
+            "-query.target_y_rotation",
+            0
+          ]
+        }
+      },
+      "loop" : true
+    },
+    "animation.creak_heart_wand.first_person.hold" : {
+      "bones" : {
+        "gun" : {
+          "rotation" : [
+            5,
+            60,
+            -82.5
+          ],
+          "position" : [
+            0,
+            7,
+            0
+          ]
+        }
+      },
+      "loop" : true
+    }
+  },
+  "format_version" : "1.8.0"
+}

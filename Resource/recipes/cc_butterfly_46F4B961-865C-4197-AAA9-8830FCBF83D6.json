@@ -1,0 +1,24 @@
+{
+  "minecraft:recipe_shaped" : {
+    "result" : {
+      "count" : 1,
+      "data" : "query.get_actor_info_id('cc:butterfly')",
+      "item" : "spawn_egg"
+    },
+    "tags" : [
+      "crafting_table"
+    ],
+    "key" : {
+
+    },
+    "pattern" : [
+      "   ",
+      "   ",
+      "   "
+    ],
+    "description" : {
+      "identifier" : "cc:butterfly_46F4B961-865C-4197-AAA9-8830FCBF83D6"
+    }
+  },
+  "format_version" : "1.10"
+}
