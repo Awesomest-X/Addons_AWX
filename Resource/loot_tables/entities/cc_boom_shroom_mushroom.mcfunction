@@ -1,0 +1,1 @@
+give @p cc:boom_shroom_mushroom

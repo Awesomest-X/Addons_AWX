@@ -1,0 +1,1 @@
+give @p cc:creak_heart_wand
