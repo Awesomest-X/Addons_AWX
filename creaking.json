@@ -1,0 +1,48 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pale:creaking",
+			"materials": {
+				"default": "phantom"
+			},
+			"textures": {
+				"default": "textures/entity/pale/creaking"
+			},
+			"geometry": {
+				"default": "geometry.mc.creaking"
+			},
+			"animations": {
+				"move": "animation.mc.creaking_move",
+				"attack": "animation.mc.creaking.attack",
+						"attack_controller": "controller.animation.mc.creaking.attack"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.anim_pos_mod = 49.388962;",
+					"variable.animation_speed = Math.min(0.5, 3.0 * query.modified_move_speed);",
+					"variable.pi = 180;",
+					"variable.halfpi = variable.pi / 2.0;",
+					"variable.bob = query.life_time * 20;",
+					"variable.left_leg_x_rot = 57.2958 * math.cos(query.modified_distance_moved * variable.anim_pos_mod) * variable.animation_speed;",
+					"variable.right_leg_x_rot = 57.2958 * math.cos(query.modified_distance_moved * variable.anim_pos_mod + variable.pi) * variable.animation_speed;",
+					"variable.left_arm_x_rot = -(45.8366 * math.cos(query.modified_distance_moved * variable.anim_pos_mod) * variable.animation_speed);",
+					"variable.right_arm_x_rot = -(45.8366 * math.sin(query.modified_distance_moved * variable.anim_pos_mod) * variable.animation_speed);",
+					"variable.head_x_rot = (50 * math.cos(query.modified_distance_moved * variable.anim_pos_mod + variable.halfpi) * math.min(0.35, variable.animation_speed)) + (math.sin(variable.bob * 5.72958) * 0.06);",
+					"variable.head_z_rot = (7 * math.sin(query.modified_distance_moved * variable.anim_pos_mod) * variable.animation_speed) + (Math.cos(variable.bob * 5.72958) * 0.06);"
+				],
+				"animate": [
+					"move",
+					"attack_controller"
+				]
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"spawn_egg": {
+				"base_color": "#715d5b",
+				"overlay_color": "#ecad00"
+			}
+		}
+	}
+}
