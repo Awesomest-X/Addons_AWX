@@ -1,0 +1,28 @@
+{
+  "minecraft:client_entity" : {
+    "description" : {
+      "render_controllers" : [
+        "controller.render.item_sprite"
+      ],
+      "materials" : {
+        "default" : "snowball"
+      },
+      "geometry" : {
+        "default" : "geometry.item_sprite"
+      },
+      "animations" : {
+        "flying" : "animation.actor.billboard"
+      },
+      "identifier" : "cc:boom_shroom_bomb_bullet",
+      "scripts" : {
+        "animate" : [
+          "flying"
+        ]
+      },
+      "textures" : {
+        "default" : "textures\/craftycraft\/items\/cc_boom_shroom_bomb"
+      }
+    }
+  },
+  "format_version" : "1.10.0"
+}

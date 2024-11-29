@@ -1,0 +1,47 @@
+{
+  "minecraft:client_entity" : {
+    "description" : {
+      "render_controllers" : [
+        "controller.render.fox"
+      ],
+      "materials" : {
+        "default" : "entity_alphatest"
+      },
+      "geometry" : {
+        "default" : "geometry.createdspawn_the_minecraft_bark_dog"
+      },
+      "animations" : {
+        "crouch" : "animation.fox.crouch",
+        "wiggle" : "animation.fox.wiggle",
+        "look_at_target" : "animation.common.look_at_target",
+        "pounce" : "animation.fox.pounce",
+        "setup" : "animation.fox.setup",
+        "baby_transform" : "animation.fox.baby_transform28845E80-D",
+        "stuck" : "animation.fox.stuck",
+        "move" : "controller.animation.fox.move",
+        "sleep" : "animation.fox.sleep",
+        "sit" : "animation.fox.sit28845E80-D",
+        "walk" : "animation.quadruped.walk28845E80-D"
+      },
+      "spawn_egg" : {
+        "texture" : "cc:spawn_the_minecraft_bark_dog",
+        "texture_index" : 0
+      },
+      "identifier" : "cc:spawn_the_minecraft_bark_dog",
+      "scripts" : {
+        "animate" : [
+          "setup",
+          {
+            "baby_transform" : "query.is_baby"
+          },
+          "move"
+        ]
+      },
+      "textures" : {
+        "red" : "textures\/craftycraft\/entity\/cc_spawn_the_minecraft_bark_dog",
+        "arctic" : "textures\/craftycraft\/entity\/cc_spawn_the_minecraft_bark_dog"
+      }
+    }
+  },
+  "format_version" : "1.10.0"
+}
