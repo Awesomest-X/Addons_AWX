@@ -1,0 +1,38 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:block": {
+		"description": {
+			"identifier": "pale:pale_oak_leaves",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.leaves"
+			},
+			"states": {
+				"mc:decay": [4,3,2,1,0],
+				"mc:update_bit": [true,false]
+			}
+		},
+		"permutations": [
+			{"condition": "query.block_state('mc:decay') == 4", "components": {"tag:decay_4":{}}},
+			{"condition": "query.block_state('mc:decay') == 3", "components": {"tag:decay_3":{}}},
+			{"condition": "query.block_state('mc:decay') == 2", "components": {"tag:decay_2":{}}},
+			{"condition": "query.block_state('mc:update_bit')", "components": {"minecraft:custom_components": ["mc:decay_leaves","mc:leaves"]}}
+		],
+		"components": {
+			"tag:pale_garden": {},
+			"minecraft:loot": "loot_tables/empty.json",
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {"texture": "p-pale_oak_leaves", "render_method": "alpha_test_single_sided"}
+			},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:light_dampening": 1,
+			"minecraft:light_emission": 0,
+			"minecraft:destructible_by_explosion": {"explosion_resistance": 1.0},
+			"minecraft:destructible_by_mining": {"seconds_to_destroy": 0.2},
+			"minecraft:custom_components": ["mc:leaves"],
+			"minecraft:map_color": "#000000"
+		}
+	}
+}

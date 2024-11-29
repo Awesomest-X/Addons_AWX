@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:block": {
+		"description": {
+			"identifier": "pale:pale_oak_door",
+			"menu_category": {
+				"category": "none",
+				"is_hidden_in_commands": true
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.mc.door",
+			"minecraft:material_instances": {"*": {"texture": "p-pale_oak_door_top"},"door_bottom": {"texture": "p-pale_oak_door_bottom"}},
+			"minecraft:collision_box": false,
+			"minecraft:selection_box": {"origin": [-4, 0, -8.0],"size": [8, 16, 1.5]},
+			"minecraft:loot": "loot_tables/empty.json",
+			"minecraft:light_dampening": 1,
+			"minecraft:light_emission": 0,
+			"minecraft:destructible_by_explosion": {"explosion_resistance": 3.0},
+			"minecraft:destructible_by_mining": {"seconds_to_destroy": 0.8},
+			"minecraft:custom_components": ["mc:door_place"],
+			"minecraft:map_color": "#FFF7AF"
+		}
+	}
+}

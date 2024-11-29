@@ -1,0 +1,49 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:block": {
+		"description": {
+			"identifier": "pale:pale_oak_door_bottom",
+			"menu_category": {
+				"category": "none",
+				"is_hidden_in_commands": true
+			},
+			"traits": {
+				"minecraft:placement_direction": {"enabled_states": ["minecraft:cardinal_direction"],"y_rotation_offset": 180}
+			},
+			"states": {
+				"mc:open": [false, true],
+				"mc:side": [false, true]
+			}
+		},
+		"permutations": [
+			{"condition": "query.block_state('minecraft:cardinal_direction') == 'north'","components": {"minecraft:transformation": {"rotation": [0,0,0]}}},
+			{"condition": "query.block_state('minecraft:cardinal_direction') == 'south'","components": {"minecraft:transformation": {"rotation": [0,180,0]}}},
+			{"condition": "query.block_state('minecraft:cardinal_direction') == 'west'","components": {"minecraft:transformation": {"rotation": [0,90,0]}}},
+			{"condition": "query.block_state('minecraft:cardinal_direction') == 'east'","components": {"minecraft:transformation": {"rotation": [0,-90,0]}}},
+			{"condition": "query.block_state('mc:open')","components": {"minecraft:collision_box": {"origin": [-8, 0, -8],"size": [3, 16, 16]},"minecraft:selection_box": {"origin": [-8, 0, -8],"size": [3, 16, 16]}}},
+			{"condition": "query.block_state('mc:side') && query.block_state('mc:open')","components": {"minecraft:collision_box": {"origin": [5, 0, -8],"size": [3, 16, 16]},"minecraft:selection_box": {"origin": [5, 0, -8],"size": [3, 16, 16]}}}
+		],
+		"components": {
+			"minecraft:geometry": {
+				"identifier": "geometry.mc.door_bottom",
+				"bone_visibility": {
+					"door_bottom": "!query.block_state('mc:open') && !query.block_state('mc:side')",
+					"door_bottom_open": "query.block_state('mc:open') && !query.block_state('mc:side')",
+					"door_bottom2": "!query.block_state('mc:open') && query.block_state('mc:side')",
+					"door_bottom_open2": "query.block_state('mc:open') && query.block_state('mc:side')"
+				}
+			},
+			"minecraft:loot": "loot_tables/pale/pale_oak_door.json",
+			"minecraft:material_instances": {"*": {"texture": "p-pale_oak_door_bottom","render_method": "alpha_test_single_sided"}},
+			"minecraft:collision_box": {"origin": [-8, 0, -8],"size": [16, 16, 3]},
+			"minecraft:selection_box": {"origin": [-8, 0, -8],"size": [16, 16, 3]},
+			"minecraft:placement_filter": {"conditions": [{"allowed_faces": ["down"],"block_filter": ["pale:pale_oak_door_top"]}]},
+			"minecraft:light_dampening": 1,
+			"minecraft:light_emission": 0,
+			"minecraft:destructible_by_explosion": {"explosion_resistance": 3.0},
+			"minecraft:destructible_by_mining": {"seconds_to_destroy": 0.8},
+			"minecraft:custom_components": ["mc:door_interaction"],
+			"minecraft:map_color": "#FFF7AF"
+		}
+	}
+}
