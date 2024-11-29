@@ -1,6 +1,6 @@
 {
   "animations" : {
-    "animation.iron_golem.walk54E64B2D-E" : {
+    "animation.creaking.walk" : {
       "bones" : {
         "leg1" : {
           "scale" : {
@@ -296,7 +296,7 @@
       "animation_length" : 1.3200000524520874,
       "loop" : true
     },
-    "animation.iron_golem.walk_to_target54E64B2D-E" : {
+    "animation.creaking.walk_to_target" : {
       "bones" : {
         "leg1" : {
           "rotation" : {
@@ -519,7 +519,7 @@
       "animation_length" : 1,
       "loop" : true
     },
-    "animation.iron_golem.attack54E64B2D-E" : {
+    "animation.creaking.attack" : {
       "bones" : {
         "leg1" : {
           "rotation" : {
