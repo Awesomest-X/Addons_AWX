@@ -1,0 +1,426 @@
+import { world, ItemStack, BlockPermutation, ItemEnchantableComponent, MolangVariableMap } from '@minecraft/server';
+import { decrementItemInHand, toggleBlockState } from '../util/utils';
+import { airBlocks, backBlockLocation, blockException, directions, frontBlockLocation, leftBlockLocation, rightBlockLocation, solidBlocks } from '../util/globalVariables';
+
+world.afterEvents.itemStartUseOn.subscribe((e) => {
+	const { block, itemStack } = e;
+	if (itemStack?.typeId.includes("axe") && block.typeId === "pale:pale_oak_log") {
+		const direction = block.permutation.getState("minecraft:block_face");
+		block.setPermutation(BlockPermutation.resolve("pale:stripped_pale_oak_log", {'minecraft:block_face': direction}));
+		block.dimension.playSound("place.nether_wood", block.center());
+	}
+});
+world.beforeEvents.worldInitialize.subscribe((e) => {
+	e.blockComponentRegistry.registerCustomComponent("mc:trapdoor", new McTrapdoor());
+	e.blockComponentRegistry.registerCustomComponent("mc:leaves", new McLeaves());
+	e.blockComponentRegistry.registerCustomComponent("mc:decay_leaves", new McDecayLeaves());
+	e.blockComponentRegistry.registerCustomComponent("mc:interaction", new McDefaultInteraction());
+	e.blockComponentRegistry.registerCustomComponent("mc:vines", new McVines());
+	e.blockComponentRegistry.registerCustomComponent("mc:grow_vines", new McGrowVines());
+	e.blockComponentRegistry.registerCustomComponent("mc:door_place", new McDoorPlace());
+	e.blockComponentRegistry.registerCustomComponent("mc:door_interaction", new McDoorInteraction());
+	e.blockComponentRegistry.registerCustomComponent("mc:stairs", new McStairs());
+	e.blockComponentRegistry.registerCustomComponent("mc:place_creaking_heart", new McPlaceCreakingHeart());
+	e.blockComponentRegistry.registerCustomComponent("mc:place_log", new McPlaceLog());
+	e.blockComponentRegistry.registerCustomComponent("mc:block_connection", new McBlockConnection());
+	e.blockComponentRegistry.registerCustomComponent("mc:fence_gate", new McFenceGate());
+	e.blockComponentRegistry.registerCustomComponent("mc:sapling", new McSapling());
+	e.blockComponentRegistry.registerCustomComponent("mc:spawn_creaking", new McSpawnCreaking());
+	e.blockComponentRegistry.registerCustomComponent("mc:button_push", new McButtonPush());
+	e.blockComponentRegistry.registerCustomComponent("mc:button_timer", new McButtonTimer());
+});
+class McButtonTimer {
+	onTick(e) {
+		e.block.setPermutation(e.block.permutation.withState("mc:push", false));
+		e.dimension.playSound("click_off.nether_wood_button", e.block.center());
+	}
+}
+class McButtonPush {
+	onPlayerInteract(e) {
+		e.block.setPermutation(e.block.permutation.withState("mc:push", true));
+		e.dimension.playSound("click_on.nether_wood_button", e.block.center());
+	}
+}
+function spawnCreaking(block, dimension) {
+	const creaking = dimension.spawnEntity("pale:creaking", block.location);
+	let distance = 3 + Math.random() * (5 - 3);
+	let angle = Math.random() * 2 * Math.PI;
+	let offsetX = Math.cos(angle) * distance;
+	let offsetZ = Math.sin(angle) * distance;
+	creaking.teleport({x: block.x + offsetX,y: block.y,z: block.z + offsetZ});
+	creaking.triggerEvent("mc:spawn_creaking_heart");
+	creaking.addTag(`heart: ${block.x} ${block.y} ${block.z}`);
+}
+class McSpawnCreaking {
+	onRandomTick(e) {
+		const { block, dimension } = e;
+		if (Math.random() > 0.05) return;
+		spawnCreaking(block, dimension);
+	}
+	onPlace(e) {
+		const { block, dimension } = e;
+		const direction = block.permutation.getState("minecraft:block_face");
+		if (direction === "up" || direction === "down") {
+			if (block.above().typeId !== "pale:pale_oak_log" || block.below().typeId !== "pale:pale_oak_log") block.setType("pale:creaking_heart_off"); 
+			else spawnCreaking(block, dimension);
+		} else block.setPermutation(BlockPermutation.resolve("pale:creaking_heart_off", {"minecraft:block_face": direction}));
+	}
+}
+class McSapling {
+	onPlayerInteract(e) {
+		const { player, block, dimension } = e;
+		const item = player.getComponent("inventory").container.getItem(player.selectedSlotIndex);
+		if (item?.typeId === "minecraft:bone_meal") {
+			if (Math.random() < 0.3) {
+				const randomIndex = Math.floor(Math.random() * 5);
+				const structures = [
+					{ name: "pale_oak_tree0", offset: { x: -5, z: -6 } },
+					{ name: "pale_oak_tree1", offset: { x: -7, z: -7 } },
+					{ name: "pale_oak_tree2", offset: { x: -5, z: -4 } },
+					{ name: "pale_oak_tree3", offset: { x: -6, z: -5 } },
+					{ name: "pale_oak_tree4", offset: { x: -6, z: -8 } }
+				];
+				const chosenStructure = structures[randomIndex];
+				world.structureManager.place(
+					chosenStructure.name,
+					dimension,
+					{ x: block.x + chosenStructure.offset.x, y: block.y, z: block.z + chosenStructure.offset.z },
+					{ rotation: "None" }
+				);
+			}
+			dimension.spawnParticle("minecraft:crop_growth_emitter", block.center());
+			dimension.playSound("item.bone_meal.use", block.center());
+			decrementItemInHand(player);
+		}
+	}
+}
+class McFenceGate {
+	onPlace(e) {
+		const { block } = e;
+		const direction = block.permutation.getState("minecraft:cardinal_direction");
+		const rightBlock = block.offset(rightBlockLocation[direction]);
+		const leftBlock = block.offset(leftBlockLocation[direction]);
+		const isRightWall = rightBlock.typeId.includes("wall");
+		const isLeftWall = leftBlock.typeId.includes("wall");
+		const shouldEnableWall = isRightWall || isLeftWall;
+		block.setPermutation(block.permutation.withState("mc:wall", shouldEnableWall));
+	}
+	onPlayerInteract(e) {
+		toggleBlockState(e, "mc:open", "close.nether_wood_fence_gate", "open.nether_wood_fence_gate");
+	}
+}
+function UpdateBlockConnection(block) {
+	const states = block.permutation.getAllStates();
+	let prefix = "";
+	if (!block.typeId.includes("fence") && !block.typeId.includes("hedge") && !block.typeId.includes("bars_0")) return;
+	for (const stateName in states) {
+		if (stateName.includes(":n") || stateName.includes(":s") || stateName.includes(":w") || stateName.includes(":e")) {
+			prefix = stateName.split(":")[0];
+			break;
+		}
+	}
+	if (!prefix) return;
+	for (const direction in directions) {
+		const offset = directions[direction];
+		const adjacentBlock = block.offset(offset);
+		const shouldConnect = shouldBlockConnect(adjacentBlock);
+		const stateName = `${prefix}:${direction[0]}`;
+
+		if (stateName in states) {
+			block.setPermutation(block.permutation.withState(stateName, shouldConnect ? 1 : 0));
+		}
+	}
+}
+function updateAdjacentBlocksIfNeeded(block) {
+	try {
+		for (const direction in directions) {
+			const offset = directions[direction];
+			const adjacentBlock = block.offset(offset);
+			UpdateBlockConnection(adjacentBlock);
+		}
+	} catch (error) {}
+}
+world.afterEvents.playerPlaceBlock.subscribe((e) => {
+	const { block } = e;
+	updateAdjacentBlocksIfNeeded(block);
+});
+world.afterEvents.playerBreakBlock.subscribe((e) => {
+	const { block, dimension, brokenBlockPermutation } = e;
+	if (brokenBlockPermutation.type.id === "minecraft:short_grass" && Math.random() < 0.1) {
+		dimension.spawnItem(new ItemStack("pale:pale_oak_sapling_item", 1), block.center());
+	}
+	updateAdjacentBlocksIfNeeded(block);
+});
+world.afterEvents.blockExplode.subscribe((e) => {
+	const { block } = e;
+	updateAdjacentBlocksIfNeeded(block);
+});
+function shouldBlockConnect(block) {
+	return block.hasTag("is_solid") || block.hasTag("block_conection") ||
+		(solidBlocks.some(connect => block.typeId.includes(connect)) &&
+		!blockException.some(exception => block.typeId.includes(exception)) &&
+		block.typeId.includes("minecraft:"));
+}
+class McBlockConnection {
+	onPlace(e) {
+		const { block } = e;
+		UpdateBlockConnection(block);
+		updateAdjacentBlocksIfNeeded(block);
+	}
+}
+class McPlaceLog {
+	onPlace(e) {
+		const { block } = e;
+		const direction = block.permutation.getState("minecraft:block_face");
+		if (direction === "up" || direction === "down") {
+			if (block.above().typeId === "pale:creaking_heart_off" && block.offset({x:0,y:2,z:0}).typeId === "pale:pale_oak_log") block.above().setType("pale:creaking_heart_on");
+			if (block.below().typeId === "pale:creaking_heart_off" && block.offset({x:0,y:-2,z:0}).typeId === "pale:pale_oak_log") block.below().setType("pale:creaking_heart_on");
+		}
+	}
+}
+class McPlaceCreakingHeart {
+	onPlace(e) {
+		const { block } = e;
+		const direction = block.permutation.getState("minecraft:block_face");
+		if (direction === "up" || direction === "down") {
+			if (block.above().typeId === "pale:pale_oak_log" && block.below().typeId === "pale:pale_oak_log") block.setType("pale:creaking_heart_on");
+		}
+	}
+}
+function UpdateStairs(block) {
+	const direction = block.permutation.getState("minecraft:cardinal_direction");
+	const frontBlock = block.offset(frontBlockLocation[direction]);
+	const backBlock = block.offset(backBlockLocation[direction]);
+	const isFrontStair = frontBlock.hasTag('mc.stairs');
+	const isBackStair = backBlock.hasTag('mc.stairs');
+	let shape = "straight";
+	if (direction === "north") {
+		if (isFrontStair && frontBlock.permutation.getState("minecraft:cardinal_direction") === "east") {
+			shape = "outer_right";
+		} else if (isFrontStair && frontBlock.permutation.getState("minecraft:cardinal_direction") === "west") {
+			shape = "outer_left";
+		} else if (isBackStair && !backBlock.permutation.getState("mc:shape").startsWith("outer") && backBlock.permutation.getState("minecraft:cardinal_direction") === "west") {
+			shape = "inner_left";
+		} else if (isBackStair && !backBlock.permutation.getState("mc:shape").startsWith("outer") && backBlock.permutation.getState("minecraft:cardinal_direction") === "east") {
+			shape = "inner_right";
+		}
+	} else if (direction === "south") {
+		if (isFrontStair && frontBlock.permutation.getState("minecraft:cardinal_direction") === "west") {
+			shape = "outer_right";
+		} else if (isFrontStair && frontBlock.permutation.getState("minecraft:cardinal_direction") === "east") {
+			shape = "outer_left";
+		} else if (isBackStair && !backBlock.permutation.getState("mc:shape").startsWith("outer") && backBlock.permutation.getState("minecraft:cardinal_direction") === "east") {
+			shape = "inner_left";
+		} else if (isBackStair && !backBlock.permutation.getState("mc:shape").startsWith("outer") && backBlock.permutation.getState("minecraft:cardinal_direction") === "west") {
+			shape = "inner_right";
+		}
+	} else if (direction === "east") {
+		if (isFrontStair && frontBlock.permutation.getState("minecraft:cardinal_direction") === "north") {
+			shape = "outer_left";
+		} else if (isFrontStair && frontBlock.permutation.getState("minecraft:cardinal_direction") === "south") {
+			shape = "outer_right";
+		} else if (isBackStair && !backBlock.permutation.getState("mc:shape").startsWith("outer") && backBlock.permutation.getState("minecraft:cardinal_direction") === "south") {
+			shape = "inner_right";
+		} else if (isBackStair && !backBlock.permutation.getState("mc:shape").startsWith("outer") && backBlock.permutation.getState("minecraft:cardinal_direction") === "north") {
+			shape = "inner_left";
+		}
+	} else if (direction === "west") {
+		if (isFrontStair && frontBlock.permutation.getState("minecraft:cardinal_direction") === "south") {
+			shape = "outer_left";
+		} else if (isFrontStair && frontBlock.permutation.getState("minecraft:cardinal_direction") === "north") {
+			shape = "outer_right";
+		} else if (isBackStair && !backBlock.permutation.getState("mc:shape").startsWith("outer") && backBlock.permutation.getState("minecraft:cardinal_direction") === "north") {
+			shape = "inner_right";
+		} else if (isBackStair && !backBlock.permutation.getState("mc:shape").startsWith("outer") && backBlock.permutation.getState("minecraft:cardinal_direction") === "south") {
+			shape = "inner_left";
+		}
+	}		
+	block.setPermutation(block.permutation.withState("mc:shape", shape));
+}
+class McStairs {
+	onPlace(e) {
+		const { block } = e;
+		UpdateStairs(block);
+		const direction = block.permutation.getState("minecraft:cardinal_direction");
+		const leftBlock = block.offset(leftBlockLocation[direction]);
+		const rightBlock = block.offset(rightBlockLocation[direction]);
+		if (leftBlock.hasTag("mc.stairs")) UpdateStairs(leftBlock);
+		if (rightBlock.hasTag("mc.stairs")) UpdateStairs(rightBlock);
+	}
+	onPlayerDestroy(e) {
+		const { block, destroyedBlockPermutation } = e;
+		const direction = destroyedBlockPermutation.getState("minecraft:cardinal_direction");
+		const leftBlock = block.offset(leftBlockLocation[direction]);
+		const rightBlock = block.offset(rightBlockLocation[direction]);
+		if (leftBlock.hasTag("mc.stairs")) UpdateStairs(leftBlock);
+		if (rightBlock.hasTag("mc.stairs")) UpdateStairs(rightBlock);
+	}
+}
+class McDoorInteraction {
+	onPlayerInteract(e) {
+		const { block, dimension } = e;
+		const currentState = block.permutation.getState("mc:open");
+		if (block.typeId.includes("top")) block.below().setPermutation(block.below().permutation.withState("mc:open", !currentState));
+		if (block.typeId.includes("bottom")) block.above().setPermutation(block.above().permutation.withState("mc:open", !currentState));
+		block.setPermutation(block.permutation.withState("mc:open", !currentState));
+		dimension.playSound(currentState ? "close.nether_wood_door" : "open.nether_wood_door", block.center());
+	}
+}
+class McDoorPlace {
+	beforeOnPlayerPlace(e) {
+		const { player, block, dimension } = e;
+		if (airBlocks.includes(block.above().typeId)) {
+			const yRotation = player.getRotation().y;
+			const direction = (yRotation >= -45 && yRotation <= 45) ? "north" : (yRotation > 45 && yRotation <= 135) ? "east" : (yRotation < -45 && yRotation >= -135) ? "west" : "south";
+			const leftBlock = block.offset(leftBlockLocation[direction]);
+			let sideState = false;
+			if (!leftBlock.permutation.getState("mc:side") && leftBlock.typeId === "pale:pale_oak_door_bottom") sideState = true;
+			block.setPermutation(BlockPermutation.resolve("pale:pale_oak_door_bottom", {"minecraft:cardinal_direction": direction, "mc:side": sideState}));
+			block.above().setPermutation(BlockPermutation.resolve("pale:pale_oak_door_top", {"minecraft:cardinal_direction": direction, "mc:side": sideState}));
+			decrementItemInHand(player);
+			dimension.playSound("place.nether_wood", block.center());
+		};
+		e.cancel = true;
+	}
+}
+class McGrowVines {
+	onRandomTick(e) {
+		const { block } = e;
+		if (Math.random() < 0.0625 && block.below().typeId === "minecraft:air") {
+			block.below().setType("pale:pale_vines");
+		}
+	}
+}
+class McVines {
+	onPlace(e) {
+		const { block } = e;
+		if (block.above().typeId === "pale:pale_vines") {
+			block.above().setPermutation(block.above().permutation.withState("mc:vines_top", 1));
+		}
+	}
+	onPlayerDestroy(e) {
+		const { block } = e;
+		if (block.above().typeId === "pale:pale_vines") {
+			block.above().setPermutation(block.above().permutation.withState("mc:vines_top", 0));
+		}
+	}
+}
+class McDefaultInteraction {
+	beforeOnPlayerPlace(e) {}
+}
+class McDecayLeaves {
+	onRandomTick(e) {
+		const { block, dimension } = e;
+		if (block.permutation.getState("mc:decay") === 0) {
+			if (Math.random() < 0.025) dimension.spawnItem(new ItemStack("pale:pale_oak_sapling_item",1), block.center());
+			if (Math.random() < 0.02) dimension.spawnItem(new ItemStack("minecraft:stick",1), block.center());
+			block.setType("minecraft:air");
+		} else if (block.typeId === "pale:pale_oak_leaves") block.setPermutation(block.permutation.withState("mc:decay", getDecay(block)));
+	}
+}
+function getDecay(block) {
+	if (!block.north() || !block.south() || !block.west() || !block.east()) return block.permutation.getState("mc:decay");
+	if (block.north().hasTag('log') || block.south().hasTag('log') || 
+		block.east().hasTag('log') || block.west().hasTag('log') || 
+		block.above().hasTag('log') || block.below().hasTag('log')) {
+		return 4;
+	} else if (block.north().hasTag('decay_4') || block.south().hasTag('decay_4') || 
+		block.east().hasTag('decay_4') || block.west().hasTag('decay_4') || 
+		block.above().hasTag('decay_4') || block.below().hasTag('decay_4')) {
+		return 3;
+	} else if (block.north().hasTag('decay_3') || block.south().hasTag('decay_3') || 
+		block.east().hasTag('decay_3') || block.west().hasTag('decay_3') || 
+		block.above().hasTag('decay_3') || block.below().hasTag('decay_3')) {
+		return 2;
+	} else if (block.north().hasTag('decay_2') || block.south().hasTag('decay_2') || 
+		block.east().hasTag('decay_2') || block.west().hasTag('decay_2') || 
+		block.above().hasTag('decay_2') || block.below().hasTag('decay_2')) {
+		return 1;
+	} else return 0;
+}
+class McLeaves {
+	beforeOnPlayerPlace(e) {
+		e.permutationToPlace = e.permutationToPlace.withState("mc:update_bit", false);
+	}
+	onPlayerDestroy(e) {
+		const { player, block, dimension } = e;
+		const item = player.getComponent("inventory").container.getItem(player.selectedSlotIndex);
+		const silkTouch = item?.getComponent(ItemEnchantableComponent.componentId)?.getEnchantment("silk_touch");
+		if (player.getGameMode() === "survival" && !silkTouch) {
+			if (Math.random() < 0.025) dimension.spawnItem(new ItemStack("pale:pale_oak_sapling_item",1), block.center());
+			if (Math.random() < 0.02) dimension.spawnItem(new ItemStack("minecraft:stick",1), block.center());
+		}
+	}
+}
+class McTrapdoor {
+	onPlayerInteract(e) {
+		const { block, dimension } = e;
+		const currentState = block.permutation.getState("mc:open");
+		block.setPermutation(block.permutation.withState("mc:open", !currentState));
+		dimension.playSound(currentState ? "close.nether_wood_trapdoor" : "open.nether_wood_trapdoor", block.center());
+	}
+}
+function testHeart(entity) {
+	let entityTags = entity.getTags();
+	let heartTag = entityTags.find(tag => tag.startsWith("heart:"));
+	if (heartTag) {
+		let coordinates = heartTag.split(": ")[1].split(" ");
+		let heartX = parseInt(coordinates[0]);
+		let heartY = parseInt(coordinates[1]);
+		let heartZ = parseInt(coordinates[2]);
+		let block = entity.dimension.getBlock({ x: heartX, y: heartY, z: heartZ });
+		if (block?.typeId !== "pale:creaking_heart_on") {
+			entity.kill();
+		}
+	}
+}
+world.afterEvents.dataDrivenEntityTrigger.subscribe((e) => {
+	const { entity, eventId } = e;
+	if (entity.typeId === "pale:creaking" && eventId === "mc:creaking_update_attack") {
+		testHeart(entity);
+		let playersInRange = entity.dimension.getEntities({
+			type: "minecraft:player",
+			location: entity.location,
+			maxDistance: 10
+		});
+		let playerIsLooking = false;
+		playersInRange.forEach(player => {
+			let playerRotationY = player.getRotation().y;
+			let creakingRotationY = entity.getRotation().y;
+			if (isPlayerLookingAtEntity(playerRotationY, creakingRotationY)) playerIsLooking = true;
+		});
+		if (playerIsLooking) entity.triggerEvent("mc:petrify");
+		else entity.triggerEvent("mc:awaken");
+	}
+});
+world.afterEvents.entityHitEntity.subscribe((e) => {
+	const { hitEntity } = e;
+	if (hitEntity.typeId !== "pale:creaking") return;
+	let entityTags = hitEntity.getTags();
+	let heartTag = entityTags.find(tag => tag.startsWith("heart:"));
+	if (heartTag) {
+		let coordinates = heartTag.split(": ")[1].split(" ");
+		const molang = new MolangVariableMap();
+		let headLocation = hitEntity.getHeadLocation();
+		let targetX = parseFloat(coordinates[0]) + 0.5;
+		let targetY = parseFloat(coordinates[1]) + 0.5;
+		let targetZ = parseFloat(coordinates[2]) + 0.5;
+		let directionX = targetX - headLocation.x;
+		let directionY = targetY - headLocation.y;
+		let directionZ = targetZ - headLocation.z;
+		let magnitude = Math.sqrt(directionX * directionX + directionY * directionY + directionZ * directionZ);
+		molang.setFloat('variable.x', directionX / magnitude);
+		molang.setFloat('variable.y', directionY / magnitude);
+		molang.setFloat('variable.z', directionZ / magnitude);
+		hitEntity.dimension.spawnParticle("pale:creaking_heart", headLocation, molang);
+	}
+});
+function isPlayerLookingAtEntity(playerRotationY, entityRotationY) {
+	let difference = playerRotationY - entityRotationY;
+	if (difference > 180) {
+		difference -= 360;
+	} else if (difference < -180) {
+		difference += 360;
+	}
+	return Math.abs(difference) > 90;
+}
