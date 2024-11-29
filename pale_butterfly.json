@@ -1,0 +1,36 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pale:pale_butterfly",
+			"materials": {
+				"default": "entity_emissive_alpha"
+			},
+			"textures": {
+				"default": "textures/entity/pale_butterfly_day",
+				"night": "textures/entity/pale_butterfly_night"
+			},
+			"geometry": {
+				"default": "geometry.pale_butterfly"
+			},
+			"scripts": {
+				"scale": "1.0",
+				"animate": [
+					"move"
+				]
+			},
+			"animations": {
+				"resting": "animation.pale_butterfly.idle",
+				"flying": "animation.pale_butterfly.fly",
+				"move": "controller.animation.butterfly.move"
+			},
+			"render_controllers": [
+				"controller.render.pale_butterfly"
+			],
+			"spawn_egg": {
+				"base_color": "#424757",
+				"overlay_color": "#8FA5C8"
+			}
+		}
+	}
+}
