@@ -1,0 +1,23 @@
+{
+  "minecraft:recipe_shapeless" : {
+    "result" : {
+      "count" : 1,
+      "data" : 0,
+      "item" : "minecraft:echo_shard"
+    },
+    "tags" : [
+      "stonecutter"
+    ],
+    "description" : {
+      "identifier" : "cc:echo_shard_29C8FBEA-8EC9-430D-BD0F-68A6C47ED211"
+    },
+    "priority" : 1,
+    "ingredients" : [
+      {
+        "data" : 0,
+        "item" : "minecraft:sculk"
+      }
+    ]
+  },
+  "format_version" : "1.12"
+}

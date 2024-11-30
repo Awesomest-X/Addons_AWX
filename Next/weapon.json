@@ -1,0 +1,55 @@
+{
+  "minecraft:item" : {
+    "components" : {
+      "minecraft:use_modifiers" : {
+        "use_duration" : 1,
+        "movement_modifier" : 0.5
+      },
+      "minecraft:can_destroy_in_creative" : {
+        "value" : false
+      },
+      "minecraft:glint" : {
+        "value" : true
+      },
+      "minecraft:damage" : {
+        "value" : 1
+      },
+      "minecraft:max_stack_size" : {
+        "value" : 1
+      },
+      "minecraft:repairable" : {
+        "repair_items" : [
+          {
+            "items" : [
+              "minecraft:diamond"
+            ],
+            "repair_amount" : 10
+          }
+        ]
+      },
+      "minecraft:hand_equipped" : {
+        "value" : true
+      },
+      "minecraft:should_despawn" : {
+        "value" : false
+      },
+      "minecraft:allow_off_hand" : {
+        "value" : false
+      },
+      "minecraft:icon" : "cc:weapon",
+      "minecraft:display_name" : {
+        "value" : "weapon"
+      },
+      "minecraft:custom_components" : [
+        "cc_weapon:trigger"
+      ]
+    },
+    "description" : {
+      "identifier" : "cc:weapon",
+      "menu_category" : {
+        "category" : "items"
+      }
+    }
+  },
+  "format_version" : "1.21.10"
+}
