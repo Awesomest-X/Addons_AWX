@@ -15,6 +15,13 @@
     "category": "attack",
     "duration": 120
 },
+      "minecraft:durability": {
+    "damage_chance": {
+        "min": 0,
+        "max": 25
+    },
+    "max_durability": 75
+}
       "minecraft:use_modifiers": {
         "use_duration": 1.6,
         "movement_modifier": 0.35
