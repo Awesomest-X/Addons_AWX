@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "menu_category": {
+        "group": "itemGroup.name.crop",
+        "category": "nature"
+      },
+      "identifier": "awx:pigstep_casseste"
+    },
+    "components": {
+      "minecraft:icon": "strawberry",
+      "minecraft:max_stack_size": 1,
+      "minecraft:use_modifiers": {
+        "use_duration": 1.6,
+        "movement_modifier": 0.35
+      },
+      "minecraft:custom_components": [
+        "awx:play_pigstep"
+      ]
+    }
+  }
+}
