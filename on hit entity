@@ -1,0 +1,10 @@
+onHitEntity({ hitEntity }) {
+    hitEntity.removeEffect("regeneration");
+}
+
+onHitEntity({ hitEntity }) {
+    hitEntity.addEffect("regeneration", 30, {
+        amplifier: 10,
+        showParticles: false
+    });
+}
