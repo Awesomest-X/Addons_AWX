@@ -1,0 +1,26 @@
+import { world } from "@minecraft/server";
+import { customComponents } from "@minecraft/server/advanced";
+
+// Register custom component
+customComponents.register("custom:on_hit_effect", {
+    default: false,
+    type: "bool",
+    description: "Triggers when the item hits an entity"
+});
+
+// Handle entity hit event
+world.events.entityHit.subscribe((eventData) => {
+    const { source, hitEntity } = eventData;
+
+    if (source && source.typeId === "minecraft:player") {
+        const heldItem = source.getComponent("minecraft:equippable").getItem();
+
+        if (heldItem && heldItem.hasComponent("custom:on_hit_effect") && heldItem.getComponent("custom:on_hit_effect").value) {
+            // Run command when the item hits an entity
+            if (hitEntity) {
+                hitEntity.runCommandAsync("say The item hit an entity!");
+                hitEntity.applyDamage(5);  // Optional: Apply damage
+            }
+        }
+    }
+});
