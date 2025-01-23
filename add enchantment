@@ -1,0 +1,14 @@
+"conditions": [
+  {
+    "condition": "match_tool",
+    "item": "minecraft:iron_pickaxe",
+    "count": 1,
+    "enchantments": [
+      {
+        "fortune": {
+          "level": 1
+        }
+      }
+    ]
+  }
+]
