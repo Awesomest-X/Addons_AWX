@@ -1,0 +1,34 @@
+import { world, EquipmentSlot } from "@minecraft/server";
+
+/**
+ * @param {number} min The minimum integer
+ * @param {number} max The maximum integer
+ * @returns {number} A random integer between the `min` and `max` parameters (inclusive)
+ * */
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+// Register a custom component before the world is loaded
+world.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry }) => {
+    blockComponentRegistry.registerCustomComponent("wiki:silver_ore_xp_reward", {
+        onPlayerDestroy({ block, dimension, player }) {
+            // Check the tool in the player's hand
+            const equippable = player?.getComponent("minecraft:equippable");
+            if (!equippable) return; // Exit if the player or its equipment are undefined
+
+            const itemStack = equippable.getEquipment(EquipmentSlot.Mainhand);
+            if (itemStack?.typeId !== "minecraft:iron_pickaxe") return; // Exit if the player isn't holding an iron pickaxe
+
+            // Specify enchantments
+            const enchantable = itemStack.getComponent("minecraft:enchantable");
+            const silkTouch = enchantable?.getEnchantment("silk_touch");
+            if (silkTouch) return; // Exit if the iron pickaxe has the Silk Touch enchantment
+
+            // Spawn the XP orbs
+            const xpAmount = randomInt(0, 3); // Number of XP orbs to spawn
+
+            for (let i = 0; i < xpAmount; i++) {
+                dimension.spawnEntity("minecraft:xp_orb", block.location);
+            }
+        },
+    });
+});
