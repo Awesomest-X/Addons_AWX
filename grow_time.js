@@ -8,10 +8,10 @@ const BLOCK_STATE_4 = "custom:plant_stage_4";
 const REWARD_ITEM = "minecraft:apple";
 
 // Growth timing (in ticks, 1 second = 20 ticks)
-const STAGE_1_DURATION = 100;
-const STAGE_2_DURATION = 100;
-const STAGE_3_DURATION = 300; // Lasts longer
-const STAGE_4_DURATION = 100;
+const STAGE_1_DURATION = 1000;
+const STAGE_2_DURATION = 1000;
+const STAGE_3_DURATION = 3000; // Lasts longer
+const STAGE_4_DURATION = 1000;
 
 const plantGrowthTimes = new Map();
 
