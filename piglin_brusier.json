@@ -1,0 +1,132 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "awx:piglin_bruiser",
+      "spawn_category": "monster",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "awx:charging": {
+        "minecraft:behavior.ram_attack": {
+          "priority": 3,
+          "run_speed": 0.8,
+          "ram_speed": 1.6,
+          "min_ram_distance": 2,
+          "ram_distance": 5,
+          "knockback_force": 3.0,
+          "knockback_height": 0.1,
+          "pre_ram_sound": "pre_ram",
+          "ram_impact_sound": "ram_impact",
+          "cooldown_range": [20, 100],
+          "on_start": [
+            {
+              "event": "awx:charge_started",
+              "target": "self"
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:health": {
+        "value": 40,
+        "max": 40
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.95
+      },
+      "minecraft:attack": {
+        "damage": 7
+      },
+      "minecraft:movement": {
+        "value": 0.35
+      },
+      "minecraft:type_family": {
+        "family": [
+          "piglin",
+          "monster"
+        ]
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "can_open_doors": false
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.8
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:loot": {
+        "table": "loot_tables/entities/piglin.json"
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 2,
+        "entity_types": {
+          "filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "creeper"
+          }
+        }
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "within_radius": 16.0,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            }
+          },
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "undead"
+            }
+          },
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "hoglin"
+            }
+          }
+        ],
+        "must_see": true
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.2
+      },
+      "minecraft:behavior.knockback_roar": {
+        "priority": 5,
+        "cooldown_time": 20,
+        "speed_multiplier": 0.5,
+        "knockback_strength": 1.5,
+        "knockback_height": 1.5,
+        "min_activation_distance": 0,
+        "max_activation_distance": 4
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "awx:charging"
+          ]
+        }
+      },
+      "awx:charge_started": {
+        "run_command": [
+          "effect @e[type=awx:piglin_bruiser, r=1] resistance 2 2 true"
+        ]
+      }
+    }
+  }
+}
