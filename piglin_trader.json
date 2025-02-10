@@ -1,0 +1,342 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "awx:piglin_trader",
+      "spawn_category": "creature",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+
+    "component_groups": {
+      "interactable_piglin": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "minecraft:gold_ingot"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                }
+              },
+              "barter": true,
+              "admire": true,
+              "use_item": true,
+              "cooldown_after_being_attacked": 20,
+              "interact_text": "action.interact.barter"
+            },
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "awx:hard_gold"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                }
+              },
+              "barter": true,
+              "admire": true,
+              "use_item": true,
+              "cooldown_after_being_attacked": 20,
+              "interact_text": "action.interact.barter"
+            }
+          ]
+        }
+      },
+ "zombification_sensor": {
+        "minecraft:environment_sensor": {
+          "triggers": {
+            "filters": {
+              "test": "in_nether",
+              "subject": "self",
+              "operator": "==",
+              "value": false
+            },
+            "event": "start_zombification_event"
+          }
+        }
+      },
+
+      "start_zombification": {
+        "minecraft:is_shaking": {},
+        "minecraft:environment_sensor": {
+          "triggers": {
+            "filters": {
+              "test": "in_nether",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "event": "stop_zombification_event"
+          }
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 15,
+          "time_down_event": {
+            "event": "become_zombie_event"
+          }
+        }
+      },
+
+      "become_zombie": {
+        "minecraft:transformation": {
+          "into": "minecraft:zombified_piglin",
+          "transformation_sound" : "converted_to_zombified",
+          "keep_level": true,
+          "drop_inventory": true,
+          "preserve_equipment": true
+        }
+      },
+      "minecraft:scared": {
+        "minecraft:angry": {
+          "duration": 50,
+    
+          "calm_event": {
+            "event": "minecraft:become_calm",
+            "target": "self"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "piglin", "mob" ]
+      },
+      "minecraft:admire_item": {
+  "priority": 3
+}
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "random_time_choices": [
+          { "weight": 50, "value": 2400 },
+          { "weight": 50, "value": 3600 }
+        ],
+        "time_down_event": {
+          "event": "minecraft:start_despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      "minecraft:movement": {
+        "value": 0.5
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "can_pass_doors": true,
+        "can_open_doors": true,
+        "avoid_water": true
+      },
+      "minecraft:movement.basic": {
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:home": {
+        "restriction_radius": 16
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:despawn": {
+        "remove_child_entities": true,
+        "filters": {
+          "all_of": [
+            { "test": "distance_to_nearest_player", "operator": ">", "value": 24 }
+          ]
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "entity_attack",
+            "deals_damage": true,
+            "on_damage": {
+              "event": "minecraft:become_scared"
+            }
+          },
+          {
+            "cause": "projectile",
+            "deals_damage": true,
+            "on_damage": {
+              "event": "minecraft:become_scared"
+            }
+          },
+          {
+            "cause": "magic",
+            "deals_damage": true,
+            "on_damage": {
+              "event": "minecraft:become_scared"
+            }
+          }
+        ]
+      },
+   "minecraft:barter": {
+  "barter_tables": [
+    {
+      "item": "minecraft:gold_ingot",
+      "table": "loot_tables/entities/trader_barter.json"
+    },
+    {
+      "item": "awx:hard_gold",
+      "table": "loot_tables/entities/trader_hard_barter.json"
+    }
+  ],
+  "cooldown_after_being_attacked": 20
+},
+      "minecraft:behavior.panic": {
+        "priority": 1,
+        "speed_multiplier": 0.6
+      },
+      
+      "minecraft:behavior.avoid_mob_type": {
+        "priority": 2,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "hoglin" },
+                { "test" : "is_family", "subject" : "other", "value" : "zoglin" }
+              ]
+            },
+            "walk_speed_multiplier": 0.6,
+            "sprint_speed_multiplier": 0.6
+          }
+        ],
+        "max_dist": 6
+      },
+    
+      "minecraft:behavior.move_towards_home_restriction": {
+        "priority": 6,
+        "speed_multiplier": 0.6
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 0.6
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 8,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:nameable": {
+      }
+    },
+    "events": {
+     "stop_zombification_event": {
+        "add": {
+          "component_groups": [
+            "zombification_sensor"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "start_zombification"
+          ]
+        }
+      },
+  "become_zombie_event": {
+        "add": {
+          "component_groups": [
+            "become_zombie"
+          ]
+        }
+      },
+      "start_zombification_event": {
+        "add": {
+          "component_groups": [
+            "start_zombification"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "zombification_sensor"
+          ]
+        }
+      },
+      "admire_item_started_event": {
+        "remove": {
+          "component_groups": [
+            "interactable_piglin"
+          ]
+        }
+      },
+      "admire_item_stopped_event": {
+        "add": {
+          "component_groups": [
+            "interactable_piglin"
+          ]
+        }
+      },
+      "minecraft:become_scared": {
+        "add": {
+          "component_groups": [
+            "minecraft:scared"
+          ]
+        }
+      },
+      "minecraft:become_calm": {
+        "remove": {
+          "component_groups": [
+            "minecraft:scared"
+          ]
+        }
+      }
+    }
+  }
+}
