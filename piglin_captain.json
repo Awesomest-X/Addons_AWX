@@ -1,0 +1,229 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "custom:piglin_captain",
+      "spawn_category": "monster",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "min_engine_version": "1.21.50",
+      "spawn_egg": {
+        "base_color": "#D4AF37",
+        "overlay_color": "#8B6914"
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": [
+        "textures/entity/piglin_captain"
+      ],
+      "geometry": {
+        "default": "geometry.piglin_captain"
+      }
+    },
+    "component_groups": {
+      "captain_adult": {
+        "minecraft:group_size": {
+          "radius": 32,
+          "filters": {
+            "all_of": [
+              { "test": "has_component", "operator": "!=", "value": "minecraft:is_baby" },
+              { "test": "is_family", "value": "piglin" }
+            ]
+          }
+        },
+        "minecraft:movement": { "value": 0.35 },
+        "minecraft:barter": {
+          "barter_table": "loot_tables/entities/piglin_barter.json",
+          "cooldown_after_being_attacked": 20
+        },
+        "minecraft:experience_reward": {
+          "on_death": "query.last_hit_by_player ? 10 + (query.equipment_count * Math.Random(1,3)) : 0"
+        },
+        "minecraft:celebrate_hunt": {
+          "celebration_targets": {
+            "all_of": [
+              { "test": "is_family", "value": "hoglin" }
+            ]
+          },
+          "broadcast": true,
+          "duration": 10,
+          "celebrate_sound": "celebrate",
+          "sound_interval": { "range_min": 2.0, "range_max": 5.0 },
+          "radius": 16
+        },
+        "minecraft:block_sensor": {
+          "sensor_radius": 16,
+          "on_break": [
+            {
+              "block_list": [
+                "minecraft:gold_block",
+                "minecraft:gilded_blackstone",
+                "minecraft:nether_gold_ore",
+                "minecraft:deepslate_gold_ore",
+                "minecraft:raw_gold_block"
+              ],
+              "on_block_broken": "important_block_destroyed_event"
+            }
+          ]
+        }
+      },
+      "captain_command": {
+        "minecraft:behavior.trigger_on_hurt": {
+          "priority": 2,
+          "on_hurt": {
+            "event": "captain:reinforce"
+          }
+        },
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/piglin_captain_equipment.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 1.0
+            }
+          ]
+        },
+        "minecraft:loot": {
+          "table": "loot_tables/entities/piglin_captain.json"
+        }
+      },
+      "captain_ranged": {
+        "minecraft:behavior.ranged_attack": {
+          "priority": 8,
+          "attack_interval_min": 1.0,
+          "attack_interval_max": 1.0,
+          "attack_radius": 10.0,
+          "attack_radius_min": 4.0,
+          "speed_multiplier": 1.0,
+          "target_in_sight_time": 0.1
+        },
+        "minecraft:shooter": {
+          "def": "minecraft:soul_fire_charge"
+        }
+      },
+      "captain_melee": {
+        "minecraft:behavior.melee_box_attack": {
+          "priority": 8,
+          "speed_multiplier": 1.0,
+          "track_target": true
+        },
+        "minecraft:attack": {
+          "damage": {
+            "range_min": 10,
+            "range_max": 16
+          }
+        }
+      },
+      "attack_cooldown": {
+        "minecraft:attack_cooldown": {
+          "attack_cooldown_time": [30.0, 120.0],
+          "attack_cooldown_complete_event": {
+            "event": "attack_cooldown_complete_event",
+            "target": "self"
+          }
+        }
+      },
+      "angry": {
+        "minecraft:angry": {
+          "duration": 30,
+          "broadcast_anger": true,
+          "broadcast_anger_on_attack": true,
+          "broadcast_anger_on_being_attacked": true,
+          "broadcast_range": 16,
+          "broadcast_targets": [ "piglin" ],
+          "calm_event": {
+            "event": "captain:calm",
+            "target": "self"
+          },
+          "filters": {
+            "all_of": [
+              { "test": "is_family", "subject": "other", "operator": "!=", "value": "piglin" }
+            ]
+          },
+          "angry_sound": "angry",
+          "sound_interval": { "range_min": 2.0, "range_max": 5.0 }
+        }
+      }
+    },
+    "components": {
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family": [ "piglin", "mob", "captain" ]
+      },
+      "minecraft:nameable": {},
+      "minecraft:collision_box": {
+        "width": 0.8,
+        "height": 2.1
+      },
+      "minecraft:health": {
+        "value": 150,
+        "max": 150
+      },
+      "minecraft:movement": {
+        "value": 0.35
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:follow_range": {
+        "value": 64
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/piglin_captain_equipment.json"
+      }
+    },
+    "events": {
+      "captain:reinforce": {
+        "run_command": {
+          "command": "execute as @s at @s run summon custom:piglin_minion ~ ~ ~"
+        }
+      },
+      "captain:melee_mode": {
+        "remove": { "component_groups": [ "captain_ranged" ] },
+        "add": { "component_groups": [ "captain_melee" ] }
+      },
+      "captain:ranged_mode": {
+        "remove": { "component_groups": [ "captain_melee" ] },
+        "add": { "component_groups": [ "captain_ranged" ] }
+      },
+      "captain:calm": {
+        "remove": { "component_groups": [ "angry" ] },
+        "add": { "component_groups": [ "attack_cooldown" ] }
+      },
+      "attack_cooldown_complete_event": {
+        "remove": { "component_groups": [ "attack_cooldown" ] }
+      },
+      "captain:become_angry": {
+        "add": { "component_groups": [ "angry" ] }
+      },
+      "captain:spawn": {
+        "add": {
+          "component_groups": [
+            "captain_adult",
+            "captain_command",
+            "captain_ranged",
+            "attack_cooldown"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {
+        "trigger": "captain:spawn"
+      }
+    }
+  }
+}
