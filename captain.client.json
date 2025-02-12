@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "custom:piglin_captain",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/piglin_captain"
+      },
+      "geometry": {
+        "default": "geometry.piglin_captain"
+      },
+      "scripts": {
+        "animate": [
+          "walk_controller",
+          "attack_controller"
+        ]
+      },
+      "animations": {
+        "walk_controller": "controller.animation.piglin_captain.walk",
+        "attack_controller": "controller.animation.piglin_captain.attack",
+        "idle": "animation.piglin_captain.idle",
+        "walk": "animation.piglin_captain.walk",
+        "attack": "animation.piglin_captain.attack",
+        "move": "animation.piglin_captain.move"
+      },
+      "spawn_egg": {
+        "base_color": "#D4AF37",
+        "overlay_color": "#8B6914"
+      },
+      "render_controllers": [
+        "controller.render.piglin_captain"
+      ]
+    }
+  }
+}
